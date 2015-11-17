@@ -52,6 +52,9 @@
                 </div>
             </section>
             <section id="tops">
+
+                @foreach($tops as $key => $top)
+
                 <section>
                     <div class="div_top">
                         <figure class="img_liston">
@@ -63,10 +66,13 @@
                     </div>
                     <div class="div_top datos_top">
                         <h3 class="lugar">Primer lugar</h3>
-                        <h3 class="dist-recorrida">135m</h3>
-                        <h3 class="nombre-top">Pug</h3>
+                        <h3 class="dist-recorrida">{{ $top->distancia}}</h3>
+                        <h3 class="nombre-top">{{ $top->nombre.' '.$top->apellidos }}</h3>
                     </div>
                 </section>
+
+                @endforeach
+            
             </section>
         </section>
         <section id="participantes">
@@ -87,7 +93,7 @@
                         </figure>
                     </div>
                     <div class="div_top datos_top">
-                        <h3 class="dist-recorrida">{{ $corredor->aportacion }} m</h3>
+                        <h3 class="dist-recorrida">{{ $corredor->distancia }} m</h3>
                         <h3 class="nombre-top">{{ $corredor->nombre.' '.$corredor->apellidos }}</h3>
                     </div>
             </section>

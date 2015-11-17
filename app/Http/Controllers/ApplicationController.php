@@ -17,19 +17,15 @@ class ApplicationController extends Controller
 	 */
 	public function index()
 	{
-		$top = Registro::orderBy('aportacion', 'DESC')
-		->take(2)
+		$tops = Registro::orderBy('distancia', 'DESC')
+		->take(4)
 		->get();
 
-		$corredores = Registro::orderBy('aportacion', 'DESC')
+		$corredores = Registro::orderBy('distancia', 'DESC')
 		->orderBy('created_at', 'DESC')
 		->get();
 
-		foreach ($corredores as $key => $corredor) {
-			$corredor->aportacion = $corredor->aportacion / 20;
-		}
-
-		return view('index')->with('top',$top)->with('corredores',$corredores);
+		return view('index')->with('tops',$tops)->with('corredores',$corredores);
 	}
 
 	/**
