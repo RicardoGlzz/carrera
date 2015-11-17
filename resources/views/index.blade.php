@@ -16,7 +16,7 @@
                         <img src="img/distancia.png" alt="imagen de distancia recorrida">
                     </figure>
                     <div id="numero-metros">
-                        0m
+                        {{$distancia_total}} m
                     </div>
                 </div>
                 <div class="boton-registro">

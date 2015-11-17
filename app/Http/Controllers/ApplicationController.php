@@ -18,11 +18,13 @@ class ApplicationController extends Controller
 	public function index()
 	{
 		$tops = Registro::orderBy('distancia', 'DESC')
-		->take(4)
+		->take(5)
 		->get();
 
 		$lugar = ['Primer','Segundo','Tercer','Cuarto','Quinto'];
 		$i = 0;
+		$distancia_total = 0;
+
 		foreach ($tops as $key => $top) {
 			$top->lugar = $lugar[$i];
 			$i++;
@@ -32,7 +34,14 @@ class ApplicationController extends Controller
 		->orderBy('created_at', 'DESC')
 		->get();
 
-		return view('index')->with('tops',$tops)->with('corredores',$corredores);
+		foreach ($corredores as $key => $corredor) {
+			$distancia_total =  $distancia_total + $corredor->distancia;
+		}
+
+		return view('index')
+		->with('tops',$tops)
+		->with('corredores',$corredores)
+		->with('distancia_total',$distancia_total);
 	}
 
 	/**
