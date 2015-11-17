@@ -29,12 +29,12 @@ class ApplicationController extends Controller
 			$top->orientacion = self::imageOrientation($top->imagen);
 			$top->lugar = $lugar[$i];
 			$i++;
-			$distancia_total =  $distancia_total + $top->distancia;
+			$distancia_total = $distancia_total + $top->distancia;
 		}
 
 		$count = Registro::count();
 		$skip = 5;
-		$limit = $count - $skip; // the limit
+		$limit = $count - $skip;
 		$corredores = Registro::skip($skip)
 		->take($limit)
 		->orderBy('distancia', 'DESC')
@@ -42,7 +42,7 @@ class ApplicationController extends Controller
 		->get();
 
 		foreach ($corredores as $key => $corredor) {
-			$distancia_total =  $distancia_total + $corredor->distancia;
+			$distancia_total = $distancia_total + $corredor->distancia;
 			$corredor->orientacion = self::imageOrientation($corredor->imagen);
 		}
 
