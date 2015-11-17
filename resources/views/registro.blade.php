@@ -7,7 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body class="cont-registro">
 <section class="registro-wrap">
 	<div class="franja">
         <figure>
@@ -15,7 +15,7 @@
         </figure>
     </div>
     <section class="contenedor">
-    	  <section class="progreso">
+    	<section class="progreso">
             <section>
                 <div class="paso-1"><p>1</p></div>
                 Ingresa tus datos 
@@ -48,6 +48,42 @@
         </section>
 
         <section class="form form-1">
+        	<h1>Completa los datos para registrate</h1>
+        	<br>
+        	<form action="">
+        		<label for="">Nombre</label>
+        		<br>
+        		<input type="text" placeholder="Nombre" id="nombre">
+        		<br>
+        		<label for="">Apellidos</label>
+        		<br>
+        		<input type="text" placeholder="Apellidos" id="apellidos">
+        		<br>
+        		<label for="">Correo</label>
+        		<br>
+        		<input type="email" placeholder="Correo" id="correo">
+        		<br>
+        		<br>
+        		<label for="">¿Es una persona o un grupo?</label>
+        		<br>
+        		<br>
+        		<input type="radio" name="tipo" checked> Persona
+        		<input type="radio" name="tipo"> Grupo
+        		<br>
+        		<br>
+        		<label for="">Folio</label>
+        		<br>
+        		<input maxlength="3" type="text" placeholder="Folio" name="folio" id="folio">
+        		<br>
+        		<label for="">Codigo</label>
+        		<br>
+        		<input maxlength="6" type="text" placeholder="Codigo" name="codigo" id="codigo">
+        		<br>
+        		<br>
+				<input type="button" value="Siguiente" id="siguiente">
+        	</form>
+        </section>
+        <section class="form form-2">
         	
         </section>
 

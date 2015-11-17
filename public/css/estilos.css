@@ -4,6 +4,10 @@
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
 }
+body 
+{
+	overflow-x: hidden;
+}
 #canvas 
 {
 	width: 95%;
@@ -364,6 +368,10 @@ footer
 
 
 /*ESTILOS DE REGISTRO*/
+	.cont-registro
+	{
+		background: #F79532;
+	}
 .franja 
     {
         width: 100%;
@@ -399,10 +407,10 @@ footer
         position: absolute;
         left: 0;
         right: 0;
-        -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        -o-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-       	-ms-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        -webkit-box-shadow: 0 10px 6px rgba(0,0,0,0.26), 0 2px 3px rgba(0,0,0,0.13);
+        -moz-box-shadow: 0 10px 6px rgba(0,0,0,0.26), 0 2px 3px rgba(0,0,0,0.13);
+        -o-box-shadow: 0 10px 6px rgba(0,0,0,0.26), 0 2px 3px rgba(0,0,0,0.13);
+       	-ms-box-shadow: 0 10px 6px rgba(0,0,0,0.26), 0 2px 3px rgba(0,0,0,0.13);
     }
      .progreso 
     {
@@ -436,9 +444,15 @@ footer
         font-size: 1.5em;
         margin-top: 5px;
     }
+   	.form input:focus 
+    {
+        outline:none; 
+        border-bottom:1px solid #FE5A19;
+    }
     .form-0
     {
     	text-align: center;
+    	display: none;
     }
  /*   .franja-bottom
     {
@@ -481,7 +495,12 @@ footer
     }
     .form-1 
     {
-    	display: none;
+    	display: block;
+    }
+    .form-1 h1 
+    {
+    	font-size: 2em;
+  		margin-top: 10px;
     }
     .btn-registro 
     {
@@ -499,6 +518,37 @@ footer
     {
     	width: 300px;
     }
+    .form-1 
+    {
+    	text-align: center;
+    }
+    .form-1 label
+    {
+		font-size: 1.2em;
+    }
+    .form-1 input[type="text"]
+    {
+		width: 290px;
+		border: none;
+    	border-bottom: 1px solid black;
+    }
+    .form-1 input[type="email"]
+    {
+		width: 290px;
+		border: none;
+    	border-bottom: 1px solid black;
 
-}
+    }
+    .form-1 #siguiente 
+    {
+    	border: none;
+	    background: #FFDA00;
+	    padding: 10px;
+	    font-size: 1.5em;
+	    border-radius: 3px;
+	    color: white;
+	    cursor: pointer;
+    }
+
+
 
