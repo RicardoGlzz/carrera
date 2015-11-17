@@ -21,6 +21,10 @@ class ApplicationController extends Controller
 		->take(4)
 		->get();
 
+		foreach ($tops as $key => $top) {
+			$top->lugar = lugar[i];
+		}
+
 		$corredores = Registro::orderBy('distancia', 'DESC')
 		->orderBy('created_at', 'DESC')
 		->get();
