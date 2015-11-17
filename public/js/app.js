@@ -10,7 +10,7 @@ window.requestAnimFrame = (function (callback) {
     };
 })();
 
-function cargar()
+var cargar = function()
 {
 
     var fondo = new Image();   
@@ -22,10 +22,10 @@ function cargar()
 }
 var pathArray = [];
 
-var enx = prompt("coordenada en x");
-var eny = prompt("coordenada en y");
-var num1 = parseInt(enx);
-var num2 = parseInt(eny);
+// var enx = prompt("coordenada en x");
+// var eny = prompt("coordenada en y");
+// var num1 = parseInt(enx);
+// var num2 = parseInt(eny);
 
 // Coordenada inicial
 pathArray.push({
@@ -33,8 +33,8 @@ pathArray.push({
     y: 0
 });
 pathArray.push({
-    x: num1,
-    y: num2
+    x: 50,
+    y: 50
 });
 // pathArray.push({
 //     x: 200,
@@ -104,4 +104,5 @@ function makePolyPoints(pathArray) {
     }
     return (points);
 }
- cargar();
+
+cargar();

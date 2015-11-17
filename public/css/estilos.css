@@ -26,7 +26,7 @@ nav
 }
 nav article
 {
-	background-image: url("img/triangulo.png");
+	background-image: url("../img/triangulo.png");
     background-repeat: repeat-x;
  	height: 10px;
     background-position: bottom;
@@ -35,7 +35,7 @@ nav article
 }
 #descripcion .inverso 
 {
-	background-image: url("img/inverso.png");
+	background-image: url("../img/inverso.png");
     background-repeat: repeat-x;
  	height: 10px;
     background-position: bottom;
@@ -44,7 +44,7 @@ nav article
 }
 #descripcion .triangulo
 {
-	background-image: url("img/triangulo.png");
+	background-image: url("../img/triangulo.png");
     background-repeat: repeat-x;
  	height: 10px;
     background-position: bottom;
@@ -52,7 +52,7 @@ nav article
 }
 #participantes .inverso 
 {
-	background-image: url("img/inverso.png");
+	background-image: url("../img/inverso.png");
     background-repeat: repeat-x;
  	height: 10px;
     background-position: bottom;
@@ -61,7 +61,7 @@ nav article
 }
 #participantes .triangulo
 {
-	background-image: url("img/triangulo.png");
+	background-image: url("../img/triangulo.png");
     background-repeat: repeat-x;
  	height: 10px;
     background-position: bottom;
@@ -171,6 +171,10 @@ nav div
     border-radius: 5px;
     margin: auto;
     cursor: pointer;
+}
+.boton-registro a 
+{
+	color: white;
 }
 .boton-registro > h1:first-child
 {
