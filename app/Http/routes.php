@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/',[
+	'uses' 	=> 'ApplicationController@index',
+	'as'	=> ''
+]);
 
 Route::get('registro',[
 	'uses' 	=> 'RegistroController@index',
