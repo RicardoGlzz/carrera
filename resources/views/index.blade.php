@@ -4,7 +4,7 @@
         <section id="vista-registro">
             <section class="cont-canvas">
                 <canvas id="canvas" width="900" height="400">
-                    Si estas viendo este mensaje, significa que necesitas utilizar la ultima version de chrome, firefox o opera.
+                    Si estas viendo este mensaje, significa que necesitas utilizar la última versión de Chrome, Firefox u Opera.
                 </canvas>
             </section>
             <section class="botones-canvas">
@@ -22,7 +22,7 @@
                 <div class="boton-registro">
                     <a target="_blank" href="{{ URL::to('registro') }}">
                        <h1>APORTA</h1>
-                       <h4>Haz click aqui</h4>
+                       <h4>Haz click aquí</h4>
                     </a>
                 </div>
                 <div class="seguir-corriendo">
@@ -58,7 +58,7 @@
                             <img src="img/liston_top.png" alt="imagen de liston top">    
                         </figure>
                         <figure class="cont_top">
-                            <img  class="img_top"src="img/pug.jpg" alt="imagen de participante top">
+                            <img  class="img_top"src="imagenes/pug.jpg" alt="imagen de participante top">
                         </figure>
                     </div>
                     <div class="div_top datos_top">
@@ -67,71 +67,6 @@
                         <h3 class="nombre-top">Pug</h3>
                     </div>
                 </section>
-
-                  <section>
-                    <div class="div_top">
-                        <figure class="img_liston">
-                            <img src="img/liston_top.png" alt="imagen de liston top">    
-                        </figure>
-                        <figure class="cont_top">
-                            <img  class="img_top"src="img/pug_2.jpg" alt="imagen de participante top">
-                        </figure>
-                    </div>
-                    <div class="div_top datos_top">
-                        <h3 class="lugar">Segundo lugar</h3>
-                        <h3 class="dist-recorrida">105m</h3>
-                        <h3 class="nombre-top">Pug</h3>
-                    </div>
-                </section>
-
-                 <section>
-                    <div class="div_top">
-                        <figure class="img_liston">
-                            <img src="img/liston_top.png" alt="imagen de liston top">    
-                        </figure>
-                        <figure class="cont_top">
-                            <img  class="img_top"src="img/pug_3.jpeg" alt="imagen de participante top">
-                        </figure>
-                    </div>
-                    <div class="div_top datos_top">
-                        <h3 class="lugar">Tercer lugar</h3>
-                        <h3 class="dist-recorrida">100m</h3>
-                        <h3 class="nombre-top">Pug</h3>
-                    </div>
-                </section>
-
-                 <section>
-                    <div class="div_top">
-                        <figure class="img_liston">
-                            <img src="img/liston_top.png" alt="imagen de liston top">    
-                        </figure>
-                        <figure class="cont_top">
-                            <img  class="img_top"src="img/pug.jpg" alt="imagen de participante top">
-                        </figure>
-                    </div>
-                    <div class="div_top datos_top">
-                        <h3 class="lugar">Cuarto lugar</h3>
-                        <h3 class="dist-recorrida">90m</h3>
-                        <h3 class="nombre-top">Pug</h3>
-                    </div>
-                </section>
-
-                  <section>
-                    <div class="div_top">
-                        <figure class="img_liston">
-                            <img src="img/liston_top.png" alt="imagen de liston top">    
-                        </figure>
-                        <figure class="cont_top">
-                            <img  class="img_top"src="img/pug.jpg" alt="imagen de participante top">
-                        </figure>
-                    </div>
-                    <div class="div_top datos_top">
-                        <h3 class="lugar">Quinto lugar</h3>
-                        <h3 class="dist-recorrida">80m</h3>
-                        <h3 class="nombre-top">Pug</h3>
-                    </div>
-                </section>
-            
             </section>
         </section>
         <section id="participantes">
@@ -141,78 +76,22 @@
                     <img src="img/titulo_corredores.png" alt="imagen de liston de corredores">
                 </figure>
             </div>
+            @foreach($corredores as $key => $corredor)
              <section>
                     <div class="div_top">
                         <figure class="liston_rojo">
                             <img src="img/liston_rojo.png" alt="imagen de liston rojo">    
                         </figure>
                         <figure class="cont_part">
-                            <img  class="img_top"src="img/pug.jpg" alt="imagen de participante">
+                            {!! Html::image($corredor->imagen,null,array('class'=>'img_top')) !!}
                         </figure>
                     </div>
                     <div class="div_top datos_top">
-                        <h3 class="dist-recorrida">50m</h3>
-                        <h3 class="nombre-top">Pug</h3>
+                        <h3 class="dist-recorrida">{{ $corredor->aportacion }} m</h3>
+                        <h3 class="nombre-top">{{ $corredor->nombre.' '.$corredor->apellidos }}</h3>
                     </div>
             </section>
-
-             <section>
-                    <div class="div_top">
-                        <figure class="liston_rojo">
-                            <img src="img/liston_rojo.png" alt="imagen de liston rojo">    
-                        </figure>
-                        <figure class="cont_part">
-                            <img  class="img_top"src="img/pug.jpg" alt="imagen de participante">
-                        </figure>
-                    </div>
-                    <div class="div_top datos_top">
-                        <h3 class="dist-recorrida">50m</h3>
-                        <h3 class="nombre-top">Pug</h3>
-                    </div>
-            </section>
-
-             <section>
-                    <div class="div_top">
-                        <figure class="liston_rojo">
-                            <img src="img/liston_rojo.png" alt="imagen de liston rojo">    
-                        </figure>
-                        <figure class="cont_part">
-                            <img  class="img_top"src="img/pug.jpg" alt="imagen de participante">
-                        </figure>
-                    </div>
-                    <div class="div_top datos_top">
-                        <h3 class="dist-recorrida">50m</h3>
-                        <h3 class="nombre-top">Pug</h3>
-                    </div>
-            </section>
-             <section>
-                    <div class="div_top">
-                        <figure class="liston_rojo">
-                            <img src="img/liston_rojo.png" alt="imagen de liston rojo">    
-                        </figure>
-                        <figure class="cont_part">
-                            <img  class="img_top"src="img/pug.jpg" alt="imagen de participante">
-                        </figure>
-                    </div>
-                    <div class="div_top datos_top">
-                        <h3 class="dist-recorrida">50m</h3>
-                        <h3 class="nombre-top">Pug</h3>
-                    </div>
-            </section>
-             <section>
-                    <div class="div_top">
-                        <figure class="liston_rojo">
-                            <img src="img/liston_rojo.png" alt="imagen de liston rojo">    
-                        </figure>
-                        <figure class="cont_part">
-                            <img  class="img_top"src="img/pug.jpg" alt="imagen de participante">
-                        </figure>
-                    </div>
-                    <div class="div_top datos_top">
-                        <h3 class="dist-recorrida">50m</h3>
-                        <h3 class="nombre-top">Pug</h3>
-                    </div>
-            </section>
+            @endforeach
             <br>
             <button id="ver-part" class="boton-ver">Ver Más</button>
             <br>

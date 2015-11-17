@@ -27,53 +27,53 @@ nav
 nav article
 {
 	background-image: url("../img/triangulo.png");
-    background-repeat: repeat-x;
- 	height: 10px;
-    background-position: bottom;
-    position: relative;
-    top: -28px;
+	background-repeat: repeat-x;
+	height: 10px;
+	background-position: bottom;
+	position: relative;
+	top: -28px;
 }
 #descripcion .inverso 
 {
 	background-image: url("../img/inverso.png");
-    background-repeat: repeat-x;
- 	height: 10px;
-    background-position: bottom;
-    position: relative;
-    top: -5px;
+	background-repeat: repeat-x;
+	height: 10px;
+	background-position: bottom;
+	position: relative;
+	top: -5px;
 }
 #descripcion .triangulo
 {
 	background-image: url("../img/triangulo.png");
-    background-repeat: repeat-x;
- 	height: 10px;
-    background-position: bottom;
-    position: relative;
+	background-repeat: repeat-x;
+	height: 10px;
+	background-position: bottom;
+	position: relative;
 }
 #participantes .inverso 
 {
 	background-image: url("../img/inverso.png");
-    background-repeat: repeat-x;
- 	height: 10px;
-    background-position: bottom;
-    position: relative;
-    top: -5px;
+	background-repeat: repeat-x;
+	height: 10px;
+	background-position: bottom;
+	position: relative;
+	top: -5px;
 }
 #participantes .triangulo
 {
 	background-image: url("../img/triangulo.png");
-    background-repeat: repeat-x;
- 	height: 10px;
-    background-position: bottom;
-    position: relative;
+	background-repeat: repeat-x;
+	height: 10px;
+	background-position: bottom;
+	position: relative;
 }
 nav section
 {
 	position: relative;
-    bottom: -8px;
-    max-width: 1400px;
-    margin: auto;
-    text-align: center;
+	bottom: -8px;
+	max-width: 1400px;
+	margin: auto;
+	text-align: center;
 }
 nav div
 {
@@ -84,7 +84,7 @@ nav div
 {
 	width: 200px;
 	position: relative;
-    z-index: 1;
+	z-index: 1;
 }
 .logo-menu img 
 {
@@ -92,9 +92,9 @@ nav div
 }
 .menu 
 {
-    background: #e9A60B;
-    height: 60px;
-    border-radius: 3px;
+	background: #e9A60B;
+	height: 60px;
+	border-radius: 3px;
 }
 .menu a 
 {
@@ -110,8 +110,8 @@ nav div
 	width: 100px;
 	height: 60px;
 	background: rgb(249, 182, 27);
-    margin-left: -3px;
-    border-radius: 3px;
+	margin-left: -3px;
+	border-radius: 3px;
 }
 .redes a 
 {
@@ -128,7 +128,7 @@ nav div
 .redes i 
 {
 	font-size: 1.5em;
-    padding: 10px;
+	padding: 10px;
 }
 #vista-registro section
 {
@@ -147,16 +147,16 @@ nav div
 .km-recorridos 
 {
 	width: 70%;
-    margin: auto;
+	margin: auto;
 }
 #numero-metros
 {
 	position: relative;
-    top: -65px;
-    left: 20px;
-    font-size: 2em;
-    letter-spacing: 0.5em;
-    color: white;
+	top: -65px;
+	left: 20px;
+	font-size: 2em;
+	letter-spacing: 0.5em;
+	color: white;
 }
 .km-recorridos img 
 {
@@ -165,12 +165,12 @@ nav div
 .boton-registro 
 {
 	background: #ac162c;
-    width: 130px;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    margin: auto;
-    cursor: pointer;
+	width: 130px;
+	padding: 10px;
+	color: white;
+	border-radius: 5px;
+	margin: auto;
+	cursor: pointer;
 }
 .boton-registro a 
 {
@@ -183,7 +183,7 @@ nav div
 .seguir-corriendo 
 {
 	margin-top: 20px;
-    cursor: pointer;
+	cursor: pointer;
 }
 .seguir-corriendo:hover
 {
@@ -193,8 +193,8 @@ nav div
 .seguir-corriendo h1
 {
 	font-size: 1.8em;
-    color: #ac162c;
-    font-style: italic;
+	color: #ac162c;
+	font-style: italic;
 }
 #descripcion 
 {
@@ -226,7 +226,7 @@ nav div
 {
 	display: inline-block;
 	width: 30%;
-    text-align: center;
+	text-align: center;
 }
 #titulotop 
 {
@@ -260,12 +260,12 @@ nav div
 .div_top .cont_top
 {
 	width: 120px;
-    height: 120px;
-    overflow: hidden;
-    border-radius: 50%;
-    position: relative;
-    top: -197px;
-    left: 42px;
+	height: 120px;
+	overflow: hidden;
+	border-radius: 50%;
+	position: relative;
+	top: -197px;
+	left: 42px;
 }
 .div_top .img_top
 {
@@ -274,15 +274,17 @@ nav div
 .datos_top 
 {
 	width: 225px;
-    height: 120px;
-    margin-left: -70px;
-    background: white;
+	height: 120px;
+	margin-left: -70px;
+	background: white;
 	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.13);
 	-moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.13);
 }
 #participantes .datos_top .nombre-top 
 {
 	margin-top: 20px;
+	width: 80%;
+	margin-left: 20%;
 }
 .datos_top .dist-recorrida
 {
@@ -300,7 +302,7 @@ nav div
 {
 	background: #F79532;
 	display: table;
-    width: 100%;
+	width: 100%;
 }
 #participantes .titulo-corredores
 {
@@ -321,8 +323,8 @@ nav div
 	display: inline-block;
 	width: 25%;
 	height: 150px;
-    text-align: center;
-    margin-top: 25px;
+	text-align: center;
+	margin-top: 25px;
 }
 #participantes .div_top .liston_rojo
 {
@@ -336,25 +338,27 @@ nav div
 #participantes .div_top .cont_part
 {
 	width: 110px;
-    height: 110px;
-    overflow: hidden;
-    border-radius: 50%;
-    position: relative;
-    top: -138px;
-    left: 25px;
+	height: 110px;
+	overflow: hidden;
+	border-radius: 50%;
+	position: relative;
+	top: -138px;
+	left: 25px;
 }	
 .boton-ver
 {
 	border: none;
-    padding: 15px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: auto;
-    display: block;
-    background: white;
+	padding: 15px;
+	font-size: 1.2em;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: auto;
+	display: block;
+	background: white;
 }
 footer 
 {
 	background: #FFDA00;
+	width: 100%;
+	height: 60px;
 }

@@ -20,7 +20,7 @@
 							<li>REGISTRO</li>
 						</a>
 						<a href="">
-							<li>¿POR QUE 12 K?</li>
+							<li>¿POR QUÉ 12K?</li>
 						</a>
 						<a href="">
 							<li>CORREDORES</li>
@@ -54,7 +54,7 @@
 				<img src="" alt="logo de virtua">
 			</div>
 		</footer>
-		
+
 	</section>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
