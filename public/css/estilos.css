@@ -358,3 +358,141 @@ footer
 {
 	background: #FFDA00;
 }
+
+
+/*ESTILOS DE REGISTRO*/
+.franja 
+    {
+        width: 100%;
+        height: 70px;
+        background: #FFDA00;
+        border-bottom: 2px solid white;
+    }
+.franja figure 
+    {
+        width: 15%;
+        margin: auto;
+    }
+.franja figure img 
+    {
+        margin-top: 10px;
+        width: 100%;
+    }
+      .contenedor
+    {
+        position: absolute;    
+        top: 125px;
+        left: 0;
+        right: 0;
+    }
+
+    .contenedor .form 
+    {
+        background-color: white;
+        width: 600px;
+        height: 455px;
+        margin: auto;
+        border-radius: 3px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        -o-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+       	-ms-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+     .progreso 
+    {
+        text-align: center;
+        margin-bottom: 20px;
+        margin-right: 35px;
+        position: relative;
+    	right: 100%;
+    	transition: all 1s ease;
+    	-webkit-transition: all 1s ease;
+    	-moz-transition: all 1s ease;
+    }
+    .progreso section
+    {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 40px;
+    }
+    .progreso section div 
+    {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: white;
+        border: 1px solid #FE5A19; 
+        margin: auto;
+        color: #FE5A19;
+    }
+    .progreso section div p 
+    {
+        font-size: 1.5em;
+        margin-top: 5px;
+    }
+    .form-0
+    {
+    	text-align: center;
+    }
+ /*   .franja-bottom
+    {
+    	width: 100%;
+	    height: 5px;
+	    background: #FFDA00;
+	    border-bottom: 2px solid white;
+	    position: absolute;
+	    bottom: 0;
+    }*/
+    .form-0 .registrar
+    {
+    	margin-top: 100px; 
+    }
+    .form-0 .registrar div
+    {
+		display: inline-block;
+		vertical-align: middle;
+    }
+    .form-0 .registrar .img-registro
+    {
+    	width: 25%;
+    }
+    .form-0 .registrar .img-registro img
+    {
+    	width: 100%;
+    }
+    .form-0 .correr div
+    {
+		display: inline-block;
+		vertical-align: middle;
+    }
+    .form-0 .correr .img-registro
+    {
+    	width: 25%;
+    }
+    .form-0 .correr .img-registro img
+    {
+    	width: 100%;
+    }
+    .form-1 
+    {
+    	display: none;
+    }
+    .btn-registro 
+    {
+    	background: #FFDA00;
+	    color: white;
+	    padding: 20px;
+	    width: 175px;
+	    text-align: center;
+	    font-size: 2em;
+	    border-radius: 6px;
+	    border-bottom: 4px solid #998A2D;
+	    cursor: pointer;
+    }
+    .seguir-btn
+    {
+    	width: 300px;
+    }

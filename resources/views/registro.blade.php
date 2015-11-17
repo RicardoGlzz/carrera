@@ -15,10 +15,48 @@
         </figure>
     </div>
     <section class="contenedor">
-    	
+    	  <section class="progreso">
+            <section>
+                <div class="paso-1"><p>1</p></div>
+                Ingresa tus datos 
+            </section>
+            <section>
+                <div class="paso-2"><p>2</p></div>
+                Selección de perfil 
+            </section>
+        </section>
+
+
+        <section class="form form-0">
+        	<section class="registrar">
+        		<div class="img-registro">
+        			<img src="img/logo_desc.png" alt="">
+        		</div>
+        		<div class="btn-registro">
+        			Registrar
+        		</div>
+        	</section>
+
+        	<section class="correr">
+        		<div class="btn-registro seguir-btn">
+        			Seguir corriendo
+        		</div>
+        		<div>
+        			<img src="img/mono.png" alt="">
+        		</div>
+        	</section>
+        </section>
+
+        <section class="form form-1">
+        	
+        </section>
+
     </section>
+  <!--   <footer class="franja-bottom">
+    	
+    </footer> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/app.js"></script>	
+
 </body>
 </html>
