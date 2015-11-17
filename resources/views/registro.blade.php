@@ -84,7 +84,22 @@
         	</form>
         </section>
         <section class="form form-2">
-        	
+        	<h1>Finalmente, sube tu foto para perfil</h1>
+        	<div class="foto-cont">
+			<div class="foto" id="preview">
+				<figure>
+					<img src="img/avatar.gif" alt="preview de imagen">
+				</figure>				
+			</div>
+			<div class="archivo-style">
+			<div class ="boton-archivo">	
+			<input type="file" name="file" id="archivo"/>
+			<p style="margin-top:-27px">Sube tu foto</p>
+			</div>
+			<div type="button" value="Enviar" name="submit-trabajo" class="btn-guardar first" id="submit-trabajo">Enviar</div>
+
+			</div>
+		</div>
         </section>
 
     </section>
