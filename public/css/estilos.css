@@ -773,6 +773,14 @@ footer
 		-webkit-transition: all 1s ease;
 		-moz-transition: all 1s ease;
 }
+.lista-part 
+	{
+		text-align: center;
+		display: none;
+		transition: all 1s ease;
+		-webkit-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+	}
 .form-1 
 	{
 		text-align: center;
@@ -818,5 +826,18 @@ footer
 	    position: relative;
 	    top: 150px;
 	    border-bottom: 4px solid #A76420;
+	}
+	.lista-part h1 
+	{
+		font-size: 2em;
+    	margin-top: 10px;
+	}
+	.lista-part .lista
+	{
+		width: 80%;
+		height: 320px;
+		margin: auto;
+		border: 2px solid #F79532;
+		border-radius: 6px;
 	}
 
