@@ -108,6 +108,16 @@
             <a href="{{ URL::to('/') }}" target="_blank">Ir al sitio</a>
         </section>
 
+        <section class="form lista-part">
+            <h1>Selecciona tu nombre</h1>
+           
+                <div class="lista">
+                    <h3></h3>
+                </div>
+            <button class="regreso-main">Regresar</button>                
+            <button class="siguiente-main">Siguiente</button>
+        </section>
+
     </section>
   <!--   <footer class="franja-bottom">
     	
@@ -141,6 +151,15 @@ $(document).on("click","#submit-trabajo",function()
     $(".form-2").css("left","100%");
     $(".form-2").removeClass("animar-form");
     $(".form-3").css("display","block");
+})
+// Seguir corriendo
+$(document).on("click",".seguir-btn",function()
+{
+    $(".form-0").css("left","100%");
+    $(".progreso").css("left","100%");
+    $(".lista-part").addClass("animar-form");
+    $(".lista-part").css("display","block");
+    $(".form-1").css("display","none");
 })
 
 // preview de imagen de registro
