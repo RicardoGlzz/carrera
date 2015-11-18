@@ -8,13 +8,7 @@ body
 {
 	overflow-x: hidden;
 }
-#canvas 
-{
-	width: 95%;
-	margin: 15px;
-	height: 400px;
-	border: 2px solid blue;
-}
+
 a
 {
 	text-decoration: none;
@@ -840,4 +834,13 @@ footer
 		border: 2px solid #F79532;
 		border-radius: 6px;
 	}
-
+	#canvas 
+{
+	width: 95%;
+	margin: 15px;
+	height: 470px;
+	outline: 2px solid blue;
+	background-image: url("../img/mapa.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
