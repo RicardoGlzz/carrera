@@ -28,14 +28,14 @@
 						<a href="">
 							<li>TOP 5</li>
 						</a>
-						<a href="">
+						<a href="https://www.facebook.com/CASA-Centro-de-Ayuda-Servicio-y-Apoyo-de-Durango-AC-1630681567175232/" target="_blank">
 							<li>C.A.S.A</li>
 						</a>
 					</ul>
 				</div>
 				<div class="redes">
 					<ul>
-						<a href="https://www.facebook.com/CASA-Centro-de-Ayuda-Servicio-y-Apoyo-de-Durango-AC-1630681567175232/" target="_blank">
+						<a href="https://www.facebook.com/12-K-Chocho-623822074376506/?fref=ts" target="_blank">
 							<li><i class="fa fa-facebook"></i></li>
 						</a>
 						<a href="">

@@ -17,50 +17,13 @@ class ApplicationController extends Controller
 	 */
 	public function index()
 	{
-		$lugar = ['Primer','Segundo','Tercer','Cuarto','Quinto'];
-		$i = 0;
-		$distancia_total = 0;
+		$distancia_total = Registro::getDistanciaTotal();
 
-		$tops = Registro::orderBy('distancia', 'DESC')
-		->take(5)
-		->get();
+		$tops = Registro::getTop();
 
-		foreach ($tops as $key => $top) {
-			$top->orientacion = self::imageOrientation($top->imagen);
-			$top->lugar = $lugar[$i];
-			$i++;
-			$distancia_total = $distancia_total + $top->distancia;
-		}
+		$corredores = Registro::getCorredores();
 
-		$count = Registro::count();
-		$skip = 5;
-		$limit = $count - $skip;
-		$corredores = Registro::skip($skip)
-		->take($limit)
-		->orderBy('distancia', 'DESC')
-		->orderBy('created_at', 'DESC')
-		->get();
-
-		foreach ($corredores as $key => $corredor) {
-			$distancia_total = $distancia_total + $corredor->distancia;
-			$corredor->orientacion = self::imageOrientation($corredor->imagen);
-		}
-
-		return view('index')
-		->with('tops',$tops)
-		->with('corredores',$corredores)
-		->with('distancia_total',$distancia_total);
-	}
-
-	public function imageOrientation($imagen)
-	{
-			list($width, $height) = getimagesize($imagen);
-			if ($width > $height) {
-				$orientation = 'img_horizontal';
-			} else {
-				$orientation = 'img_vertical';
-			}
-		return $orientation;
+		return view('index')->with(compact('corredores','tops','distancia_total'));
 	}
 
 	/**

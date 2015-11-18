@@ -1,6 +1,13 @@
 @extends('layout.layout')
 
 @section('content')
+
+@if(session('message'))
+<div class="alert alert-success">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	{{ session('message') }}
+</div>
+@endif
 		<section id="vista-registro">
 			<section class="cont-canvas">
 				<canvas id="canvas" width="900" height="400">
