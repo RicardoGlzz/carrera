@@ -1,12 +1,3 @@
-$(document).on("click",".btn-registro",function()
-{
-    $(".progreso").css("right","0");
-    // $(".form-0").css("left","100%");
-})
-
-
-
-
 // CANVAS
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");

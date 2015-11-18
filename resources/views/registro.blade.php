@@ -80,9 +80,11 @@
         		<input maxlength="6" type="text" placeholder="Codigo" name="codigo" id="codigo">
         		<br>
         		<br>
+                <input type="button" value="Anterior" id="anterior">
 				<input type="button" value="Siguiente" id="siguiente">
         	</form>
         </section>
+
         <section class="form form-2">
         	<h1>Finalmente, sube tu foto para perfil</h1>
         	<div class="foto-cont">
@@ -97,9 +99,13 @@
 			<p style="margin-top:-27px">Sube tu foto</p>
 			</div>
 			<div type="button" value="Enviar" name="submit-trabajo" class="btn-guardar first" id="submit-trabajo">Enviar</div>
-
 			</div>
 		</div>
+        </section>
+
+        <section class="form form-3">
+            <h1>Ya esta listo tu registro, gracias por participar, para ver tu estado sigue el siguiente enlace.</h1>
+            <a href="{{ URL::to('/') }}" target="_blank">Ir al sitio</a>
         </section>
 
     </section>
@@ -108,6 +114,52 @@
     </footer> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+$(document).on("click",".btn-registro",function()
+{
+    $(".progreso").css("left","0");
+    $(".form-0").css("left","100%");
+    $(".form-1").addClass("animar-form");
+    $(".form-1").css("display","block");
+})
+$(document).on("click","#anterior",function()
+{
+    $(".progreso").css("left","100%");
+    $(".form-0").css("left","0");
+    $(".form-1").removeClass("animar-form");
+    $(".form-1").css("display","none");
+})
+$(document).on("click","#siguiente",function()
+{
+    $(".form-1").css("left","100%");
+    $(".form-1").removeClass("animar-form");
+    $(".form-1").css("display","block");
+    $(".form-2").css("display","block");
+})
+$(document).on("click","#submit-trabajo",function()
+{
+    $(".form-2").css("left","100%");
+    $(".form-2").removeClass("animar-form");
+    $(".form-3").css("display","block");
+})
 
+// preview de imagen de registro
+$("#archivo").change(function()
+{
+    var reader = new FileReader();
+
+    reader.onload = function(e)
+    {
+        $('#preview img').attr('src',e.target.result);
+        $('#preview').css({"background":"white"});
+    }
+    reader.readAsDataURL(this.files[0]);
+});
+$("#preview").click(function()
+{
+    $("#archivo").click();
+});
+
+</script>
 </body>
 </html>
