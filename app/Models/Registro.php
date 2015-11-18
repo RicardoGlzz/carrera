@@ -21,7 +21,12 @@ class Registro extends Model
 		$i = 0;
 
 		foreach ($tops as $key => $top) {
-			$top->orientacion = self::imageOrientation($top->imagen);
+			if($top->imagen) {
+				$top->orientacion = self::imageOrientation($top->imagen);
+			}
+			else {
+				$top->orientacion = null;
+			}
 			$top->lugar = $lugar[$i];
 			$i++;
 		}
@@ -42,13 +47,18 @@ class Registro extends Model
 		->get();
 
 		foreach ($corredores as $key => $corredor) {
-			$corredor->orientacion = self::imageOrientation($corredor->imagen);
+			if($corredor->imagen) {
+				$corredor->orientacion = self::imageOrientation($corredor->imagen);
+			}
+			else {
+				$corredor->orientacion = null;
+			}
 		}
 
 		return $corredores;
 	}
 
-	public function scopeGetDistanciaTotal($query){
+	public function scopeGetDistanciaTotal($query) {
 
 		$corredores = DB::table('registros')->get();
 		$distancia_total = 0;

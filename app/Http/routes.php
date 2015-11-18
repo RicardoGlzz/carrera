@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/',[
+Route::get('',[
 	'uses' 	=> 'ApplicationController@index',
-	'as'	=> ''
+]);
+
+Route::get('',[
+	'uses' 	=> 'ApplicationController@index',
+	'as'	=> 'home'
 ]);
 
 Route::get('registro',[

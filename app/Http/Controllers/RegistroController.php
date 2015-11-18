@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Registro;
 
 class RegistroController extends Controller
 {
@@ -37,29 +38,21 @@ class RegistroController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		$registro = new Registro;
 
-		$nombre = $request->input('nombre');
-		$apellidos = $request->input('apellidos');
-		$correo = $request->input('correo');
-		$tipo = $request->input('tipo');
-		$folio = $request->input('folio');
-		$codigo = $request->input('codigo');
-		$img = null;
+		$datos = $request->all();
 
-		if($request->has('file'))
-		{
-			$img = $request->input('file');
-		}
+		$registro->nombre = $datos['nombre'];
+		$registro->apellidos = $datos['apellidos'];
+		$registro->email = $datos['email'];
+		$registro->imagen = null;
 
-		$post = new Post;
+		$registro->tipo = $datos['tipo'];
+		$registro->folio = $datos['folio'];
+		$registro->codigo = $datos['codigo'];
+		$registro->save();
 
-		$post->contenido = $contenido;
-		$post->imagen = $img;
-		$post->user_id = $user_id;
-		$post->save();
-		
-
-		return redirect()->route('')->with('message','Boleto Registrado!');
+		return redirect()->route('home')->with('message','Boleto Registrado');
 	}
 
 	/**
