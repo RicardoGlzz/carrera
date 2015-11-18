@@ -16,7 +16,7 @@
 						<img src="img/distancia.png" alt="imagen de distancia recorrida">
 					</figure>
 					<div id="numero-metros">
-						{{$distancia_total}} m
+						{{$distancia_total}}m
 					</div>
 				</div>
 				<div class="boton-registro">
@@ -101,16 +101,4 @@
 			<br>
 			<article class="triangulo"></article>
 		</section>
-
-		<style type="text/css">
-			.img_horizontal {
-				position: relative;
-				height: 100%;
-			}
-
-			.img_vertical {
-				position: relative;
-				width: 100%;   
-			}
-		</style>
 @stop
