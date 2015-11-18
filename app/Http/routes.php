@@ -11,12 +11,21 @@
 |
 */
 
-Route::get('/',[
+Route::get('',[
 	'uses' 	=> 'ApplicationController@index',
-	'as'	=> ''
+]);
+
+Route::get('',[
+	'uses' 	=> 'ApplicationController@index',
+	'as'	=> 'home'
 ]);
 
 Route::get('registro',[
 	'uses' 	=> 'RegistroController@index',
 	'as'	=> 'registro'
+]);
+
+
+Route::post('registro',[
+	'uses' => 'RegistroController@store'
 ]);

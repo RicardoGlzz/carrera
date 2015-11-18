@@ -1,6 +1,12 @@
 @extends('layout.layout')
 
 @section('content')
+
+@if(session('message'))
+<div class="alert alert-info">
+	{{ session('message') }}
+</div>
+@endif
 		<section id="vista-registro">
 			<section class="cont-canvas">
 				<canvas id="canvas" width="900" height="400">
