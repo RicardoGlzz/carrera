@@ -834,13 +834,24 @@ footer
 		border: 2px solid #F79532;
 		border-radius: 6px;
 	}
+	.lista-part button 
+	{
+		border: none;
+	    background: #FFDA00;
+	    padding: 10px;
+	    font-size: 1.5em;
+	    border-radius: 3px;
+	    color: white;
+	    cursor: pointer;
+	    margin: 10px;
+	}
 	#canvas 
-{
-	width: 95%;
-	margin: 15px;
-	height: 470px;
-	outline: 2px solid blue;
-	background-image: url("../img/mapa.png");
-	background-size: cover;
-	background-repeat: no-repeat;
-}
+	{
+		width: 95%;
+		margin: 15px;
+		height: 470px;
+		outline: 2px solid blue;
+		background-image: url("../img/mapa.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}

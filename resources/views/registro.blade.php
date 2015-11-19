@@ -118,13 +118,22 @@
 			<button class="siguiente-main">Siguiente</button>
 		</section>
 
+        <section class="form folio-apart">
+            <h1>Ingresa un nuevo folio para:</h1>
+            <h2 class="persona_a_correr">Aqui va la persona seleccionada de la lista</h2>
+            <label for="">Folio</label>
+            <br>
+            <input type="text" placeholder="Folio">
+            <button class="terminar-correr">Terminar</button>
+        </section>
+
 	</section>
   <!--   <footer class="franja-bottom">
 		
 	</footer> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script>}
+<script>
 $(document).on("click",".btn-registro",function()
 {
 	$(".progreso").css("left","0");
@@ -189,6 +198,22 @@ $("#preview").click(function()
 {
 	$("#archivo").click();
 });
+// Opciones de seguir corriendo
+$(".regreso-main").on("click",function()
+{
+    $(".form-0").css("left","0");
+    $(".progreso").css("left","100%");
+    $(".lista-part").removeClass("animar-form");
+    $(".lista-part").css("display","none");
+    $(".form-1").css("display","none");
+})
+$(".siguiente-main").on("click",function()
+{
+   
+    $(".folio-part").addClass("animar-form");
+    $(".lista-part").css("display","none");
+    $(".form-1").css("display","none");
+})
 
 </script>
 </body>
