@@ -90,7 +90,7 @@
 			 <section>
 					<div class="div_top">
 						<figure class="liston_rojo">
-							<img src="img/liston_rojo.png" alt="imagen de liston rojo">    
+							<img src="img/liston_rojo.png" alt="imagen de liston rojo">
 						</figure>
 						<figure class="cont_part">
 							{!! Html::image('imagenes/'.$corredor->imagen,null,array('class'=>'img_top '.$corredor->orientacion)) !!}
@@ -102,9 +102,12 @@
 					</div>
 			</section>
 			@endforeach
+			<img src="{{$filename}}" alt="imagen de boleto">
+			
 			<br>
 			<button id="ver-part" class="boton-ver">Ver Más</button>
 			<br>
 			<article class="triangulo"></article>
+
 		</section>
 @stop

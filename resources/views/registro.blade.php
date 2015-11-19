@@ -104,7 +104,7 @@
 		</section>
 	{!! Form::close() !!}
 		<section class="form form-3">
-			<h1>Ya esta listo tu registro, gracias por participar, para ver tu estado sigue el siguiente enlace.</h1>
+			<h1>Ya está listo tu registro, gracias por participar, para ver tu estado sigue el siguiente enlace.</h1>
 			<a href="{{ URL::to('/') }}" target="_blank">Ir al sitio</a>
 		</section>
 
@@ -121,7 +121,7 @@
 
         <section class="form folio-apart">
             <h1>Ingresa un nuevo folio para:</h1>
-            <h2 class="persona_a_correr">Aqui va la persona seleccionada de la lista</h2>
+            <h2 class="persona_a_correr">Aquí va la persona seleccionada de la lista</h2>
             <label for="">Folio</label>
             <br>
             <input type="text" placeholder="Folio">
