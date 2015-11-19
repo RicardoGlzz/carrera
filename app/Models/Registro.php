@@ -81,7 +81,7 @@ class Registro extends Model
 	}
 
 	public function imageOrientation($imagen) {
-			list($width, $height) = getimagesize($imagen);
+			list($width, $height) = getimagesize('imagenes/'.$imagen);
 			if ($width > $height) {
 				$orientation = 'img_horizontal';
 			} else {
