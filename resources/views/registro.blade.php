@@ -112,7 +112,9 @@
 			<h1>Selecciona tu nombre</h1>
 		   
 				<div class="lista">
-					<h3></h3>
+					@foreach($corredores as $corredor)
+					<h3 class="elemento-lista-registrado">{{$corredor->apellidos.' '.$corredor->nombre}}</h3>
+					@endforeach
 				</div>
 			<button class="regreso-main">Regresar</button>                
 			<button class="siguiente-main">Siguiente</button>
@@ -124,7 +126,7 @@
 	</footer> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script>}
+<script>
 $(document).on("click",".btn-registro",function()
 {
 	$(".progreso").css("left","0");

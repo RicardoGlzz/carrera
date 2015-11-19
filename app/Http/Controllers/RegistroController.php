@@ -17,7 +17,10 @@ class RegistroController extends Controller
 	 */
 	public function index()
 	{
-		return view('registro');
+
+		$corredores = Registro::getTotalCorredores();
+
+		return view('registro')->with('corredores',$corredores);
 	}
 
 	/**
