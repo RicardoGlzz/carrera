@@ -47,7 +47,7 @@
 			</section>
 		</section>
 
-		{!! Form::open(array('url' => 'registro','id'=>'formulario')) !!}
+		{!! Form::open(array('url' => 'registro','id'=>'formulario','files' => true)) !!}
 
 		<section class="form form-1">
 			<h1>Completa los datos para registrate</h1>
@@ -90,12 +90,12 @@
 			<div class="foto-cont">
 			<div class="foto" id="preview">
 				<figure>
-					<img src="img/avatar.gif" alt="preview de imagen">
-				</figure>				
+					<img src="img/avatar.jpg" alt="preview de imagen">
+				</figure>
 			</div>
 			<div class="archivo-style">
-			<div class ="boton-archivo">	
-			<input type="file" name="file" id="archivo"/>
+			<div class ="boton-archivo">
+			<input type="file" name="imagen" id="archivo"/>
 			<p style="margin-top:-27px">Sube tu foto</p>
 			</div>
 			<div type="button" value="Enviar" name="submit-trabajo" class="btn-guardar first" id="submit-trabajo">Enviar</div>
@@ -104,25 +104,24 @@
 		</section>
 	{!! Form::close() !!}
 		<section class="form form-3">
-			<h1>Ya esta listo tu registro, gracias por participar, para ver tu estado sigue el siguiente enlace.</h1>
+			<h1>Ya está listo tu registro, gracias por participar, para ver tu estado sigue el siguiente enlace.</h1>
 			<a href="{{ URL::to('/') }}" target="_blank">Ir al sitio</a>
 		</section>
 
 		<section class="form lista-part">
 			<h1>Selecciona tu nombre</h1>
-		   
 				<div class="lista">
 					@foreach($corredores as $corredor)
 					<h3 class="elemento-lista-registrado">{{$corredor->apellidos.' '.$corredor->nombre}}</h3>
 					@endforeach
 				</div>
-			<button class="regreso-main">Regresar</button>                
+			<button class="regreso-main">Regresar</button>
 			<button class="siguiente-main">Siguiente</button>
 		</section>
 
         <section class="form folio-apart">
             <h1>Ingresa un nuevo folio para:</h1>
-            <h2 class="persona_a_correr">Aqui va la persona seleccionada de la lista</h2>
+            <h2 class="persona_a_correr">Aquí va la persona seleccionada de la lista</h2>
             <label for="">Folio</label>
             <br>
             <input type="text" placeholder="Folio">
@@ -130,8 +129,9 @@
         </section>
 
 	</section>
-  <!--   <footer class="franja-bottom">
-		
+
+	<!--   <footer class="franja-bottom">
+
 	</footer> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -166,12 +166,19 @@ $(document).on("click","#submit-trabajo",function()
 	$.ajax({
 		type: "POST",
 		url: 'registro',
-		data: $("#formulario").serialize(),
-		dataType: 'json',
-		cache: false,
-		success: function(data){
-			return data;
-		}
+		data: new FormData($('#formulario')[0]),
+		cache:false,
+		contentType: false,
+		processData: false,
+		async: false,
+			success:function(data){
+				console.log("success");
+				console.log(data);
+			},
+			error: function(data){
+				console.log("error");
+				console.log(data);
+			}
 	});
 })
 // Seguir corriendo

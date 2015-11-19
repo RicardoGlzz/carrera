@@ -66,7 +66,7 @@
 							<img src="img/liston_top.png" alt="imagen de liston top">    
 						</figure>
 						<figure class="cont_top">
-							{!! Html::image($top->imagen,null,array('class'=>'img_top '.$top->orientacion,'alt'=>'imagen de participante top')) !!}
+							{!! Html::image('imagenes/'.$top->imagen,null,array('class'=>'img_top '.$top->orientacion,'alt'=>'imagen de participante top')) !!}
 						</figure>
 					</div>
 					<div class="div_top datos_top">
@@ -90,10 +90,10 @@
 			 <section>
 					<div class="div_top">
 						<figure class="liston_rojo">
-							<img src="img/liston_rojo.png" alt="imagen de liston rojo">    
+							<img src="img/liston_rojo.png" alt="imagen de liston rojo">
 						</figure>
 						<figure class="cont_part">
-							{!! Html::image($corredor->imagen,null,array('class'=>'img_top '.$corredor->orientacion)) !!}
+							{!! Html::image('imagenes/'.$corredor->imagen,null,array('class'=>'img_top '.$corredor->orientacion)) !!}
 						</figure>
 					</div>
 					<div class="div_top datos_top">
@@ -102,9 +102,12 @@
 					</div>
 			</section>
 			@endforeach
+			<img src="{{$filename}}" alt="imagen de boleto">
+			
 			<br>
 			<button id="ver-part" class="boton-ver">Ver Más</button>
 			<br>
 			<article class="triangulo"></article>
+
 		</section>
 @stop
