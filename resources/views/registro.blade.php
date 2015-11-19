@@ -211,11 +211,10 @@ $(".regreso-main").on("click",function()
 })
 $(".siguiente-main").on("click",function()
 {
-   
     $(".folio-part").addClass("animar-form");
     $(".lista-part").css("display","none");
     $(".form-1").css("display","none");
-})
+});
 
 </script>
 </body>
