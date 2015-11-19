@@ -112,7 +112,9 @@
 			<h1>Selecciona tu nombre</h1>
 		   
 				<div class="lista">
-					<h3></h3>
+					@foreach($corredores as $corredor)
+					<h3 class="elemento-lista-registrado">{{$corredor->apellidos.' '.$corredor->nombre}}</h3>
+					@endforeach
 				</div>
 			<button class="regreso-main">Regresar</button>                
 			<button class="siguiente-main">Siguiente</button>

@@ -58,6 +58,16 @@ class Registro extends Model
 		return $corredores;
 	}
 
+	public function scopeGetTotalCorredores($query){
+
+		$corredores = DB::table('registros')
+		->orderBy('apellidos', 'ASC')
+		->orderBy('nombre', 'ASC')
+		->get();
+
+		return $corredores;
+	}
+
 	public function scopeGetDistanciaTotal($query) {
 
 		$corredores = DB::table('registros')->get();
