@@ -23,10 +23,9 @@ $(function()
 
 var pathArray = [];
 
-// var enx = prompt("coordenada en x");
-// var eny = prompt("coordenada en y");
-// var num1 = parseInt(enx);
-// var num2 = parseInt(eny);
+var metros = prompt("cuantos metros avanzara");
+var numero = parseInt(metros);
+
 
 // Coordenada inicial
 // pathArray.push(
@@ -35,73 +34,94 @@ var pathArray = [];
 //         y: 230
 //     }
 // );
-pathArray.push(
+if( numero == 1200)
+{
+    pathArray.push(
     {
         x: 50,
         y: 230
     }
 );
-pathArray.push(
+
+        pathArray.push(
+        {
+            x: 50,
+            y: 1
+        }
+    );
+}
+if( numero > 1200)
+{
+      pathArray.push(
     {
         x: 50,
-        y: 1
-    }
-);
-pathArray.push(
-    {
-        x: 400,
-        y: 30
-    }, {
-        x: 750,
-        y: 10
-    }
-);
-pathArray.push(
-    {
-        x: 750,
-        y: 310
-    }
-);
-pathArray.push(
-    {
-        x: 380,
-        y: 310
+        y: 230
     }
 );
 
-pathArray.push(
-    {
-        x: 280,
-        y: 180
-    }
-);
+        pathArray.push(
+        {
+            x: 50,
+            y: 1
+        }
+    );
 
-pathArray.push(
-    {
-        x: 180,
-        y: 250
-    }
-);
+    pathArray.push(
+        {
+            x: 400,
+            y: 30
+        }, {
+            x: 750,
+            y: 10
+        }
+    );
+}
+// pathArray.push(
+//     {
+//         x: 750,
+//         y: 310
+//     }
+// );
+// pathArray.push(
+//     {
+//         x: 380,
+//         y: 310
+//     }
+// );
 
-pathArray.push(
-    {
-        x: 10,
-        y: 250
-    }
-);
+// pathArray.push(
+//     {
+//         x: 280,
+//         y: 180
+//     }
+// );
 
-pathArray.push(
-    {
-        x: 50,
-        y: 200
-    }
-);
-pathArray.push(
-    {
-        x: 80,
-        y: 150
-    }
-);
+// pathArray.push(
+//     {
+//         x: 180,
+//         y: 250
+//     }
+// );
+
+// pathArray.push(
+//     {
+//         x: 10,
+//         y: 250
+//     }
+// );
+
+// pathArray.push(
+//     {
+//         x: 50,
+//         y: 200
+//     }
+// );
+// pathArray.push(
+//     {
+//         x: 80,
+//         y: 150
+//     }
+// );
 
 var polypoints = makePolyPoints(pathArray);
 
