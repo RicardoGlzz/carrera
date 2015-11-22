@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/sweetalert.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/estilos.css">
+	
 </head>
 <body>
 	<section id="wrapper">
@@ -60,8 +61,18 @@
 	</section>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/app.js"></script>
+	<script>
+		var perfil = localStorage.getItem("perfil");
+
+		$(".checar-perfil").addClass(perfil);
+
+		$(".checar-perfil a").on("click",function()
+		{
+			localStorage.clear();
+			$(this).parents().find(".checar-perfil").removeClass("muestra-perfil");
+		})
+    </script>
 </body>
 </html>

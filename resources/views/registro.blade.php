@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="css/sweetalert.css">
 </head>
 <body class="cont-registro">
 <section class="registro-wrap">
@@ -98,6 +99,13 @@
 			<input type="file" name="imagen" id="archivo"/>
 			<p style="margin-top:-27px">Sube tu foto</p>
 			</div>
+            <!-- Animacion de carga -->
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+
 			<div type="button" value="Enviar" name="submit-trabajo" class="btn-guardar first" id="submit-trabajo">Enviar</div>
 			</div>
 		</div>
@@ -120,11 +128,13 @@
 		</section>
 
         <section class="form folio-apart">
-            <h1>Ingresa un nuevo folio para:</h1>
-            <h2 class="persona_a_correr">Aquí va la persona seleccionada de la lista</h2>
+            <h1>Agregar más distancia para:</h1>
+            <input type="hidden" id="mas_distancia">
+            <h2 class="persona_a_correr"></h2>
             <label for="">Folio</label>
             <br>
             <input type="text" placeholder="Folio">
+            <br>
             <button class="terminar-correr">Terminar</button>
         </section>
 
@@ -135,6 +145,8 @@
 	</footer> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+
 <script>
 $(document).on("click",".btn-registro",function()
 {
@@ -144,21 +156,60 @@ $(document).on("click",".btn-registro",function()
 	$(".form-1").css("display","block");
 })
 $(document).on("click","#anterior",function()
-{
+{   
 	$(".progreso").css("left","100%");
 	$(".form-0").css("left","0");
 	$(".form-1").removeClass("animar-form");
 	$(".form-1").css("display","none");
 })
-$(document).on("click","#siguiente",function()
-{
-	$(".form-1").css("left","100%");
-	$(".form-1").removeClass("animar-form");
-	$(".form-1").css("display","block");
-	$(".form-2").css("display","block");
+
+$("#siguiente").on("click",function()
+{   
+
+	var validar = true;
+	$("#formulario input[type='text']").each(function()
+	{
+		if(!$(this).val())
+		{
+			validar = false;
+			sweetAlert("Complete correctamente los datos", "", "error");
+			
+		}
+
+		//checar email
+		var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		if($("#formulario input",this).attr("type")=="email" && !email_reg.test($.trim($(this).val())))
+		{
+
+		  sweetAlert("Ingrese una cuenta de coreo valida", "", "error");
+		  validar = false; 
+		  return false;
+
+		}
+		
+		if( isNaN($("#folio").val()) )
+		{
+			sweetAlert("El folio debe tener solo numeros", "", "error");
+			validar = false; 
+			
+		}
+
+	})
+
+	if(validar == true)
+	{
+	    $(".progreso .paso-1").addClass("color-progreso");
+		$(".form-1").css("left","100%");
+		$(".form-1").removeClass("animar-form");
+		$(".form-1").css("display","block");
+		$(".form-2").css("display","block");
+
+	}
 })
 $(document).on("click","#submit-trabajo",function()
 {
+    $(".spinner").css("opacity","1");
+    $(".progreso .paso-2").addClass("color-progreso");
 	$(".form-2").css("left","100%");
 	$(".form-2").removeClass("animar-form");
 	$(".form-3").css("display","block");
@@ -172,6 +223,7 @@ $(document).on("click","#submit-trabajo",function()
 		processData: false,
 		async: false,
 			success:function(data){
+                $(".spinner").css("opacity","0");
 				console.log("success");
 				console.log(data);
 			},
@@ -216,12 +268,34 @@ $(".regreso-main").on("click",function()
     $(".lista-part").css("display","none");
     $(".form-1").css("display","none");
 })
-$(".siguiente-main").on("click",function()
+
+$(document).on("click",".lista-part .lista h3",function()
 {
-    $(".folio-part").addClass("animar-form");
+	$(".lista-part .lista h3").removeClass("lista-activo");
+    $(this).addClass("lista-activo");
+});
+
+$(document).on("click",".siguiente-main",function()
+{   
+
+    $(".persona_a_correr").text($(".lista-activo").text());
+    $(".folio-apart").addClass("animar-form");
     $(".lista-part").css("display","none");
     $(".form-1").css("display","none");
+    $(".folio-apart").css("display","block");
+   	var distancia_add = $(".persona_a_correr").text();
+   	// Guardar en arreglo el ultimo valor que es el nombre para enviar al formulario
+	arreglo = distancia_add.split(/\s+/);
+	elemento = $(arreglo).get(-1);
+	$("#mas_distancia").val(elemento);
 });
+
+$(".form-3 a").on("click",function(){
+	
+	localStorage.setItem("perfil", "muestra-perfil");
+})
+	  
+
 
 </script>
 </body>

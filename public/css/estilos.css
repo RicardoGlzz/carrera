@@ -834,6 +834,19 @@ footer
 		border: 2px solid #F79532;
 		border-radius: 6px;
 	}
+	.lista-part .lista h3:hover 
+	{
+		background: #F79532;
+	    color: white;
+	    cursor: pointer;
+	}
+	.lista-activo
+	{	
+		background: #F79532;
+	    color: white;
+	    cursor: pointer;
+	}
+
 	.lista-part button 
 	{
 		border: none;
@@ -855,9 +868,131 @@ footer
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
+	.folio-apart
+	{
+		display: none;
+	}
 	.folio-apart h1 
 	{
 		font-size: 2em;
 	    text-align: center;
 	    margin-top: 10px;
+	}
+	.folio-apart h2 
+	{
+		text-align: center;
+    	margin-top: 20px;
+	}
+	.folio-apart label
+	{
+		font-size: 1.5em;
+	    text-align: center;
+	    display: block;
+	    margin-top: 50px;
+	}
+	.folio-apart input 
+	{
+		border: none;
+	    border-bottom: 1px solid black;
+	    width: 250px;
+	    margin: auto;
+	    display: block;
+	    font-size: 1.5em;
+	}
+	.folio-apart button
+	{
+		border: none;
+	    background: #FFDA00;
+	    padding: 10px;
+	    font-size: 1.5em;
+	    border-radius: 3px;
+	    color: white;
+	    cursor: pointer;
+	    margin: auto;
+    	display: block;
+    	position: relative;
+    	top: 50px;
+	}
+	.color-progreso 
+	{
+		background-color: #FFDA00 !important;
+    	border: 1px solid #FFDA00 !important;
+    	color: white !important;
+	}
+
+	/*Animacion de carga*/
+	.spinner 
+	{
+	    width: 70px;
+	    text-align: center;
+	    position: relative;
+	    left: 80px;
+	    top: 20px;
+	    opacity: 0;
+	}
+
+	.spinner > div {
+	  width: 18px;
+	  height: 18px;
+	  background-color: #333;
+
+	  border-radius: 100%;
+	  display: inline-block;
+	  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	}
+
+	.spinner .bounce1 {
+	  -webkit-animation-delay: -0.32s;
+	  animation-delay: -0.32s;
+	}
+
+	.spinner .bounce2 {
+	  -webkit-animation-delay: -0.16s;
+	  animation-delay: -0.16s;
+	}
+
+	@-webkit-keyframes sk-bouncedelay {
+	  0%, 80%, 100% { -webkit-transform: scale(0) }
+	  40% { -webkit-transform: scale(1.0) }
+	}
+
+	@keyframes sk-bouncedelay {
+	  0%, 80%, 100% { 
+	    -webkit-transform: scale(0);
+	    transform: scale(0);
+	  } 40% { 
+	    -webkit-transform: scale(1.0);
+	    transform: scale(1.0);
+	  }
+	}	
+
+	.checar-perfil 
+	{
+		width: 300px;
+	    text-align: center;
+	    background: #FFDA00;
+		border: 2px solid white;
+	    padding: 10px;
+	    position: fixed;
+	    right: -100%;
+	    z-index: 2;
+	    top: 275px;
+	    transition: all 2s ease;
+		-webkit-transition: all 2s ease;
+		-moz-transition: all 2s ease;
+	}
+	.muestra-perfil 
+	{	
+		right: 0;
+	}
+	.checar-perfil a 
+	{
+		background: #F79532;
+	    color: white;
+	    text-decoration: none;
+	    padding: 15px;
+	    display: block;
+    	margin-top: 15px;
+    	font-size: 1.3em;
 	}

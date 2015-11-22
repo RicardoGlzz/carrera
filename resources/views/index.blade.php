@@ -7,7 +7,12 @@
 	{{ session('message') }}
 </div>
 @endif
+			<article class="checar-perfil">
+				<h1>Ya hemos avanzado gracias a ti, puedes ver tu perfil en la seccion de participantes mediante el siguiente enlace</h1>
+				<a href="#participantes">Vér mi perfil</a>
+			</article>
 		<section id="vista-registro">
+		
 			<section class="cont-canvas">
 				<canvas id="canvas" width="900" height="400">
 					Si estas viendo este mensaje, significa que necesitas utilizar la última versión de Chrome, Firefox u Opera.
@@ -108,6 +113,6 @@
 			<button id="ver-part" class="boton-ver">Ver Más</button>
 			<br>
 			<article class="triangulo"></article>
-
+		
 		</section>
 @stop
