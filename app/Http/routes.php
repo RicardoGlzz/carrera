@@ -25,6 +25,10 @@ Route::get('registro',[
 	'as'	=> 'registro'
 ]);
 
+Route::get('lista',[
+	'uses' 	=> 'RegistroController@lista',
+	'as'	=> 'lista'
+]);
 
 Route::post('registro',[
 	'uses' => 'RegistroController@store'

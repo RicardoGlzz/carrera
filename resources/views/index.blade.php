@@ -107,8 +107,6 @@
 					</div>
 			</section>
 			@endforeach
-			<img src="{{$filename}}" alt="imagen de boleto">
-			
 			<br>
 			<button id="ver-part" class="boton-ver">Ver Más</button>
 			<br>
