@@ -75,11 +75,11 @@
 				<br>
 				{!! Form::label('', 'Folio') !!}
 				<br>
-				{!! Form::text('folio', null, array('placeholder'=>'Folio','id'=>'folio','maxlength'=>'3')) !!}
+				{!! Form::text('folio', null, array('placeholder'=>'Folio','id'=>'folio','maxlength'=>'4')) !!}
 				<br>
 				{!! Form::label('', 'Codigo') !!}
 				<br>
-				{!! Form::text('codigo', null, array('placeholder'=>'Codigo','id'=>'codigo','maxlength'=>'6')) !!}
+				{!! Form::text('codigo', null, array('placeholder'=>'Codigo','id'=>'codigo','maxlength'=>'8')) !!}
 				<br>
 				<br>
 				<input type="button" value="Anterior" id="anterior">
@@ -181,7 +181,7 @@ $("#siguiente").on("click",function()
 		if($("#formulario input",this).attr("type")=="email" && !email_reg.test($.trim($(this).val())))
 		{
 
-		  sweetAlert("Ingrese una cuenta de coreo valida", "", "error");
+		  sweetAlert("Ingrese una cuenta de correo válida", "", "error");
 		  validar = false; 
 		  return false;
 
@@ -195,6 +195,7 @@ $("#siguiente").on("click",function()
 		}
 
 	})
+
 
 	if(validar == true)
 	{
@@ -223,7 +224,7 @@ $(document).on("click","#submit-trabajo",function()
 		processData: false,
 		async: false,
 			success:function(data){
-                $(".spinner").css("opacity","0");
+				$(".spinner").css("opacity","0");
 				console.log("success");
 				console.log(data);
 			},
