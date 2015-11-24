@@ -73,6 +73,7 @@
 				<input type="radio" name="tipo" value="grupo"> Grupo
 				<br>
 				<br>
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				{!! Form::label('', 'Folio') !!}
 				<br>
 				{!! Form::text('folio', null, array('placeholder'=>'Folio','id'=>'folio','maxlength'=>'4')) !!}
@@ -99,12 +100,12 @@
 			<input type="file" name="imagen" id="archivo"/>
 			<p style="margin-top:-27px">Sube tu foto</p>
 			</div>
-            <!-- Animacion de carga -->
-            <div class="spinner">
-              <div class="bounce1"></div>
-              <div class="bounce2"></div>
-              <div class="bounce3"></div>
-            </div>
+			<!-- Animacion de carga -->
+			<div class="spinner">
+			  <div class="bounce1"></div>
+			  <div class="bounce2"></div>
+			  <div class="bounce3"></div>
+			</div>
 
 			<div type="button" value="Enviar" name="submit-trabajo" class="btn-guardar first" id="submit-trabajo">Enviar</div>
 			</div>
@@ -127,16 +128,16 @@
 			<button class="siguiente-main">Siguiente</button>
 		</section>
 
-        <section class="form folio-apart">
-            <h1>Agregar más distancia para:</h1>
-            <input type="hidden" id="mas_distancia">
-            <h2 class="persona_a_correr"></h2>
-            <label for="">Folio</label>
-            <br>
-            <input type="text" placeholder="Folio">
-            <br>
-            <button class="terminar-correr">Terminar</button>
-        </section>
+		<section class="form folio-apart">
+			<h1>Agregar más distancia para:</h1>
+			<input type="hidden" id="mas_distancia">
+			<h2 class="persona_a_correr"></h2>
+			<label for="">Folio</label>
+			<br>
+			<input type="text" placeholder="Folio">
+			<br>
+			<button class="terminar-correr">Terminar</button>
+		</section>
 
 	</section>
 
@@ -180,11 +181,9 @@ $("#siguiente").on("click",function()
 		var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 		if($("#formulario input",this).attr("type")=="email" && !email_reg.test($.trim($(this).val())))
 		{
-
-		  sweetAlert("Ingrese una cuenta de correo válida", "", "error");
-		  validar = false; 
-		  return false;
-
+			sweetAlert("Ingrese una cuenta de correo válida", "", "error");
+			validar = false;
+			return false;
 		}
 		
 		if( isNaN($("#folio").val()) )
@@ -194,23 +193,29 @@ $("#siguiente").on("click",function()
 			
 		}
 
-	})
+	});
 
+	$.post('checkFolio', {"folio":$('[name="folio"]').val(),"codigo":$('[name="codigo"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+		if(data=="NO")
+		{
+			sweetAlert("Error con el folio o código", "", "error");
+			validar = false;
+		}
+		else if(validar)
+		{
+			$(".progreso .paso-1").addClass("color-progreso");
+			$(".form-1").css("left","100%");
+			$(".form-1").removeClass("animar-form");
+			$(".form-1").css("display","block");
+			$(".form-2").css("display","block");
+		}
+	});
 
-	if(validar == true)
-	{
-	    $(".progreso .paso-1").addClass("color-progreso");
-		$(".form-1").css("left","100%");
-		$(".form-1").removeClass("animar-form");
-		$(".form-1").css("display","block");
-		$(".form-2").css("display","block");
-
-	}
 })
 $(document).on("click","#submit-trabajo",function()
 {
-    $(".spinner").css("opacity","1");
-    $(".progreso .paso-2").addClass("color-progreso");
+	$(".spinner").css("opacity","1");
+	$(".progreso .paso-2").addClass("color-progreso");
 	$(".form-2").css("left","100%");
 	$(".form-2").removeClass("animar-form");
 	$(".form-3").css("display","block");
@@ -263,29 +268,29 @@ $("#preview").click(function()
 // Opciones de seguir corriendo
 $(".regreso-main").on("click",function()
 {
-    $(".form-0").css("left","0");
-    $(".progreso").css("left","100%");
-    $(".lista-part").removeClass("animar-form");
-    $(".lista-part").css("display","none");
-    $(".form-1").css("display","none");
+	$(".form-0").css("left","0");
+	$(".progreso").css("left","100%");
+	$(".lista-part").removeClass("animar-form");
+	$(".lista-part").css("display","none");
+	$(".form-1").css("display","none");
 })
 
 $(document).on("click",".lista-part .lista h3",function()
 {
 	$(".lista-part .lista h3").removeClass("lista-activo");
-    $(this).addClass("lista-activo");
+	$(this).addClass("lista-activo");
 });
 
 $(document).on("click",".siguiente-main",function()
 {   
 
-    $(".persona_a_correr").text($(".lista-activo").text());
-    $(".folio-apart").addClass("animar-form");
-    $(".lista-part").css("display","none");
-    $(".form-1").css("display","none");
-    $(".folio-apart").css("display","block");
-   	var distancia_add = $(".persona_a_correr").text();
-   	// Guardar en arreglo el ultimo valor que es el nombre para enviar al formulario
+	$(".persona_a_correr").text($(".lista-activo").text());
+	$(".folio-apart").addClass("animar-form");
+	$(".lista-part").css("display","none");
+	$(".form-1").css("display","none");
+	$(".folio-apart").css("display","block");
+	var distancia_add = $(".persona_a_correr").text();
+	// Guardar en arreglo el ultimo valor que es el nombre para enviar al formulario
 	arreglo = distancia_add.split(/\s+/);
 	elemento = $(arreglo).get(-1);
 	$("#mas_distancia").val(elemento);

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Registro;
 use Image;
+use Illuminate\Support\Facades\Session;
 
 class RegistroController extends Controller
 {
@@ -228,6 +229,20 @@ class RegistroController extends Controller
 		return $n;
 	}
 
+	public function checkFolio(Request $request) {
+		$datos = $request->all();
+
+		$lista = $this->lista();
+		$correcto = false;
+		$clave = array_search($datos['codigo'], $lista);
+		if($clave+1==$datos['folio']) $correcto = true;
+
+		if($correcto)
+		{
+			return 'OK';
+		}
+		else return 'NO';	
+	}
 	/**
 	 * Show the form for editing the specified resource.
 	 *

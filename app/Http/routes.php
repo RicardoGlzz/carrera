@@ -33,3 +33,7 @@ Route::get('lista',[
 Route::post('registro',[
 	'uses' => 'RegistroController@store'
 ]);
+
+Route::post('checkFolio',[
+	'uses' => 'RegistroController@checkFolio'
+]);
