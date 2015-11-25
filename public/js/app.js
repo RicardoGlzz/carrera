@@ -29,7 +29,7 @@ var numero = 12000;
 var inicial =
 {
     x: 50,
-    y: 280
+    y: 230
 }
 
 // Coordenadas para distancia de lineas
@@ -93,7 +93,7 @@ var novena =
 var decima = 
 {
     x: 70,
-    y: 230
+    y: 280
 }
 
 
@@ -388,7 +388,7 @@ var decima =
     // DECIMA LINEA
     else if(numero <= 12000)
     {
-            numero-= 10800;
+        numero-= 10800;
             // Calcular distancia entre dos puntos
             x1 = 60;
             y1 = 360;
@@ -423,7 +423,7 @@ var decima =
 
         var puntosclave = hacerPuntosClave(pathArray);
         var posicion = 0;
-        var velocidad = 5;
+        var velocidad = 2;
         animate();
 
         var fps = 40;
@@ -433,68 +433,68 @@ var decima =
 function animate() {
 
     // lineas guia
-    // ctx.lineWidth = 5;
+    ctx.lineWidth = 5;
 
-    // ctx.beginPath();
-    // ctx.moveTo(150, 200);
-    // ctx.lineTo(130, 10);
-    // ctx.strokeStyle = 'red';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 200);
+    ctx.lineTo(130, 10);
+    ctx.strokeStyle = 'red';
+    ctx.stroke();
 
-    // ctx.beginPath();
-    // ctx.moveTo(130, 10);
-    // ctx.lineTo(340, 80);
-    // ctx.strokeStyle = 'green';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(130, 10);
+    ctx.lineTo(340, 80);
+    ctx.strokeStyle = 'green';
+    ctx.stroke();
 
-    // ctx.beginPath();
-    // ctx.moveTo(340, 80);
-    // ctx.lineTo(560, 30);
-    // ctx.strokeStyle = 'gold';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(340, 80);
+    ctx.lineTo(560, 30);
+    ctx.strokeStyle = 'gold';
+    ctx.stroke();
     
 
-    // ctx.beginPath();
-    // ctx.moveTo(560, 30);
-    // ctx.lineTo(800, 40);
-    // ctx.strokeStyle = 'blue';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(560, 30);
+    ctx.lineTo(800, 40);
+    ctx.strokeStyle = 'blue';
+    ctx.stroke();
 
-    // ctx.beginPath();
-    // ctx.moveTo(800, 40);
-    // ctx.lineTo(800, 220);
-    // ctx.strokeStyle = 'gold';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(800, 40);
+    ctx.lineTo(800, 220);
+    ctx.strokeStyle = 'gold';
+    ctx.stroke();
 
-    // ctx.beginPath();
-    // ctx.moveTo(800, 220);
-    // ctx.lineTo(800, 380);
-    // ctx.strokeStyle = 'red';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(800, 220);
+    ctx.lineTo(800, 380);
+    ctx.strokeStyle = 'red';
+    ctx.stroke();
 
-    // ctx.beginPath();
-    // ctx.moveTo(800, 380);
-    // ctx.lineTo(550, 380);
-    // ctx.strokeStyle = 'blue';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(800, 380);
+    ctx.lineTo(550, 380);
+    ctx.strokeStyle = 'blue';
+    ctx.stroke();
 
-    // ctx.beginPath();
-    // ctx.moveTo(550, 380);
-    // ctx.lineTo(350, 250);
-    // ctx.strokeStyle = 'gold';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(550, 380);
+    ctx.lineTo(350, 250);
+    ctx.strokeStyle = 'gold';
+    ctx.stroke();
 
-    // ctx.beginPath();
-    // ctx.moveTo(350, 250);
-    // ctx.lineTo(125, 360);
-    // ctx.strokeStyle = 'red';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(350, 250);
+    ctx.lineTo(125, 360);
+    ctx.strokeStyle = 'red';
+    ctx.stroke();
 
-    // ctx.beginPath();
-    // ctx.moveTo(125, 360);
-    // ctx.lineTo(150, 200);
-    // ctx.strokeStyle = 'blue';
-    // ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(125, 360);
+    ctx.lineTo(150, 200);
+    ctx.strokeStyle = 'blue';
+    ctx.stroke();
 
     setTimeout(function () {
         requestAnimFrame(animate);
@@ -508,7 +508,7 @@ function animate() {
         console.log(posicion);
 
 
-        // dibujar
+        // dibujar imagenes deacuerdo a su posicion
          if(posicion >= 402)
             {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -522,9 +522,9 @@ function animate() {
                 ctx.drawImage(img,0,-80);
                 ctx.restore();
             }
-          if(posicion >= 900)
+          if(posicion == 1008)
             {
-                console.log("ya llego");
+                
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.save();
                 ctx.beginPath();
@@ -536,7 +536,7 @@ function animate() {
                 ctx.drawImage(img,0,-80);
                 ctx.restore();
             }  
-            else 
+            if(posicion <= 402) 
             {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.save();
@@ -550,10 +550,22 @@ function animate() {
                 ctx.restore();   
             }
 
-       
-        
     }, 1000 / fps);
 
+    // Si ya alcanzo la meta que se posicione al final de meta solamente
+     if(numero > 12000)
+     {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.beginPath();
+        // Objeto de la imagen del corredor
+        img = new Image();
+        // url de imagen
+        img.src = "img/termino.png";
+        ctx.drawImage(img,80,150);
+        ctx.restore();
+     }
 }
 
 function hacerPuntosClave(pathArray) {

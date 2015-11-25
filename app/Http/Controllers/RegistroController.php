@@ -25,7 +25,7 @@ class RegistroController extends Controller
 		$lista = $this->lista();
 
 		$i=0;
-		for($i=0;$i<10;$i++)
+		for($i=0;$i<100;$i++)
 		{
 			$img = Image::make('boletos/boleto.jpg');
 
@@ -42,7 +42,7 @@ class RegistroController extends Controller
 			});
 
 			$img->save($filename);
-			$i++;
+			
 		}
 
 
