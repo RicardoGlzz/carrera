@@ -27,17 +27,17 @@ class RegistroController extends Controller
 		$i=1;
 		$font_path = 'fonts/Roboto-Regular.ttf';
 		
-		foreach ($lista as $key => $numero) {
+		// foreach ($lista as $key => $numero) {
 
-			$jpg_image = imagecreatefromjpeg('boletos/boleto.jpg');
-			$black = imagecolorallocate($jpg_image, 0, 0, 0);
-			imagettftext($jpg_image, 40, 0, 450, 767, $black, $font_path, $i);
-			imagettftext($jpg_image, 40, 0, 880, 767, $black, $font_path, $i);
-			imagettftext($jpg_image, 40, 0, 2110, 767, $black, $font_path, $numero);
-			imagejpeg($jpg_image, "boletos/boleto".$numero.".jpg");
-			imagedestroy($jpg_image);
-			$i++;
-		}
+		// 	$jpg_image = imagecreatefromjpeg('boletos/boleto.jpg');
+		// 	$black = imagecolorallocate($jpg_image, 0, 0, 0);
+		// 	imagettftext($jpg_image, 40, 0, 450, 767, $black, $font_path, $i);
+		// 	imagettftext($jpg_image, 40, 0, 880, 767, $black, $font_path, $i);
+		// 	imagettftext($jpg_image, 40, 0, 2110, 767, $black, $font_path, $numero);
+		// 	imagejpeg($jpg_image, "boletos/boleto".$numero.".jpg");
+		// 	imagedestroy($jpg_image);
+		// 	$i++;
+		// }
 
 		return view('registro')->with('corredores',$corredores);
 	}
