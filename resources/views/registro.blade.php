@@ -119,6 +119,9 @@
 
 		<section class="form lista-part">
 			<h1>Selecciona tu nombre</h1>
+			<!-- Buscador de nombres -->
+				<h2>Buscar:</h2>
+			    <input type="text" class="text-input" id="filtrar" value="" />
 				<div class="lista">
 					@foreach($corredores as $corredor)
 					<h3 class="elemento-lista-registrado">{{$corredor->apellidos.' '.$corredor->nombre}}</h3>
@@ -149,6 +152,25 @@
 <script src="js/sweetalert.min.js"></script>
 
 <script>
+// Buscador
+$("#filtrar").keyup(function()
+{
+        var filtro = $(this).val();
+        $(".lista h3").each(function(){
+ 
+            // crea una expresion regular para comparar con lo del input
+            if ($(this).text().search(new RegExp(filtro, "i")) < 0) 
+            {
+                $(this).hide();
+            }
+             else 
+            {
+                $(this).show();
+            }
+        });
+});
+
+// Fin de buscador
 $(document).on("click",".btn-registro",function()
 {
 	$(".progreso").css("left","0");

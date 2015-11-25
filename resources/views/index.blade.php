@@ -104,6 +104,7 @@
 					<div class="div_top datos_top">
 						<h3 class="dist-recorrida">{{ $corredor->distancia }} m</h3>
 						<h3 class="nombre-top">{{ $corredor->nombre.' '.$corredor->apellidos }}</h3>
+						<a href="" target?>¡Sigue corriendo!</a>
 					</div>
 			</section>
 			@endforeach

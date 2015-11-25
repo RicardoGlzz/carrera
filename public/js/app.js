@@ -433,68 +433,68 @@ var decima =
 function animate() {
 
     // lineas guia
-    ctx.lineWidth = 5;
+    // ctx.lineWidth = 5;
 
-    ctx.beginPath();
-    ctx.moveTo(150, 200);
-    ctx.lineTo(130, 10);
-    ctx.strokeStyle = 'red';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(150, 200);
+    // ctx.lineTo(130, 10);
+    // ctx.strokeStyle = 'red';
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(130, 10);
-    ctx.lineTo(340, 80);
-    ctx.strokeStyle = 'green';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(130, 10);
+    // ctx.lineTo(340, 80);
+    // ctx.strokeStyle = 'green';
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(340, 80);
-    ctx.lineTo(560, 30);
-    ctx.strokeStyle = 'gold';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(340, 80);
+    // ctx.lineTo(560, 30);
+    // ctx.strokeStyle = 'gold';
+    // ctx.stroke();
     
 
-    ctx.beginPath();
-    ctx.moveTo(560, 30);
-    ctx.lineTo(800, 40);
-    ctx.strokeStyle = 'blue';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(560, 30);
+    // ctx.lineTo(800, 40);
+    // ctx.strokeStyle = 'blue';
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(800, 40);
-    ctx.lineTo(800, 220);
-    ctx.strokeStyle = 'gold';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(800, 40);
+    // ctx.lineTo(800, 220);
+    // ctx.strokeStyle = 'gold';
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(800, 220);
-    ctx.lineTo(800, 380);
-    ctx.strokeStyle = 'red';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(800, 220);
+    // ctx.lineTo(800, 380);
+    // ctx.strokeStyle = 'red';
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(800, 380);
-    ctx.lineTo(550, 380);
-    ctx.strokeStyle = 'blue';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(800, 380);
+    // ctx.lineTo(550, 380);
+    // ctx.strokeStyle = 'blue';
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(550, 380);
-    ctx.lineTo(350, 250);
-    ctx.strokeStyle = 'gold';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(550, 380);
+    // ctx.lineTo(350, 250);
+    // ctx.strokeStyle = 'gold';
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(350, 250);
-    ctx.lineTo(125, 360);
-    ctx.strokeStyle = 'red';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(350, 250);
+    // ctx.lineTo(125, 360);
+    // ctx.strokeStyle = 'red';
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(125, 360);
-    ctx.lineTo(150, 200);
-    ctx.strokeStyle = 'blue';
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.moveTo(125, 360);
+    // ctx.lineTo(150, 200);
+    // ctx.strokeStyle = 'blue';
+    // ctx.stroke();
 
     setTimeout(function () {
         requestAnimFrame(animate);
@@ -505,7 +505,7 @@ function animate() {
             return;
         }
         var pt = puntosclave[posicion];
-        console.log(posicion);
+        // console.log(posicion);
 
 
         // dibujar imagenes deacuerdo a su posicion

@@ -301,9 +301,14 @@ nav div
 }
 #participantes .datos_top .nombre-top 
 {
-	margin-top: 20px;
 	width: 70%;
 	margin-left: 30%;
+}
+#participantes .datos_top a 
+{
+	margin-left: 45px;
+    color: #ac162c;
+    font-weight: bold;
 }
 .datos_top .dist-recorrida
 {
@@ -829,16 +834,28 @@ footer
 	.lista-part .lista
 	{
 		width: 80%;
-		height: 320px;
+		height: 215px;
 		margin: auto;
 		border: 2px solid #F79532;
 		border-radius: 6px;
+		overflow-y: auto; 
+	}
+	.lista-part h2 
+	{
+		text-align: center;
 	}
 	.lista-part .lista h3:hover 
 	{
 		background: #F79532;
 	    color: white;
 	    cursor: pointer;
+	}
+	.lista-part input 
+	{
+		border: 1px solid gray;
+	    font-size: 1.2em;
+	    padding: 5px;
+	    margin: 0 25px 25px 25px;
 	}
 	.lista-activo
 	{	
