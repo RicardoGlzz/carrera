@@ -22,6 +22,32 @@ class RegistroController extends Controller
 
 		$corredores = Registro::getTotalCorredores();
 
+		$lista = $this->lista();
+
+		$i=0;
+		for($i=0;$i<10;$i++)
+		{
+			$img = Image::make('boletos/boleto.jpg');
+
+			$folio = $i+1;
+			$codigo = $lista[$i];
+
+			$filename = 'boletos/boleto'.$codigo.'.jpg';
+
+			$img->text($folio.'                                  '.$folio.'                                                                                           '.$codigo,
+				450, 767, function($font) {
+				$font->file('fonts/Roboto-Regular.ttf');
+				$font->size(50);
+				$font->color('#000000');
+			});
+
+			$img->save($filename);
+			$i++;
+		}
+
+
+
+
 		return view('registro')->with('corredores',$corredores);
 	}
 

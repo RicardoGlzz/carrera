@@ -24,23 +24,6 @@ class ApplicationController extends Controller
 
 		$corredores = Registro::getCorredores();
 
-		$img = Image::make('img/boleto.jpg');
-		$folio = 'HOLA45';
-		$filename = 'img/boleto'.$folio.'.jpg';
-		
-		$img->text($folio, 195, 189, function($font) {
-			$font->file('fonts/bang whack pow.ttf');
-			$font->size(13);
-			$font->color('#000000');
-		});
-		$img->text($folio, 107, 188, function($font) {
-			$font->file('fonts/bang whack pow.ttf');
-			$font->size(13);
-			$font->color('#000000');
-		});
-		
-		$img->save($filename);
-
 		return view('index')->with(compact('corredores','tops','distancia_total','filename'));
 	}
 
