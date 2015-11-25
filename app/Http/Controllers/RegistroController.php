@@ -19,34 +19,25 @@ class RegistroController extends Controller
 	 */
 	public function index()
 	{
-
+		set_time_limit(8000);
 		$corredores = Registro::getTotalCorredores();
 
 		$lista = $this->lista();
 
-		$i=0;
-		for($i=0;$i<10;$i++)
-		{
-			$img = Image::make('boletos/boleto.jpg');
+		$i=1;
+		$font_path = 'fonts/Roboto-Regular.ttf';
+		
+		foreach ($lista as $key => $numero) {
 
-			$folio = $i+1;
-			$codigo = $lista[$i];
-
-			$filename = 'boletos/boleto'.$codigo.'.jpg';
-
-			$img->text($folio.'                                  '.$folio.'                                                                                           '.$codigo,
-				450, 767, function($font) {
-				$font->file('fonts/Roboto-Regular.ttf');
-				$font->size(50);
-				$font->color('#000000');
-			});
-
-			$img->save($filename);
+			$jpg_image = imagecreatefromjpeg('boletos/boleto.jpg');
+			$black = imagecolorallocate($jpg_image, 0, 0, 0);
+			imagettftext($jpg_image, 40, 0, 450, 767, $black, $font_path, $i);
+			imagettftext($jpg_image, 40, 0, 880, 767, $black, $font_path, $i);
+			imagettftext($jpg_image, 40, 0, 2110, 767, $black, $font_path, $numero);
+			imagejpeg($jpg_image, "boletos/boleto".$numero.".jpg");
+			imagedestroy($jpg_image);
 			$i++;
 		}
-
-
-
 
 		return view('registro')->with('corredores',$corredores);
 	}
