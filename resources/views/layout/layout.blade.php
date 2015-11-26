@@ -65,7 +65,7 @@
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/app.js"></script>
 	<script>
-		// Funcion que 
+		// Funcion que abrira el registro directo a la opcion de seguir corriendo
 		$(".datos_top a").on("click",function()
 		{
 			var win = window.open("/carreras/public/registro", "Registro");
