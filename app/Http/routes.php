@@ -38,6 +38,10 @@ Route::post('registro',[
 	'uses' => 'RegistroController@store'
 ]);
 
+Route::post('registroSeguir',[
+	'uses' => 'RegistroController@storeSeguir'
+]);
+
 Route::post('checkFolio',[
 	'uses' => 'RegistroController@checkFolio'
 ]);

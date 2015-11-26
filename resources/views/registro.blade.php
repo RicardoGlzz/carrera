@@ -135,7 +135,7 @@
 		<section class="form folio-apart">
 			{!! Form::open(array('url' => 'registroSeguir','id'=>'formularioSeguir','files' => true)) !!}
 			<h1>Agregar más distancia para:</h1>
-			<input type="hidden" id="mas_distancia">
+			<input type="hidden" id="mas_distancia" name="mas_distancia">
 			<h2 class="persona_a_correr"></h2>
 			<label for="">Folio</label>
 			<br>
@@ -145,7 +145,7 @@
 			<br>
 			<input type="text" placeholder="Código" name="codigo-seguir">
 			<br>
-			<button class="terminar-correr">Terminar</button>
+			<input type="button" class="terminar-correr" value="Terminar">
 			{!! Form::close() !!}
 		</section>
 
@@ -404,7 +404,8 @@ $(document).on("click",".terminar-correr",function()
 						console.log(data);
 					}
 			});
-		}	
+			swal("OK","","success");
+		}
 		
 	});
 });

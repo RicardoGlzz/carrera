@@ -102,6 +102,32 @@ class RegistroController extends Controller
 		
 	}
 
+	public function storeSeguir(Request $request)
+	{
+		
+
+		$datos = $request->all();
+
+		$registro = Registro::find($datos['mas_distancia']);
+
+		$registro->distancia = 1;
+		$registro->folio = $datos['folio-seguir'];
+		$registro->codigo = $datos['codigo-seguir'];
+
+		$lista = $this->lista();
+		$correcto = false;
+		$clave = array_search($datos['codigo-seguir'], $lista);
+		if($clave+1==$registro->folio) $correcto = true;
+
+		if($correcto)
+		{
+			$registro->save();
+			return $datos;
+		}
+		else return 'Algo salió mal';
+		
+	}
+
 	public function lista(){
 
 		$PD = 0;
