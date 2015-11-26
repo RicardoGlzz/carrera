@@ -89,4 +89,12 @@ class Registro extends Model
 			}
 		return $orientation;
 	}
+
+	public function scopeGetCodigoUsado($query,$codigo) {
+
+		$repetido = DB::table('registros')->where('codigo','=',$codigo)->get();
+
+		if($repetido) return 'NO';
+		else return 'OK';
+	}
 }

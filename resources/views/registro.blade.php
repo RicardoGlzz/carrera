@@ -184,53 +184,70 @@ $(document).on("click","#anterior",function()
 })
 
 $("#siguiente").on("click",function()
-{   
+{
+	var nombre = $('[name="nombre"]').val(),
+		apellidos = $('[name="apellidos"]').val(),
+		email = $('[name="email"]').val(),
+		folio = $('[name="folio"]').val(),
+		codigo = $('[name="codigo"]').val(),
+		email_reg = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+		
 
-	var validar = true;
-	$("#formulario input[type='text']").each(function()
-	{
-		if(!$(this).val())
-		{
-			validar = false;
-			sweetAlert("Complete correctamente los datos", "", "error");
-			
+	function validar() {
+
+		var mensaje = "";
+
+		if ((nombre=="")||(nombre==null)||(apellidos=="")||(apellidos==null)||(email=="")||(email==null)||(folio=="")||(folio==null)||(codigo=="")||(codigo==null)){
+			mensaje += "*Faltan datos<br>";
 		}
 
-		//checar email
-		var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-		if($("#formulario input",this).attr("type")=="email" && !email_reg.test($.trim($(this).val())))
-		{
-			sweetAlert("Ingrese una cuenta de correo válida", "", "error");
-			validar = false;
+		if( isNaN(folio) ) {
+			mensaje += "*El folio debe tener solo números<br>";
+		}
+
+		if(!email_reg.test($.trim(email))) {
+			mensaje += "*Formato incorrecto de correo<br>";
+		}
+
+		if(mensaje=="") {
+			return true;
+		}
+
+		else {
+			swal({
+				title: "Error en los datos",
+				type: "error",
+				text: mensaje,
+				html: true
+			});
 			return false;
 		}
-		
-		if( isNaN($("#folio").val()) )
-		{
-			sweetAlert("El folio debe tener solo numeros", "", "error");
-			validar = false; 
-			
-		}
+	}
 
-	});
 
 	$.post('checkFolio', {"folio":$('[name="folio"]').val(),"codigo":$('[name="codigo"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
-		if(data=="NO")
+		if(validar())
 		{
-			sweetAlert("Error con el folio o código", "", "error");
-			validar = false;
-		}
-		else if(validar)
-		{
-			$(".progreso .paso-1").addClass("color-progreso");
-			$(".form-1").css("left","100%");
-			$(".form-1").removeClass("animar-form");
-			$(".form-1").css("display","block");
-			$(".form-2").css("display","block");
+			if(data=="NO"||data=="NO CON CLAVE FALSE")
+			{
+				swal("Error con el folio o código","","error");
+			}
+			else if(data=="USADO")
+			{
+				swal("Código ya utilizado","","error");
+			}
+			else
+			{
+				$(".progreso .paso-1").addClass("color-progreso");
+				$(".form-1").css("left","100%");
+				$(".form-1").removeClass("animar-form");
+				$(".form-1").css("display","block");
+				$(".form-2").css("display","block");
+			}	
 		}
 	});
+});
 
-})
 $(document).on("click","#submit-trabajo",function()
 {
 	$(".spinner").css("opacity","1");
