@@ -19,13 +19,12 @@ class RegistroController extends Controller
 	 */
 	public function index()
 	{
-		set_time_limit(8000);
 		$corredores = Registro::getTotalCorredores();
 
 		$lista = $this->lista();
 
-		$i=1;
-		$font_path = 'fonts/Roboto-Regular.ttf';
+		// $i=1;
+		// $font_path = 'fonts/Roboto-Regular.ttf';
 		
 		// foreach ($lista as $key => $numero) {
 
@@ -85,6 +84,7 @@ class RegistroController extends Controller
 		}
 
 		$registro->tipo = $datos['tipo'];
+		$registro->distancia = 1;
 		$registro->folio = $datos['folio'];
 		$registro->codigo = $datos['codigo'];
 
@@ -249,17 +249,34 @@ class RegistroController extends Controller
 	public function checkFolio(Request $request) {
 		$datos = $request->all();
 
-		$lista = $this->lista();
-		$correcto = false;
-		$clave = array_search($datos['codigo'], $lista);
-		if($clave+1==$datos['folio']) $correcto = true;
+		$usado = Registro::getCodigoUsado($datos['codigo']);
 
-		if($correcto)
+		if($usado=='NO')
 		{
-			return 'OK';
+			return 'USADO';
 		}
-		else return 'NO';	
+		else if($usado=='OK')
+		{
+			$lista = $this->lista();
+			$correcto = false;
+
+			$clave = 0;
+			$neddle = $datos['codigo'];
+			$clave = array_search($neddle, $lista);
+			if($clave!==false)
+			{
+				if(($clave+1)==$datos['folio']) $correcto = true;
+
+				if($correcto==true)
+				{
+					return 'OK';
+				}
+				else return 'NO';		
+			}
+			else return 'NO CON CLAVE FALSE';
+		}
 	}
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
