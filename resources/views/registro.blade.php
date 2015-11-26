@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Registro</title>
+	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/estilos.css">
@@ -143,10 +144,6 @@
 		</section>
 
 	</section>
-
-	<!--   <footer class="franja-bottom">
-
-	</footer> -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
@@ -317,13 +314,20 @@ $(document).on("click",".siguiente-main",function()
 	elemento = $(arreglo).get(-1);
 	$("#mas_distancia").val(elemento);
 });
-
-$(".form-3 a").on("click",function(){
-	
+// Se guarda en localstorage la clase que se usara cuando se redirecciona al sitio y se muestra el mensaje
+$(".form-3 a").on("click",function()
+{	
 	localStorage.setItem("perfil", "muestra-perfil");
 })
-	  
-
+// Funcion que se ejecuta al dar click de 'seguir corriendo en los perfiles de corredores'
+function seguirle()
+{
+	$(".form-0").css("left","100%");
+	$(".progreso").css("left","100%");
+	$(".lista-part").addClass("animar-form");
+	$(".lista-part").css("display","block");
+	$(".form-1").css("display","none");	
+}
 
 </script>
 </body>

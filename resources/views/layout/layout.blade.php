@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>12KChocho</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/sweetalert.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -41,7 +42,7 @@
 						<a href="https://www.facebook.com/12-K-Chocho-623822074376506/?fref=ts" target="_blank">
 							<li><i class="fa fa-facebook"></i></li>
 						</a>
-						<a href="">
+						<a href="https://twitter.com/CASA_12KChocho" target="_blank">
 							<li><i class="fa fa-twitter"></i></li>
 						</a>
 					</ul>
@@ -64,6 +65,16 @@
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/app.js"></script>
 	<script>
+		// Funcion que 
+		$(".datos_top a").on("click",function()
+		{
+			var win = window.open("/carreras/public/registro", "Registro");
+			win.focus();
+			win.addEventListener('load', function(){
+			win.seguirle();
+			}, true);
+		})		
+		// Obtener clase de mensaje 
 		var perfil = localStorage.getItem("perfil");
 
 		$(".checar-perfil").addClass(perfil);
