@@ -314,6 +314,7 @@ $(document).on("click",".siguiente-main",function()
 	elemento = $(arreglo).get(-1);
 	$("#mas_distancia").val(elemento);
 });
+
 // Se guarda en localstorage la clase que se usara cuando se redirecciona al sitio y se muestra el mensaje
 $(".form-3 a").on("click",function()
 {	
@@ -322,12 +323,34 @@ $(".form-3 a").on("click",function()
 // Funcion que se ejecuta al dar click de 'seguir corriendo en los perfiles de corredores'
 function seguirle()
 {
+	
+	$(".folio-apart").addClass("animar-form");
+	$(".lista-part").css("display","none");
+	$(".form-1").css("display","none");
+	$(".folio-apart").css("display","block");
+	agrega = localStorage.getItem("nombre-corredor");
+	$("#mas_distancia").val(agrega);
+	$(".persona_a_correr").text(agrega);
+}
+function buscarNombre()
+{
 	$(".form-0").css("left","100%");
 	$(".progreso").css("left","100%");
 	$(".lista-part").addClass("animar-form");
 	$(".lista-part").css("display","block");
-	$(".form-1").css("display","none");	
+	$(".form-1").css("display","none");
 }
+function registrar()
+{
+	$(".progreso").css("left","0");
+	$(".form-0").css("left","100%");
+	$(".form-1").addClass("animar-form");
+	$(".form-1").css("display","block");
+}
+$(document).on("click",".terminar-correr",function()
+{
+	localStorage.clear();
+})
 
 </script>
 </body>

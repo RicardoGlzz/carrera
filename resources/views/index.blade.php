@@ -8,6 +8,7 @@
 </div>
 @endif
 			<article class="checar-perfil">
+				<span>X</span>
 				<h1>Ya hemos avanzado gracias a ti, puedes ver tu perfil en la seccion de participantes mediante el siguiente enlace</h1>
 				<a href="#participantes">Vér mi perfil</a>
 			</article>
@@ -31,7 +32,7 @@
 					</div>
 				</div>
 				<div class="boton-registro">
-					<a target="_blank" href="{{ URL::to('registro') }}">
+					<a target="_blank" href="">
 					   <h1>APORTA</h1>
 					   <h4>Haz click aquí</h4>
 					</a>

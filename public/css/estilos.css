@@ -998,6 +998,14 @@ footer
 		-webkit-transition: all 2s ease;
 		-moz-transition: all 2s ease;
 	}
+	.checar-perfil span 
+	{
+		position: relative;
+	    left: 125px;
+	    font-size: 1.5em;
+	    font-weight: bold;
+	    cursor: pointer;
+	}
 	.muestra-perfil 
 	{	
 		right: 0;

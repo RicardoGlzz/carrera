@@ -66,14 +66,36 @@
 	<script src="js/app.js"></script>
 	<script>
 		// Funcion que abrira el registro directo a la opcion de seguir corriendo
-		$(".datos_top a").on("click",function()
+		$(".datos_top a").on("click",function(event)
 		{
+			event.preventDefault();
+			
+			var nombre_corredor = $(this).parents(".datos_top").find(".nombre-top").text();
+			localStorage.setItem("nombre-corredor",nombre_corredor);
 			var win = window.open("/carreras/public/registro", "Registro");
 			win.focus();
 			win.addEventListener('load', function(){
 			win.seguirle();
 			}, true);
 		})		
+		$(".seguir-corriendo").on("click",function()
+		{
+			var ventana = window.open("/carreras/public/registro", "Registro");
+			ventana.focus();
+			ventana.addEventListener('load', function(){
+			ventana.buscarNombre();
+			}, true);
+		})
+
+		$(".boton-registro").on("click",function()
+		{
+			var wind = window.open("/carreras/public/registro", "Registro");
+			wind.focus();
+			wind.addEventListener('load', function(){
+			wind.registrar();
+			}, true);
+		})
+		
 		// Obtener clase de mensaje 
 		var perfil = localStorage.getItem("perfil");
 
@@ -82,6 +104,12 @@
 		$(".checar-perfil a").on("click",function()
 		{
 			localStorage.clear();
+			$(this).parents().find(".checar-perfil").removeClass("muestra-perfil");
+		})
+
+
+		$(".checar-perfil span").on("click",function()
+		{
 			$(this).parents().find(".checar-perfil").removeClass("muestra-perfil");
 		})
     </script>
