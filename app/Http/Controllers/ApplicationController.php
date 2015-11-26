@@ -27,6 +27,10 @@ class ApplicationController extends Controller
 		return view('index')->with(compact('corredores','tops','distancia_total','filename'));
 	}
 
+	public function casa()
+	{
+		return view('casa');
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *

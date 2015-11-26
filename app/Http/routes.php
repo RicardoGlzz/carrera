@@ -20,6 +20,10 @@ Route::get('',[
 	'as'	=> 'home'
 ]);
 
+Route::get('casa',[
+	'uses' 	=> 'ApplicationController@casa',
+	'as'	=> 'casa'
+]);
 Route::get('registro',[
 	'uses' 	=> 'RegistroController@index',
 	'as'	=> 'registro'

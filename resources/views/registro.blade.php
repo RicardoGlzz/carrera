@@ -364,6 +364,7 @@ function registrar()
 	$(".form-1").addClass("animar-form");
 	$(".form-1").css("display","block");
 }
+
 $(document).on("click",".terminar-correr",function()
 {
 	localStorage.clear();

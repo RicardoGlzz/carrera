@@ -78,6 +78,7 @@
 			win.seguirle();
 			}, true);
 		})		
+		
 		$(".seguir-corriendo").on("click",function()
 		{
 			var ventana = window.open("/carreras/public/registro", "Registro");
