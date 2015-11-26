@@ -133,14 +133,20 @@
 		</section>
 
 		<section class="form folio-apart">
+			{!! Form::open(array('url' => 'registroSeguir','id'=>'formularioSeguir','files' => true)) !!}
 			<h1>Agregar más distancia para:</h1>
 			<input type="hidden" id="mas_distancia">
 			<h2 class="persona_a_correr"></h2>
 			<label for="">Folio</label>
 			<br>
-			<input type="text" placeholder="Folio">
+			<input type="text" placeholder="Folio" name="folio-seguir">
+			<br>
+			<label for="">Código</label>
+			<br>
+			<input type="text" placeholder="Código" name="codigo-seguir">
 			<br>
 			<button class="terminar-correr">Terminar</button>
+			{!! Form::close() !!}
 		</section>
 
 	</section>
@@ -346,7 +352,8 @@ function seguirle()
 	$(".form-1").css("display","none");
 	$(".folio-apart").css("display","block");
 	agrega = localStorage.getItem("nombre-corredor");
-	$("#mas_distancia").val(agrega);
+	id = localStorage.getItem("nombre-id");
+	$("#mas_distancia").val(id);
 	$(".persona_a_correr").text(agrega);
 }
 function buscarNombre()
@@ -368,7 +375,39 @@ function registrar()
 $(document).on("click",".terminar-correr",function()
 {
 	localStorage.clear();
-})
+	$.post('checkFolio', {"folio":$('[name="folio-seguir"]').val(),"codigo":$('[name="codigo-seguir"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+
+		if(data=="NO"||data=="NO CON CLAVE FALSE")
+		{
+			swal("Error con el folio o código","","error");
+		}
+		else if(data=="USADO")
+		{
+			swal("Código ya utilizado","","error");
+		}
+		else
+		{
+			$.ajax({
+				type: "POST",
+				url: 'registroSeguir',
+				data: new FormData($('#formularioSeguir')[0]),
+				cache:false,
+				contentType: false,
+				processData: false,
+				async: false,
+					success:function(data){
+						console.log("success");
+						console.log(data);
+					},
+					error: function(data){
+						console.log("error");
+						console.log(data);
+					}
+			});
+		}	
+		
+	});
+});
 
 </script>
 </body>

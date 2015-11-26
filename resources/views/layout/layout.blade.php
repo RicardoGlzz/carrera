@@ -71,31 +71,33 @@
 			event.preventDefault();
 			
 			var nombre_corredor = $(this).parents(".datos_top").find(".nombre-top").text();
+			var nombre_id = $(this).parents(".datos_top").find(".nombre-id").val();
+			console.log(nombre_id);
 			localStorage.setItem("nombre-corredor",nombre_corredor);
-			var win = window.open("/carreras/public/registro", "Registro");
+			localStorage.setItem("nombre-id",nombre_id);
+			var win = window.open("/carrera/public/registro", "Registro");
 			win.focus();
 			win.addEventListener('load', function(){
 			win.seguirle();
 			}, true);
-		})		
-		
+		});
 		$(".seguir-corriendo").on("click",function()
 		{
-			var ventana = window.open("/carreras/public/registro", "Registro");
+			var ventana = window.open("/carrera/public/registro", "Registro");
 			ventana.focus();
 			ventana.addEventListener('load', function(){
 			ventana.buscarNombre();
 			}, true);
-		})
+		});
 
 		$(".boton-registro").on("click",function()
 		{
-			var wind = window.open("/carreras/public/registro", "Registro");
+			var wind = window.open("/carrera/public/registro", "Registro");
 			wind.focus();
 			wind.addEventListener('load', function(){
 			wind.registrar();
 			}, true);
-		})
+		});
 		
 		// Obtener clase de mensaje 
 		var perfil = localStorage.getItem("perfil");
