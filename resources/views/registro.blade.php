@@ -155,17 +155,17 @@
 // Buscador
 $("#filtrar").keyup(function()
 {
-        var filtro = $(this).val();
-        $(".lista h3").each(function(){
- 
-            // crea una expresion regular para comparar con lo del input
-            if ($(this).text().search(new RegExp(filtro, "i")) < 0) 
+	var filtro = $(this).val();
+	$(".lista h3").each(function()
+	{
+        // crea una expresion regular para comparar con lo del input
+        if ($(this).text().search(new RegExp(filtro, "i")) < 0) 
             {
-                $(this).hide();
+            	$(this).hide();
             }
-             else 
+            else 
             {
-                $(this).show();
+            	$(this).show();
             }
         });
 });

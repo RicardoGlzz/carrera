@@ -19,16 +19,16 @@
 				</div>
 				<div class="menu">
 					<ul>
-						<a href="">
+						<a href="{{ URL::to('registro') }}" target="_blank">
 							<li>REGISTRO</li>
 						</a>
-						<a href="">
+						<a href="#descripcion">
 							<li>¿POR QUÉ 12K?</li>
 						</a>
-						<a href="">
+						<a href="#participantes">
 							<li>CORREDORES</li>
 						</a>
-						<a href="">
+						<a href="#top5">
 							<li>TOP 5</li>
 						</a>
 						<a href="https://www.facebook.com/CASA-Centro-de-Ayuda-Servicio-y-Apoyo-de-Durango-AC-1630681567175232/" target="_blank">

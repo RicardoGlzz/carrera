@@ -21,7 +21,7 @@ $(function()
 // var distancia_total = $("#numero-metros").text();
 // distancia_total.replace('m','');
 // var numero = parseInt(distancia_total);
-var numero = 12000;
+var numero = 6450;
 
 
 // Coordenada inicial
