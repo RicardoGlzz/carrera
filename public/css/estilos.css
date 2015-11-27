@@ -1064,11 +1064,16 @@ footer
 	.concepto
 	{
 		background: #e9A60B;
+		text-align: center;
+		color: white;
 	}
 	.concepto div 
 	{
-
+		width: 45%;
+	    display: inline-block;
+	    vertical-align: middle;
 	}
+
 	/*Media queries*/
 	@media(max-width: 1400px){
 		#canvas

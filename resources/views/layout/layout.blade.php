@@ -54,6 +54,9 @@
 		@yield('content')
 
 		<footer>
+			<div class="direccion">
+				<p>Carlos León de la Peña No.509 Zona Centro,Durango,Dgo.</p>
+			</div>
 			<div class="virtua_logo">
 				<img src="img/virtua_logo.png" alt="logo de virtua">
 			</div>
