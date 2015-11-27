@@ -18,82 +18,82 @@ $(function()
     var pathArray = [];
 
 // VARIABLE DE DISTANCIA TOTAL
-var distancia_total = $("#numero-metros").text();
-distancia_total.replace('m','');
-var numero = parseInt(distancia_total);
-// var numero = 6450;
+// var distancia_total = $("#numero-metros").text();
+// distancia_total.replace('m','');
+// var numero = parseInt(distancia_total);
+var numero = 12000;
 
 
 // Coordenada inicial
 
 var inicial =
 {
-    x: 50,
+    x: 190,
     y: 230
 }
 
 // Coordenadas para distancia de lineas
-var primera = 
-{
-    x: 50,
-    y: 50
-}
+    var primera = 
+    {
+        x: 180,
+        y: 50
+    }
 
-var segunda = 
-{
-    x: 260,
-    y: 90
-}
+    var segunda = 
+    {
+        x: 340,
+        y: 120
+    }
 
-var tercera = 
-{
-    x: 490,
-    y: 60
-}
+    var tercera = 
+    {
+        x: 560,
+        y: 60
+    }
 
-var cuarta = 
-{
-    x: 710,
-    y: 60
-}
-
-
-var quinta = 
-{
-    x: 720,
-    y: 240
-}
+    var cuarta = 
+    {
+        x: 810,
+        y: 60
+    }
 
 
-var sexta = 
-{
-    x: 720,
-    y: 420
-}
+    var quinta = 
+    {
+        x: 810,
+        y: 240
+    }
 
-var septima = 
-{
-    x: 500,
-    y: 440
-}
 
-var octava = 
-{
-    x: 320,
-    y: 300
-}
+    var sexta = 
+    {
+        x: 810,
+        y: 400
+    }
+
+    var septima = 
+    {
+        x: 600,
+        y: 400
+    }
+
+    var octava = 
+    {
+        x: 320,
+        y: 300
+    }
 
 var novena = 
 {
-    x: 60,
-    y: 360
+    x: 180,
+    y: 390
 }
 
 
 var decima = 
 {
-    x: 70,
-    y: 280
+    x: 190,
+    y: 300
 }
 
 
@@ -103,9 +103,9 @@ var decima =
     {
 
             // Calcular distancia entre dos puntos
-            x1 = 50;
+            x1 = 190;
             y1 = 230;
-            x2 = 50;
+            x2 = 180;
             y2 = 50;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
@@ -119,7 +119,7 @@ var decima =
             pathArray.push(inicial);  
             pathArray.push(
             {
-                x: 50,
+                x: 180,
                 y: valor
             }
             );
@@ -133,8 +133,8 @@ var decima =
             // Calcular distancia entre dos puntos
             x1 = 50;
             y1 = 50;
-            x2 = 260;
-            y2 = 90;
+            x2 = 220;
+            y2 = 120;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
             var cx = (numero * distancia) / 1200;
@@ -149,7 +149,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: 80
+                y: 120
             }
             );  
         }
@@ -159,9 +159,9 @@ var decima =
     {   
         numero-=2400;
             // Calcular distancia entre dos puntos
-            x1 = 260;
-            y1 = 90;
-            x2 = 490;
+            x1 = 340;
+            y1 = 120;
+            x2 = 560;
             y2 = 60;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
@@ -189,9 +189,9 @@ var decima =
     {
         numero-=3600;
             // Calcular distancia entre dos puntos
-            x1 = 490;
+            x1 = 560;
             y1 = 60;
-            x2 = 710;
+            x2 = 810;
             y2 = 60;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
@@ -220,9 +220,9 @@ var decima =
         
         numero-=4800;
             // Calcular distancia entre dos puntos
-            x1 = 710;
+            x1 = 810;
             y1 = 60;
-            x2 = 720;
+            x2 = 810;
             y2 = 240;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
@@ -240,7 +240,7 @@ var decima =
             pathArray.push(cuarta);
             pathArray.push(
             {
-                x: 720,
+                x: 810,
                 y: valor
             }
             );  
@@ -256,10 +256,10 @@ var decima =
     {
         numero-=6000;
             // Calcular distancia entre dos puntos
-            x1 = 720;
+            x1 = 820;
             y1 = 240;
-            x2 = 500;
-            y2 = 440;
+            x2 = 820;
+            y2 = 400;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
             var cy = (numero * distancia) / 1200;
@@ -277,7 +277,7 @@ var decima =
             pathArray.push(quinta);
             pathArray.push(
             {
-                x: 720,
+                x: 820,
                 y: valor
             }
             );  
@@ -288,10 +288,10 @@ var decima =
     {
         numero-=7200;
             // Calcular distancia entre dos puntos
-            x1 = 720;
-            y1 = 440;
-            x2 = 500;
-            y2 = 440;
+            x1 = 820;
+            y1 = 400;
+            x2 = 600;
+            y2 = 400;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
             var cx = (numero * distancia) / 1200;
@@ -355,10 +355,10 @@ var decima =
     {
         numero-=9600;
             // Calcular distancia entre dos puntos
-            x1 = 360;
-            y1 = 260;
-            x2 = 60;
-            y2 = 360;
+            x1 = 320;
+            y1 = 300;
+            x2 = 180;
+            y2 = 390;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
             var cx = (numero * distancia) / 1200;
@@ -380,7 +380,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: 360
+                y: 390
             }
             );  
         }
@@ -390,10 +390,10 @@ var decima =
     {
         numero-= 10800;
             // Calcular distancia entre dos puntos
-            x1 = 60;
-            y1 = 360;
-            x2 = 50;
-            y2 = 280;
+            x1 = 180;
+            y1 = 390;
+            x2 = 190;
+            y2 = 300;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
             var cy = (numero * distancia) / 1200;
@@ -415,7 +415,7 @@ var decima =
             pathArray.push(novena);
             pathArray.push(
             {
-                x: 60,
+                x: 180,
                 y: valor
             }
             );  

@@ -162,17 +162,17 @@ nav div
 }
 .boton-registro 
 {
-	background: #ac162c;
-	width: 130px;
+	background: #FFDA00;
+	width: 230px;
 	padding: 10px;
-	color: white;
+	color: #ac162c;
 	border-radius: 5px;
 	margin: auto;
 	cursor: pointer;
 }
 .boton-registro a 
 {
-	color: white;
+	color: #ac162c;
 }
 .boton-registro > h1:first-child
 {
@@ -883,6 +883,7 @@ footer
 		background-image: url("../img/mapa.png");
 		background-size: cover;
 		background-repeat: no-repeat;
+		outline: 1px solid gray;
 	}
 	.folio-apart
 	{
@@ -1020,3 +1021,57 @@ footer
     	margin-top: 15px;
     	font-size: 1.3em;
 	}
+	/*Seccion de CASA*/
+	.casa_body
+	{
+		background: #F79532;
+	}
+	.casa_wrapper .logo_casa
+	{
+		text-align: center;
+	    padding: 20px;
+	    background: white;
+	}
+	.casa_wrapper .introduccion
+	{
+		color: white;
+	    padding: 15px;
+	    font-size: 1.5em;
+	    border: 5px solid white;
+	    width: 90%;
+	    margin: auto;
+	}
+	.casa_wrapper .introduccion h1 
+	{	
+		text-align: center;
+    	padding: 20px;
+	}
+	.casa_wrapper .introduccion p 
+	{
+		padding: 20px;
+	}
+	.casa_wrapper .iniciativa
+	{
+		width: 70%;
+		margin: auto;
+		position: relative;
+		top: 25px;
+		-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		-moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		background: white;
+	}
+	.casa_wrapper .iniciativa p 
+	{
+		padding: 20px;
+    	font-size: 1.5em;
+	}
+	.casa_wrapper .iniciativa .logo-cont
+	{
+		width: 30%;
+		margin: auto;
+	}
+	.casa_wrapper .iniciativa .logo-cont img 
+	{
+		width: 100%;
+	}
+	.casa_wrapper .iniciativa 
