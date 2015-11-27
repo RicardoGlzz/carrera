@@ -104,27 +104,31 @@ class RegistroController extends Controller
 
 	public function storeSeguir(Request $request)
 	{
-		
-
 		$datos = $request->all();
 
 		$registro = Registro::find($datos['mas_distancia']);
 
-		$registro->distancia = 1;
-		$registro->folio = $datos['folio-seguir'];
-		$registro->codigo = $datos['codigo-seguir'];
+		$registroSeguir = new Registro;
+
+		$registroSeguir->tutti = 1;
+		$registroSeguir->id_tutti = $registro->id;
+		$registroSeguir->folio = $datos['folio-seguir'];
+		$registroSeguir->codigo = $datos['codigo-seguir'];
+
+		$registro->distancia = $registro->distancia + 1;
 
 		$lista = $this->lista();
 		$correcto = false;
 		$clave = array_search($datos['codigo-seguir'], $lista);
-		if($clave+1==$registro->folio) $correcto = true;
+		if($clave+1==$registroSeguir->folio) $correcto = true;
 
 		if($correcto)
 		{
 			$registro->save();
+			$registroSeguir->save();
 			return $datos;
 		}
-		else return 'Algo salió mal';
+		else return 'Algo salió mal'.var_dump($clave).var_dump($correcto).var_dump($registroSeguir).var_dump($registro);
 		
 	}
 
