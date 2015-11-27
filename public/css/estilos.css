@@ -22,6 +22,17 @@ nav
 	background: #FFDA00;
 	height: 100px;
 }
+footer .virtua_logo
+{
+	width: 12%;
+    position: absolute;
+    right: 35px;
+    margin-top: 10px;
+}
+footer .virtua_logo img 
+{
+	width: 100%;
+}
 nav article
 {
 	background-image: url("../img/triangulo.png");
@@ -163,7 +174,7 @@ nav div
 .boton-registro 
 {
 	background: #FFDA00;
-	width: 230px;
+	width: 160px;
 	padding: 10px;
 	color: #ac162c;
 	border-radius: 5px;
@@ -174,7 +185,7 @@ nav div
 {
 	color: #ac162c;
 }
-.boton-registro > h1:first-child
+.boton-registro h1
 {
 	font-size: 1.8em;
 }
@@ -196,8 +207,10 @@ nav div
 }
 #descripcion 
 {
-	background: #FFDA00;
+	background: #F79532;
 	text-align: center;
+	color: white;
+    font-size: 1.2em;
 }
 #descripcion div
 {
@@ -206,7 +219,7 @@ nav div
 }
 #descripcion .logo-desc
 {
-	width: 15%;
+	width: 40%;
 }
 #descripcion .logo-desc img 
 {
@@ -214,7 +227,15 @@ nav div
 }
 #descripcion .desc 
 {
-	width: 55%;
+	width: 50%;
+}
+#descripcion .desc h1 
+{
+	font-size: 2.5em;
+}
+#descripcion .desc .letraP
+{
+	font-size: .8em;
 }
 #tops 
 {
@@ -1022,56 +1043,36 @@ footer
     	font-size: 1.3em;
 	}
 	/*Seccion de CASA*/
-	.casa_body
-	{
-		background: #F79532;
-	}
 	.casa_wrapper .logo_casa
 	{
 		text-align: center;
-	    padding: 20px;
-	    background: white;
+   		margin: 20px;
 	}
-	.casa_wrapper .introduccion
+	.casa_wrapper .introduccion 
 	{
-		color: white;
-	    padding: 15px;
-	    font-size: 1.5em;
-	    border: 5px solid white;
-	    width: 90%;
-	    margin: auto;
+
 	}
 	.casa_wrapper .introduccion h1 
-	{	
+	{
 		text-align: center;
-    	padding: 20px;
+    	font-size: 2em;
 	}
-	.casa_wrapper .introduccion p 
+	.casa_wrapper .introduccion p
 	{
-		padding: 20px;
+		padding: 10px;
 	}
-	.casa_wrapper .iniciativa
+	.concepto
 	{
-		width: 70%;
-		margin: auto;
-		position: relative;
-		top: 25px;
-		-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		-moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		background: white;
+		background: #e9A60B;
 	}
-	.casa_wrapper .iniciativa p 
+	.concepto div 
 	{
-		padding: 20px;
-    	font-size: 1.5em;
+
 	}
-	.casa_wrapper .iniciativa .logo-cont
-	{
-		width: 30%;
-		margin: auto;
+	/*Media queries*/
+	@media(max-width: 1400px){
+		#canvas
+		{
+			width: 100%;
+		}
 	}
-	.casa_wrapper .iniciativa .logo-cont img 
-	{
-		width: 100%;
-	}
-	.casa_wrapper .iniciativa 

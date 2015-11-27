@@ -45,12 +45,22 @@
 		</section>
 		<section id="descripcion">
 			 <article class="inverso"></article>
-			<div class="logo-desc">
-				<img src="img/logo_desc.png" alt="logo de descripcion">
-			</div>
 			<div class="desc">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente doloribus distinctio adipisci repudiandae delectus, illum quos eum eos explicabo dolor voluptate velit nesciunt! Ex quisquam nihil harum in amet eum.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde iste ipsa eaque nesciunt harum consequatur numquam aliquid nihil laudantium distinctio nobis eos hic, quibusdam repudiandae quasi impedit dolorem saepe commodi?</p>
+				<h1>CHOCHO</h1>
+				<br>
+				<p> El primer pájaro CHOCHO®  nace el 30 de abril del 2012 en una etnia llamada "Los Chocholtecas" en la sierra del estado de Oaxaca en México.</p>
+				<br>
+				<p>Su cuerpo, es creado con telas recicladas, botones, hilos, agujas, y sobre todo, relleno de mucho amor y esperanza por parte de familias y niños con cáncer dentro de hospitales ancológicos.</p>
+				<br>
+				<p>Su misión en este mundo junto a los seres humanos, "Que ninguna familia abandone los tratamientos de su niño(a) por falta de recursos economicos."</p>
+				<br>
+				<br>
+				<p>Al crear un pajaro CHOCHO®, los niños con cáncer distraen su mente y utilizan toda su creatividad junto con toda su familia.</p>
+				<br>
+				<p class="letraP">CHOCHO® es una marca registrada de Fundacion Mercado Productores A.C en la ciudad de México 2012.</p>
+			</div>
+			<div class="logo-desc">
+				<img src="img/chocho.png" alt="logo de descripcion">
 			</div>
 			<br>
 				<button id="ver-desc" class="boton-ver">Ver Más</button>

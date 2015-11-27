@@ -54,8 +54,8 @@
 		@yield('content')
 
 		<footer>
-			<div>
-				<img src="" alt="logo de virtua">
+			<div class="virtua_logo">
+				<img src="img/virtua_logo.png" alt="logo de virtua">
 			</div>
 		</footer>
 
