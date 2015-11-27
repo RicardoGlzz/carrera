@@ -115,7 +115,7 @@
 	{!! Form::close() !!}
 		<section class="form form-3">
 			<h1>Ya está listo tu registro, gracias por participar, para ver tu estado sigue el siguiente enlace.</h1>
-			<a href="{{ URL::to('/') }}" target="_blank">Ir al sitio</a>
+			<a href="{{ URL::to('/') }}">Ir al sitio</a>
 		</section>
 
 		<section class="form lista-part">
@@ -125,7 +125,8 @@
 			    <input type="text" class="text-input" id="filtrar" value="" />
 				<div class="lista">
 					@foreach($corredores as $corredor)
-					<h3 class="elemento-lista-registrado">{{$corredor->apellidos.' '.$corredor->nombre}}</h3>
+					<input type="hidden" class="" value="{{$corredor->id}}">
+					<h3 class="elemento-lista-registrado" data-idseguir="{{$corredor->id}}">{{$corredor->apellidos.' '.$corredor->nombre}}</h3>
 					@endforeach
 				</div>
 			<button class="regreso-main">Regresar</button>
@@ -324,18 +325,18 @@ $(document).on("click",".lista-part .lista h3",function()
 });
 
 $(document).on("click",".siguiente-main",function()
-{   
-
+{
 	$(".persona_a_correr").text($(".lista-activo").text());
 	$(".folio-apart").addClass("animar-form");
 	$(".lista-part").css("display","none");
 	$(".form-1").css("display","none");
 	$(".folio-apart").css("display","block");
-	var distancia_add = $(".persona_a_correr").text();
+	var distancia_add = $(".lista-activo").attr("data-idseguir");
+	console.log(distancia_add);
 	// Guardar en arreglo el ultimo valor que es el nombre para enviar al formulario
 	arreglo = distancia_add.split(/\s+/);
 	elemento = $(arreglo).get(-1);
-	$("#mas_distancia").val(elemento);
+	$("#mas_distancia").val(distancia_add);
 });
 
 // Se guarda en localstorage la clase que se usara cuando se redirecciona al sitio y se muestra el mensaje
