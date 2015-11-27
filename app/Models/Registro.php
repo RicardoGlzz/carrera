@@ -94,9 +94,16 @@ class Registro extends Model
 
 	public function scopeGetCodigoUsado($query,$codigo) {
 
-		$repetido = DB::table('registros')->where('codigo','=',$codigo)->get();
+		$repetido = DB::table('registros')->where('codigo','=',$codigo)->first();
 
-		if($repetido) return 'NO';
+		if($repetido)
+		{
+			if($repetido->tutti==1)
+			{
+				return 'TUTTI';
+			}
+			else return 'USADO';
+		}
 		else return 'OK';
 	}
 }

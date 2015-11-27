@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Registro;
 use Image;
 use Illuminate\Support\Facades\Session;
+use DB;
 
 class RegistroController extends Controller
 {
@@ -175,13 +176,13 @@ class RegistroController extends Controller
 	public function checkFolio(Request $request) {
 		$datos = $request->all();
 
-		$usado = Registro::getCodigoUsado($datos['codigo']);
+		$estado = Registro::getCodigoUsado($datos['codigo']);
 
-		if($usado=='NO')
+		if($estado=='USADO')
 		{
-			return 'USADO';
+			return $estado;
 		}
-		else if($usado=='OK')
+		else if($estado=='OK')
 		{
 			$lista = $this->lista();
 			$correcto = false;
@@ -197,10 +198,31 @@ class RegistroController extends Controller
 				{
 					return 'OK';
 				}
-				else return 'NO';		
+				else return 'NO';
 			}
-			else return 'NO CON CLAVE FALSE';
+			else return 'CÓDIGO NO VÁLIDO';
 		}
+		else if($estado=='TUTTI')
+		{
+			$lista = $this->lista();
+			$correcto = false;
+
+			$clave = 0;
+			$neddle = $datos['codigo'];
+			$clave = array_search($neddle, $lista);
+			if($clave!==false)
+			{
+				if(($clave+1)==$datos['folio']) $correcto = true;
+
+				if($correcto==true)
+				{
+					return 'OK';
+				}
+				else return 'NO';
+			}
+			else return 'CÓDIGO NO VÁLIDO';
+		}
+		else return 'wot?'.var_dump($estado);
 	}
 
 	public function checkMaster(Request $request) {

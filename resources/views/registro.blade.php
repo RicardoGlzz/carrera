@@ -238,7 +238,7 @@ $("#siguiente").on("click",function()
 	$.post('checkFolio', {"folio":$('[name="folio"]').val(),"codigo":$('[name="codigo"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
 		if(validar())
 		{
-			if(data=="NO"||data=="NO CON CLAVE FALSE")
+			if(data=="NO"||data=="CÓDIGO NO VÁLIDO")
 			{
 				swal("Error con el folio o código","","error");
 			}
@@ -246,13 +246,17 @@ $("#siguiente").on("click",function()
 			{
 				swal("Código ya utilizado","","error");
 			}
-			else
+			else if(data=="OK")
 			{
 				$(".progreso .paso-1").addClass("color-progreso");
 				$(".form-1").css("left","100%");
 				$(".form-1").removeClass("animar-form");
 				$(".form-1").css("display","block");
 				$(".form-2").css("display","block");
+			}
+			else
+			{
+				swal("Algo salió mal","","error");
 			}	
 		}
 	});
