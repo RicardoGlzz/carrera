@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Registro</title>
+	<title>Registro Master</title>
 	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -20,7 +20,7 @@
 		<section class="progreso">
 			<section>
 				<div class="paso-1"><p>1</p></div>
-				Ingresa tus datos 
+				Ingresara datos 
 			</section>
 			<section>
 				<div class="paso-2"><p>2</p></div>
@@ -49,40 +49,24 @@
 			</section>
 		</section>
 
-		{!! Form::open(array('url' => 'registro','id'=>'formulario','files' => true)) !!}
+		{!! Form::open(array('url' => 'registromaster','id'=>'formulario','files' => true)) !!}
 
 		<section class="form form-1">
-			<h1>Completa los datos para registrate</h1>
+			<h1>Datos para registro Master</h1>
 			<br>
 				{!! Form::label('', 'Nombre') !!}
 				<br>
 				{!! Form::text('nombre', null, array('placeholder'=>'Nombre','id'=>'nombre')) !!}
 				<br>
-				{!! Form::label('', 'Apellidos') !!}
+				{!! Form::label('', 'Metros') !!}
 				<br>
-				{!! Form::text('apellidos', null, array('placeholder'=>'Apellidos','id'=>'apellidos')) !!}
+				{!! Form::text('metros', null, array('placeholder'=>'Metros','id'=>'metros')) !!}
 				<br>
-				{!! Form::label('', 'Correo') !!}
+				{!! Form::label('', 'Contraseña') !!}
 				<br>
-				{!! Form::email('email', null, array('placeholder'=>'Correo','id'=>'correo')) !!}
-				<br>
-				<br>
-				<label for="">¿Es una persona o un grupo?</label>
-				<br>
-				<br>
-				<input type="radio" name="tipo" checked value="persona"> Persona
-				<input type="radio" name="tipo" value="grupo"> Grupo
-				<br>
+				{!! Form::password('password', null, array('id'=>'password')) !!}
 				<br>
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				{!! Form::label('', 'Folio') !!}
-				<br>
-				{!! Form::text('folio', null, array('placeholder'=>'Folio','id'=>'folio','maxlength'=>'4')) !!}
-				<br>
-				{!! Form::label('', 'Codigo') !!}
-				<br>
-				{!! Form::text('codigo', null, array('placeholder'=>'Codigo','id'=>'codigo','maxlength'=>'8')) !!}
-				<br>
 				<br>
 				<input type="button" value="Anterior" id="anterior">
 				<input type="button" value="Siguiente" id="siguiente">
@@ -114,12 +98,12 @@
 		</section>
 	{!! Form::close() !!}
 		<section class="form form-3">
-			<h1>Ya está listo tu registro, gracias por participar, para ver tu estado sigue el siguiente enlace.</h1>
+			<h1>El registro ha sido realizado, para ver el estado sigue el siguiente enlace</h1>
 			<a href="{{ URL::to('/') }}">Ir al sitio</a>
 		</section>
 
 		<section class="form lista-part">
-			<h1>Selecciona tu nombre</h1>
+			<h1>Selecciona el nombre</h1>
 			<!-- Buscador de nombres -->
 				<h2>Buscar:</h2>
 			    <input type="text" class="text-input" id="filtrar" value="" />
@@ -196,27 +180,16 @@ $(document).on("click","#anterior",function()
 $("#siguiente").on("click",function()
 {
 	var nombre = $('[name="nombre"]').val(),
-		apellidos = $('[name="apellidos"]').val(),
-		email = $('[name="email"]').val(),
-		folio = $('[name="folio"]').val(),
-		codigo = $('[name="codigo"]').val(),
-		email_reg = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+		metros = $('[name="metros"]').val(),
+		password = $('[name="password"]').val();
 		
 
 	function validar() {
 
 		var mensaje = "";
 
-		if ((nombre=="")||(nombre==null)||(apellidos=="")||(apellidos==null)||(email=="")||(email==null)||(folio=="")||(folio==null)||(codigo=="")||(codigo==null)){
+		if ((nombre=="")||(nombre==null)||(metros=="")||(metros==null)||(password=="")||(password==null)){
 			mensaje += "*Faltan datos<br>";
-		}
-
-		if( isNaN(folio) ) {
-			mensaje += "*El folio debe tener solo números<br>";
-		}
-
-		if(!email_reg.test($.trim(email))) {
-			mensaje += "*Formato incorrecto de correo<br>";
 		}
 
 		if(mensaje=="") {
@@ -235,16 +208,12 @@ $("#siguiente").on("click",function()
 	}
 
 
-	$.post('checkFolio', {"folio":$('[name="folio"]').val(),"codigo":$('[name="codigo"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+	$.post('checkMaster', {"password":$('[name="password"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
 		if(validar())
 		{
-			if(data=="NO"||data=="NO CON CLAVE FALSE")
+			if(data=="NO")
 			{
-				swal("Error con el folio o código","","error");
-			}
-			else if(data=="USADO")
-			{
-				swal("Código ya utilizado","","error");
+				swal("Contraseña incorrecta","","error");
 			}
 			else
 			{
@@ -268,7 +237,7 @@ $(document).on("click","#submit-trabajo",function()
 
 	$.ajax({
 		type: "POST",
-		url: 'registro',
+		url: 'registromaster',
 		data: new FormData($('#formulario')[0]),
 		cache:false,
 		contentType: false,

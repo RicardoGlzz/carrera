@@ -21,8 +21,7 @@ class RegistroController extends Controller
 	{
 		$corredores = Registro::getTotalCorredores();
 
-		$lista = $this->lista();
-
+		//$lista = $this->lista();
 		// $i=1;
 		// $font_path = 'fonts/Roboto-Regular.ttf';
 		
@@ -41,14 +40,26 @@ class RegistroController extends Controller
 		return view('registro')->with('corredores',$corredores);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function create()
+	public function indexmaster()
 	{
-		//
+		$corredores = Registro::getTotalCorredores();
+
+		// $i=1;
+		// $font_path = 'fonts/Roboto-Regular.ttf';
+		
+		// foreach ($lista as $key => $numero) {
+
+		// 	$jpg_image = imagecreatefromjpeg('boletos/boleto.jpg');
+		// 	$black = imagecolorallocate($jpg_image, 0, 0, 0);
+		// 	imagettftext($jpg_image, 40, 0, 450, 767, $black, $font_path, $i);
+		// 	imagettftext($jpg_image, 40, 0, 880, 767, $black, $font_path, $i);
+		// 	imagettftext($jpg_image, 40, 0, 2110, 767, $black, $font_path, $numero);
+		// 	imagejpeg($jpg_image, "boletos/boleto".$numero.".jpg");
+		// 	imagedestroy($jpg_image);
+		// 	$i++;
+		// }
+
+		return view('master')->with('corredores',$corredores);
 	}
 
 	/**
@@ -130,6 +141,73 @@ class RegistroController extends Controller
 		}
 		else return 'Algo salió mal'.var_dump($clave).var_dump($correcto).var_dump($registroSeguir).var_dump($registro);
 		
+	}
+
+	public function storeMaster(Request $request)
+	{
+		$registro = new Registro;
+
+		$datos = $request->all();
+
+		$registro->nombre = $datos['nombre'];
+		$registro->imagen = null;
+
+		if(array_key_exists('imagen', $datos))
+		{
+			$imagen = $datos['imagen'];
+			$ramdom = md5(uniqid(rand(), true));
+			$nombreImagen = $ramdom.'.'.$imagen->getClientOriginalExtension();
+			$imagen->move('imagenes',$nombreImagen);
+			$registro->imagen=$nombreImagen;
+
+			$image = Image::make(sprintf('imagenes/%s', $nombreImagen));
+			$image->resize(400, null, function ($constraint) {
+				$constraint->aspectRatio();
+			});
+			$image->save();
+		}
+
+		$registro->distancia = $datos['metros'];
+		$registro->save();
+		
+	}
+
+	public function checkFolio(Request $request) {
+		$datos = $request->all();
+
+		$usado = Registro::getCodigoUsado($datos['codigo']);
+
+		if($usado=='NO')
+		{
+			return 'USADO';
+		}
+		else if($usado=='OK')
+		{
+			$lista = $this->lista();
+			$correcto = false;
+
+			$clave = 0;
+			$neddle = $datos['codigo'];
+			$clave = array_search($neddle, $lista);
+			if($clave!==false)
+			{
+				if(($clave+1)==$datos['folio']) $correcto = true;
+
+				if($correcto==true)
+				{
+					return 'OK';
+				}
+				else return 'NO';		
+			}
+			else return 'NO CON CLAVE FALSE';
+		}
+	}
+
+	public function checkMaster(Request $request) {
+		$datos = $request->all();
+
+		if($datos['password']=='hola') return 'OK';
+		else return 'NO';
 	}
 
 	public function lista(){
@@ -276,68 +354,4 @@ class RegistroController extends Controller
 		return $n;
 	}
 
-	public function checkFolio(Request $request) {
-		$datos = $request->all();
-
-		$usado = Registro::getCodigoUsado($datos['codigo']);
-
-		if($usado=='NO')
-		{
-			return 'USADO';
-		}
-		else if($usado=='OK')
-		{
-			$lista = $this->lista();
-			$correcto = false;
-
-			$clave = 0;
-			$neddle = $datos['codigo'];
-			$clave = array_search($neddle, $lista);
-			if($clave!==false)
-			{
-				if(($clave+1)==$datos['folio']) $correcto = true;
-
-				if($correcto==true)
-				{
-					return 'OK';
-				}
-				else return 'NO';		
-			}
-			else return 'NO CON CLAVE FALSE';
-		}
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function update(Request $request, $id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
 }

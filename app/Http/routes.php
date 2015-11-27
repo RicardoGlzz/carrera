@@ -24,9 +24,15 @@ Route::get('casa',[
 	'uses' 	=> 'ApplicationController@casa',
 	'as'	=> 'casa'
 ]);
+
 Route::get('registro',[
 	'uses' 	=> 'RegistroController@index',
 	'as'	=> 'registro'
+]);
+
+Route::get('registromaster',[
+	'uses' 	=> 'RegistroController@indexmaster',
+	'as'	=> 'registromaster'
 ]);
 
 Route::get('lista',[
@@ -38,10 +44,18 @@ Route::post('registro',[
 	'uses' => 'RegistroController@store'
 ]);
 
+Route::post('registromaster',[
+	'uses' => 'RegistroController@storeMaster'
+]);
+
 Route::post('registroSeguir',[
 	'uses' => 'RegistroController@storeSeguir'
 ]);
 
 Route::post('checkFolio',[
 	'uses' => 'RegistroController@checkFolio'
+]);
+
+Route::post('checkMaster',[
+	'uses' => 'RegistroController@checkMaster'
 ]);
