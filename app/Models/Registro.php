@@ -36,12 +36,13 @@ class Registro extends Model
 
 	public function scopeGetCorredores($query){
 
-		$count = DB::table('registros')->count();
+		$count = DB::table('registros')->whereNull('tutti')->count();
 		$skip = 5;
 		$limit = $count - $skip;
 
 		$corredores = DB::table('registros')->skip($skip)
 		->take($limit)
+		->whereNull('tutti')
 		->orderBy('distancia', 'DESC')
 		->orderBy('created_at', 'DESC')
 		->get();
@@ -61,6 +62,7 @@ class Registro extends Model
 	public function scopeGetTotalCorredores($query){
 
 		$corredores = DB::table('registros')
+		->whereNull('tutti')
 		->orderBy('apellidos', 'ASC')
 		->orderBy('nombre', 'ASC')
 		->get();
