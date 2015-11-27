@@ -20,25 +20,28 @@
 		<section class="progreso">
 			<section>
 				<div class="paso-1"><p>1</p></div>
-				Ingresara datos 
+				Datos de Master 
 			</section>
 			<section>
 				<div class="paso-2"><p>2</p></div>
-				Selección de perfil 
+				Imagen de Master
 			</section>
 		</section>
 
 
 		<section class="form form-0">
+			<h1>Cuenta de Master</h1>
 			<section class="registrar">
 				<div class="img-registro">
 					<img src="img/logo_desc.png" alt="">
+				</div>
+				<div class="btn-agrega">
+					Agregar codigos
 				</div>
 				<div class="btn-registro">
 					Registrar
 				</div>
 			</section>
-
 			<section class="correr">
 				<div class="btn-registro seguir-btn">
 					Seguir corriendo
@@ -208,23 +211,23 @@ $("#siguiente").on("click",function()
 	}
 
 
-	$.post('checkMaster', {"password":$('[name="password"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
-		if(validar())
-		{
-			if(data=="NO")
-			{
-				swal("Contraseña incorrecta","","error");
-			}
-			else
-			{
+	// $.post('checkMaster', {"password":$('[name="password"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+	// 	if(validar())
+	// 	{
+	// 		if(data=="NO")
+	// 		{
+	// 			swal("Contraseña incorrecta","","error");
+	// 		}
+	// 		else
+	// 		{
 				$(".progreso .paso-1").addClass("color-progreso");
 				$(".form-1").css("left","100%");
 				$(".form-1").removeClass("animar-form");
 				$(".form-1").css("display","block");
 				$(".form-2").css("display","block");
-			}	
-		}
-	});
+		// 	}	
+		// }
+	// });
 });
 
 $(document).on("click","#submit-trabajo",function()

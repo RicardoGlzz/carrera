@@ -495,18 +495,13 @@ footer
 	{
 		text-align: center;
 	}
- /*   .franja-bottom
+	.form-0 > h1:first-child 
 	{
-		width: 100%;
-		height: 5px;
-		background: #FFDA00;
-		border-bottom: 2px solid white;
-		position: absolute;
-		bottom: 0;
-	}*/
+		font-size: 2em;
+	}
 	.form-0 .registrar
 	{
-		margin-top: 100px;
+		margin-top: 20px;
 	}
 	.form-0 .registrar div
 	{
@@ -545,6 +540,18 @@ footer
 		color: white;
 		padding: 20px;
 		width: 175px;
+		text-align: center;
+		font-size: 2em;
+		border-radius: 6px;
+		border-bottom: 4px solid #998A2D;
+		cursor: pointer;
+	}
+	.btn-agrega 
+	{
+		background: #FFDA00;
+		color: white;
+		padding: 20px;
+		width: 310px;
 		text-align: center;
 		font-size: 2em;
 		border-radius: 6px;
@@ -1049,10 +1056,6 @@ footer
 		text-align: center;
 		margin: 20px;
 	}
-	.casa_wrapper .introduccion 
-	{
-
-	}
 	.casa_wrapper .introduccion h1 
 	{
 		text-align: center;
@@ -1074,8 +1077,54 @@ footer
 	    display: inline-block;
 	    vertical-align: middle;
 	}
+	.concepto .definicion div 
+	{
+		width: 45%;
+	    display: inline-block;
+	    vertical-align: middle;
+	}
+	.concepto .definicion div p 
+	{
+		font-size: 1.5em;
+	}
+	.concepto > h1:first-child 
+	{
+		font-size: 2em;
+    	padding-top: 20px;
+	}
+	.galeria h1 
+	{
+		font-size: 2em;
+		margin: 20px;
+	}
+	.galeria section figure 
+	{
+		display: inline-block;
+		width: 33%;
+		vertical-align: top;
+		overflow: hidden;
+    	height: 330px;
+	}
+	.galeria section figure img 
+	{
+		width: 100%;
+	}
+	.video h1 
+	{
+		font-size: 2em;
+    	margin: 20px;
+	}
+	footer .direccion
+	{
+		color: white;
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    text-align: center;
+	    margin-top: 20px;
+	}
 
-	/*Media queries*/
+	/*Media querie*/
 	@media(max-width: 1400px){
 		#canvas
 		{

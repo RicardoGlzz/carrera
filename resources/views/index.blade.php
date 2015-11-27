@@ -63,7 +63,7 @@
 				<img src="img/chocho.png" alt="logo de descripcion">
 			</div>
 			<br>
-				<button id="ver-desc" class="boton-ver">Ver Más</button>
+				<a href="{{ URL::to('casa') }}"><button id="ver-desc" class="boton-ver">Ver Más</button></a>
 			<br>
 			 <article class="triangulo"></article>
 		</section>
