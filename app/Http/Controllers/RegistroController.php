@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Registro;
 use Image;
 use Illuminate\Support\Facades\Session;
-use DB;
 
 class RegistroController extends Controller
 {
@@ -71,47 +70,62 @@ class RegistroController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$registro = new Registro;
-
 		$datos = $request->all();
 
-		$registro->nombre = $datos['nombre'];
-		$registro->apellidos = $datos['apellidos'];
-		$registro->email = $datos['email'];
-		$registro->imagen = null;
+		$estado = Registro::getCodigoUsado($datos['codigo']);
 
-		if(array_key_exists('imagen', $datos))
-		{
-			$imagen = $datos['imagen'];
-			$ramdom = md5(uniqid(rand(), true));
-			$nombreImagen = $ramdom.'.'.$imagen->getClientOriginalExtension();
-			$imagen->move('imagenes',$nombreImagen);
-			$registro->imagen=$nombreImagen;
-
-			$image = Image::make(sprintf('imagenes/%s', $nombreImagen));
-			$image->resize(400, null, function ($constraint) {
-				$constraint->aspectRatio();
-			});
-			$image->save();
+		if($estado=='USADO') {
+			return 'Ocurrió un problema';
 		}
 
-		$registro->tipo = $datos['tipo'];
-		$registro->distancia = 1;
-		$registro->folio = $datos['folio'];
-		$registro->codigo = $datos['codigo'];
+		else if($estado=='OK') {
 
-		$lista = $this->lista();
-		$correcto = false;
-		$clave = array_search($datos['codigo'], $lista);
-		if($clave+1==$registro->folio) $correcto = true;
+			$registro = new Registro;
 
-		if($correcto)
-		{
-			$registro->save();
-			return $datos;
+			$registro->distancia = 1;
+			$registro->folio = $datos['folio'];
+			$registro->codigo = $datos['codigo'];
 		}
-		else return 'Algo salió mal';
-		
+
+		else if($estado=='TUTTI') {
+
+			$registro = Registro::where('codigo', '=', $datos['codigo'])->first();
+
+			$registro->tutti = null;
+			$registro->distancia = 1;
+		}
+
+			$registro->nombre = $datos['nombre'];
+			$registro->apellidos = $datos['apellidos'];
+			$registro->email = $datos['email'];
+			$registro->tipo = $datos['tipo'];
+			$registro->imagen = null;
+
+			if(array_key_exists('imagen', $datos))
+			{
+				$imagen = $datos['imagen'];
+				$ramdom = md5(uniqid(rand(), true));
+				$nombreImagen = $ramdom.'.'.$imagen->getClientOriginalExtension();
+				$imagen->move('imagenes',$nombreImagen);
+				$registro->imagen=$nombreImagen;
+
+				$image = Image::make(sprintf('imagenes/%s', $nombreImagen));
+				$image->resize(400, null, function ($constraint) {
+					$constraint->aspectRatio();
+				});
+				$image->save();
+			}
+
+			$lista = $this->lista();
+			$correcto = false;
+			$clave = array_search($datos['codigo'], $lista);
+			if($clave+1==$registro->folio) $correcto = true;
+
+			if($correcto) {
+				$registro->save();
+				return $datos;
+			}
+			else return 'Algo salió mal';
 	}
 
 	public function storeSeguir(Request $request)
@@ -178,12 +192,11 @@ class RegistroController extends Controller
 
 		$estado = Registro::getCodigoUsado($datos['codigo']);
 
-		if($estado=='USADO')
-		{
+		if($estado=='USADO') {
 			return $estado;
 		}
-		else if($estado=='OK')
-		{
+
+		else if($estado=='OK'||$estado=='TUTTI') {
 			$lista = $this->lista();
 			$correcto = false;
 
@@ -202,26 +215,7 @@ class RegistroController extends Controller
 			}
 			else return 'CÓDIGO NO VÁLIDO';
 		}
-		else if($estado=='TUTTI')
-		{
-			$lista = $this->lista();
-			$correcto = false;
 
-			$clave = 0;
-			$neddle = $datos['codigo'];
-			$clave = array_search($neddle, $lista);
-			if($clave!==false)
-			{
-				if(($clave+1)==$datos['folio']) $correcto = true;
-
-				if($correcto==true)
-				{
-					return 'OK';
-				}
-				else return 'NO';
-			}
-			else return 'CÓDIGO NO VÁLIDO';
-		}
 		else return 'wot?'.var_dump($estado);
 	}
 
