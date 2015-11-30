@@ -38,8 +38,7 @@
 					</a>
 				</div>
 				<div class="seguir-corriendo">
-					<h1>¡Que siga corriendo!</h1>
-					<img src="img/mono.png" alt="mono">
+					<img src="img/trek.png" alt="durangoTrek">
 				</div>
 			</section>
 		</section>
@@ -120,10 +119,14 @@
 					</div>
 			</section>
 			@endforeach
+			<div class="after"></div>
 			<br>
 			<button id="ver-part" class="boton-ver">Ver Más</button>
 			<br>
 			<article class="triangulo"></article>
 		
 		</section>
+		<script>
+		
+		</script>
 @stop

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use Request;
+use Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Registro;
@@ -24,7 +24,15 @@ class ApplicationController extends Controller
 
 		$corredores = Registro::getCorredores();
 
-		return view('index')->with(compact('corredores','tops','distancia_total','filename'));
+		if(Request::ajax())
+		{
+			return  Response::json($corredores);
+		}
+		else
+		{
+			return view('index')->with(compact('corredores','tops','distancia_total','filename'));
+		}
+		
 	}
 
 	public function casa()

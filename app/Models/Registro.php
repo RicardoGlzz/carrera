@@ -45,7 +45,8 @@ class Registro extends Model
 		->whereNull('tutti')
 		->orderBy('distancia', 'DESC')
 		->orderBy('created_at', 'DESC')
-		->get();
+		->paginate(4);
+		
 
 		foreach ($corredores as $key => $corredor) {
 			if($corredor->imagen) {
@@ -66,7 +67,6 @@ class Registro extends Model
 		->orderBy('apellidos', 'ASC')
 		->orderBy('nombre', 'ASC')
 		->get();
-
 		return $corredores;
 	}
 
