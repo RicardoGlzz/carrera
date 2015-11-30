@@ -45,7 +45,7 @@ class Registro extends Model
 		->whereNull('tutti')
 		->orderBy('distancia', 'DESC')
 		->orderBy('created_at', 'DESC')
-		->paginate(4);
+		->paginate(20);
 		
 
 		foreach ($corredores as $key => $corredor) {

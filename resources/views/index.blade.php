@@ -13,12 +13,13 @@
 				<a href="#participantes">Vér mi perfil</a>
 			</article>
 		<section id="vista-registro">
-		
+				
 			<section class="cont-canvas">
 				<canvas id="canvas" width="900" height="400">
 					Si estas viendo este mensaje, significa que necesitas utilizar la última versión de Chrome, Firefox u Opera.
 				</canvas>
 			</section>
+		
 			<section class="botones-canvas">
 			 <!--    <div class="logo-registro">
 					<img src="" alt="logo de registro">
@@ -38,10 +39,29 @@
 					</a>
 				</div>
 				<div class="seguir-corriendo">
-					<img src="img/trek.png" alt="durangoTrek">
+					<a href="https://www.google.com.mx/maps/place/Durango+Go+Trek/@24.0243569,-104.6763981,17z/data=!3m1!4b1!4m2!3m1!1s0x869bc83d8fa4eb25:0xb77cac40e73dc192" target="_blank">
+						<img src="img/trek.png" alt="durangoTrek">
+					</a>
 				</div>
 			</section>
 		</section>
+			<div class="patrocinadores">
+				<div>
+					<a href="http://www.dzr.mx" target="_blank">
+						<img src="img/patrocinador1.png" alt="">
+					</a>
+				</div>
+				<div>
+					<a href="http://www.remaxdelarosa.com" target="_blank">
+						<img src="img/patrocinador2.png" alt="">
+					</a>
+				</div>
+				<div>
+					<a href="http://www.panlapaz.com/" target="_blank">
+						<img src="img/patrocinador3.jpg" alt="">
+					</a>
+				</div>
+			</div>
 		<section id="descripcion">
 			 <article class="inverso"></article>
 			<div class="desc">
@@ -102,7 +122,7 @@
 				</figure>
 			</div>
 			@foreach($corredores as $key => $corredor)
-			 <section>
+			 <section class="cont-part">
 					<div class="div_top">
 						<figure class="liston_rojo">
 							<img src="img/liston_rojo.png" alt="imagen de liston rojo">
@@ -126,7 +146,10 @@
 			<article class="triangulo"></article>
 		
 		</section>
-		<script>
 		
-		</script>
+		<section>
+			<figure>
+				<img src="img/patrocinador_liston.png" alt="">
+			</figure>
+		</section>
 @stop

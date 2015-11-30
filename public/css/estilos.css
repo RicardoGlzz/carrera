@@ -42,6 +42,20 @@ nav article
 	position: relative;
 	top: -28px;
 }
+.patrocinadores 
+{
+	margin-left: 65px;
+}
+.patrocinadores div 
+{
+	display: inline-block;
+    width: 5%;
+    vertical-align: middle;
+}
+.patrocinadores div img 
+{
+	width: 100%;
+}
 #descripcion .inverso 
 {
 	background-image: url("../img/inverso.png");
@@ -353,6 +367,7 @@ nav div
 	background: #F79532;
 	display: table;
 	width: 100%;
+	height: 777px;
 }
 #participantes .titulo-corredores
 {
@@ -1197,5 +1212,11 @@ footer
 		#canvas
 		{
 			width: 100%;
+		}
+	}
+	@media(max-width: 1280px){
+		#canvas
+		{
+			width: 106%;
 		}
 	}

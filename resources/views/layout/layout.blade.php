@@ -15,9 +15,11 @@
 	<section id="wrapper">
 		<nav>
 			<section>
-				<div class="logo-menu">
-					<img src="img/logo.png" alt="Logo principal en menu">
-				</div>
+				<a href="{{ URL::to('/') }}">
+					<div class="logo-menu">
+						<img src="img/logo.png" alt="Logo principal en menu">
+					</div>
+				</a>
 				<div class="menu">
 					<ul>
 						<a href="{{ URL::to('registro') }}" target="_blank">
@@ -84,14 +86,14 @@
 			win.seguirle();
 			}, true);
 		});
-		$(".seguir-corriendo").on("click",function()
-		{
-			var ventana = window.open("/carrera/public/registro", "Registro");
-			ventana.focus();
-			ventana.addEventListener('load', function(){
-			ventana.buscarNombre();
-			}, true);
-		});
+		// $(".seguir-corriendo").on("click",function()
+		// {
+		// 	var ventana = window.open("/carrera/public/registro", "Registro");
+		// 	ventana.focus();
+		// 	ventana.addEventListener('load', function(){
+		// 	ventana.buscarNombre();
+		// 	}, true);
+		// });
 
 		$(".boton-registro").on("click",function()
 		{
@@ -143,7 +145,7 @@
 							console.log(v.distancia);
 							console.log(data.data);
 							var contenedor = 
-							"<section>"+
+							"<section class='cont-part'>"+
 								"<div class='div_top'>"+
 									"<figure class='liston_rojo'>"+
 										"<img src='img/liston_rojo.png' alt='imagen de liston rojo'>"+
