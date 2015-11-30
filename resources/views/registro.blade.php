@@ -421,7 +421,24 @@ $(document).on("click",".terminar-correr",function()
 						console.log(data);
 					}
 			});
-			swal("OK","","success");
+			swal({
+				title: "Boleto registrado",
+				type: "success",
+				showCancelButton: true,
+				confirmButtonColor: "#F79532",
+				confirmButtonText: "Ir al sitio",
+				cancelButtonText: "Registrar otro boleto",
+				closeOnConfirm: false,
+				closeOnCancel: false },
+				function(isConfirm){
+					if (isConfirm) {
+						window.location.href = "carrera/public/";
+					}
+					else {
+						swal.close();
+					}
+				}
+				);
 		}
 		
 	});

@@ -38,6 +38,10 @@
 			<br>
 			<input type="text" placeholder="Código" name="codigo-boleto">
 			<br>
+			{!! Form::label('', 'Contraseña') !!}
+			<br>
+			{!! Form::password('password-boleto', null, array('id'=>'password')) !!}
+			<br>
 			{!! Form::close() !!}
 			<div class="spinner">
 				<div class="bounce1"></div>
@@ -251,23 +255,23 @@ $("#siguiente").on("click",function()
 	}
 
 
-	// $.post('checkMaster', {"password":$('[name="password"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
-	// 	if(validar())
-	// 	{
-	// 		if(data=="NO")
-	// 		{
-	// 			swal("Contraseña incorrecta","","error");
-	// 		}
-	// 		else
-	// 		{
+	$.post('checkMaster', {"password":$('[name="password"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+		if(validar())
+		{
+			if(data=="NO")
+			{
+				swal("Contraseña incorrecta","","error");
+			}
+			else
+			{
 				$(".progreso .paso-1").addClass("color-progreso");
 				$(".form-1").css("left","100%");
 				$(".form-1").removeClass("animar-form");
 				$(".form-1").css("display","block");
 				$(".form-2").css("display","block");
-		// 	}	
-		// }
-	// });
+			}	
+		}
+	});
 });
 
 $(document).on("click","#submit-trabajo",function()
@@ -326,19 +330,23 @@ $(".regresar-boleto").on("click",function()
 
 $(document).on("click",".terminar-boleto",function()
 {
-	$.post('registroBoletoMaster', {"folio":$('[name="folio"]').val(),"codigo":$('[name="codigo"]').val(),"password":$('[name="password-boleto"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+	$.post('registroBoleto', {"folio":$('[name="folio-boleto"]').val(),"codigo":$('[name="codigo-boleto"]').val(),"password":$('[name="password-boleto"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
 
 		if(data=="Contraseña incorrecta")
 		{
-			swal("Contraseña incorrecta","","error");
+			swal(data,"","error");
+		}
+		else if(data=="Código ya utilizado")
+		{
+			swal(data,"","error");
 		}
 		else if(data=="OK")
 		{
-			swal("OK","","success");
+			swal(data,"","success");
 		}
 		else
 		{
-			swal("Algo salió mal","","error");
+			swal(data,"","error");
 		}
 	});
 })
@@ -437,8 +445,8 @@ $(document).on("click",".terminar-correr",function()
 {
 	localStorage.clear();
 
-	$.post('registroSeguirMaster', {"mas_distancia":$('[name="mas_distancia"]').val(),"metros":$('[name="metros-seguir"]').val(),"password":$('[name="password-seguir"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
-
+	$.post('registroSeguirMaster', {"id":$('[name="mas_distancia"]').val(),"metros":$('[name="metros-seguir"]').val(),"password":$('[name="password-seguir"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+		console.log($('[name="mas_distancia"]').val());
 		if(data=="Contraseña incorrecta")
 		{
 			swal("Contraseña incorrecta","","error");

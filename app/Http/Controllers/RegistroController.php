@@ -44,21 +44,6 @@ class RegistroController extends Controller
 	{
 		$corredores = Registro::getTotalCorredores();
 
-		// $i=1;
-		// $font_path = 'fonts/Roboto-Regular.ttf';
-		
-		// foreach ($lista as $key => $numero) {
-
-		// 	$jpg_image = imagecreatefromjpeg('boletos/boleto.jpg');
-		// 	$black = imagecolorallocate($jpg_image, 0, 0, 0);
-		// 	imagettftext($jpg_image, 40, 0, 450, 767, $black, $font_path, $i);
-		// 	imagettftext($jpg_image, 40, 0, 880, 767, $black, $font_path, $i);
-		// 	imagettftext($jpg_image, 40, 0, 2110, 767, $black, $font_path, $numero);
-		// 	imagejpeg($jpg_image, "boletos/boleto".$numero.".jpg");
-		// 	imagedestroy($jpg_image);
-		// 	$i++;
-		// }
-
 		return view('master')->with('corredores',$corredores);
 	}
 
@@ -118,13 +103,17 @@ class RegistroController extends Controller
 			$lista = $this->lista();
 			$correcto = false;
 			$clave = array_search($datos['codigo'], $lista);
-			if($clave+1==$registro->folio) $correcto = true;
+			if($clave!==false)
+			{
+				if($clave+1==$registro->folio) $correcto = true;
 
-			if($correcto) {
-				$registro->save();
-				return $datos;
+				if($correcto) {
+					$registro->save();
+					return $datos;
+				}
+				else return 'Algo salió mal';
 			}
-			else return 'Algo salió mal';
+
 	}
 
 	public function storeSeguir(Request $request)
@@ -151,22 +140,24 @@ class RegistroController extends Controller
 			$registroSeguir->tutti = null;
 		}
 
-		$registro = Registro::find($datos['mas_distancia'])->first();
+		$registro = Registro::find($datos['mas_distancia']);
 		$registro->distancia = $registro->distancia + 1;
 		$registroSeguir->id_tutti = $registro->id;
 
 		$lista = $this->lista();
 		$correcto = false;
 		$clave = array_search($datos['codigo-seguir'], $lista);
-		if($clave+1==$registroSeguir->folio) $correcto = true;
-
-		if($correcto)
+		if($clave!==false)
 		{
-			$registro->save();
-			$registroSeguir->save();
-			return $datos;
+			if($clave+1==$registroSeguir->folio) $correcto = true;
+
+			if($correcto) {
+				$registro->save();
+				$registroSeguir->save();
+				return $datos;
+			}
+			else return 'Algo salió mal';
 		}
-		else return 'Algo salió mal';
 		
 	}
 
@@ -205,7 +196,7 @@ class RegistroController extends Controller
 	{
 		$datos = $request->all();
 
-		$registro = Registro::find($datos['mas_distancia'])->first();
+		$registro = Registro::find($datos['id']);
 
 		if($datos['password']!='hola') return 'Contraseña incorrecta';
 
@@ -220,7 +211,38 @@ class RegistroController extends Controller
 	{
 		$datos = $request->all();
 
-		
+		$estado = Registro::getCodigoUsado($datos['codigo']);
+
+		if($datos['password']!='hola') return 'Contraseña incorrecta';
+
+		if($estado=='USADO'||$estado=='TUTTI') {
+			return 'Código ya utilizado';
+		}
+
+		else if($estado=='OK') {
+
+			$registro = new Registro;
+
+			$registro->folio = $datos['folio'];
+			$registro->codigo = $datos['codigo'];
+			$registro->tutti=1;
+
+			$lista = $this->lista();
+			$correcto = false;
+			$clave = array_search($datos['codigo'], $lista);
+			if($clave!==false)
+			{
+				if($clave+1==$registro->folio) $correcto = true;
+
+				if($correcto) {
+					$registro->save();
+					return 'OK';
+				}
+				else return 'Algo salió mal';
+			}
+
+		}
+
 	}
 
 	public function checkFolio(Request $request) {
