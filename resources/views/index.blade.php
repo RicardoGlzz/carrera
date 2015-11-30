@@ -149,7 +149,7 @@
 		
 		<section class="patrocinadores_lista">
 			<figure class="logo_patrocinador">
-				<img src="img/patrocinador_liston.png" alt="">
+				<img src="img/patrocinador_list.png" alt="">
 			</figure>
 
 			<div>
