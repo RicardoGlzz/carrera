@@ -63,16 +63,11 @@
 			</section>
 
 			<section class="video">
-				<div>
-					<img src="img/mono.png" alt="">
-				</div>
-				<div>
 					<h1>Comercial oficial de CHOCHO</h1>
-					<video width="400" height="300" controls>
+					<video width="750" height="400" controls>
 					  <source src="video/comercial.mp4" type="video/mp4">
 						Si ves este mensaje, actualiza tu navegador de Chrome o Firefox
 					</video>
-				</div>
 			</section>
 		</section>
 

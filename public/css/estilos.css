@@ -227,6 +227,8 @@ nav div
 	border-radius: 5px;
 	margin: auto;
 	cursor: pointer;
+	position: relative;
+	top: -50px;
 }
 .boton-registro a
 {
@@ -242,9 +244,9 @@ nav div
 }
 .seguir-corriendo
 {
-	margin-top: 20px;
+	margin-top: -30px;
     width: 170px;
-    margin-left: 100px;	
+    margin-left: 120px;	
 }
 .seguir-corriendo img 
 {
@@ -365,6 +367,7 @@ nav div
 {
 	width: 70%;
 	margin-left: 23%;
+	font-size: 1.5em;
 }
 #tops .datos_top .dist-recorrida
 {
@@ -430,7 +433,7 @@ nav div
 #participantes section
 {
 	display: inline-block;
-	width: 25%;
+	width: 24%;
 	height: 150px;
 	text-align: center;
 	margin-top: 25px;
@@ -462,7 +465,7 @@ nav div
 {
 	border: none;
 	padding: 15px;
-	font-size: 1.2em;
+	font-size: 1.8em;
 	border-radius: 5px;
 	cursor: pointer;
 	margin: auto;
@@ -1190,11 +1193,12 @@ footer
 	.casa_wrapper .introduccion h1 
 	{
 		text-align: center;
-		font-size: 2em;
+		font-size: 3em;
 	}
 	.casa_wrapper .introduccion p
 	{
 		padding: 10px;
+		font-size: 1.3em;
 	}
 	.casa_wrapper .introduccion div 
 	{
@@ -1213,6 +1217,10 @@ footer
 		width: 45%;
 	    display: inline-block;
 	    vertical-align: middle;
+	}
+	.concepto div p 
+	{
+		font-size: 1.3em;
 	}
 	.concepto .definicion div 
 	{
@@ -1251,12 +1259,7 @@ footer
 		font-size: 2em;
     	margin: 20px;
 	}
-	.video div 
-	{
-		width: 45%;
-		display: inline-block;
-		vertical-align: middle;
-	}
+
 	footer .direccion
 	{
 		color: white;
