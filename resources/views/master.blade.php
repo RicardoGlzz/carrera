@@ -28,6 +28,27 @@
 			</section>
 		</section>
 
+		<section class="form folio-agregar">
+			{!! Form::open(array('url' => 'registroBoleto','id'=>'formularioBoleto','files' => true)) !!}
+			<label for="">Folio</label>
+			<br>
+			<input type="text" placeholder="Folio" name="folio-boleto">
+			<br>
+			<label for="">Código</label>
+			<br>
+			<input type="text" placeholder="Código" name="codigo-boleto">
+			<br>
+			{!! Form::close() !!}
+			<div class="spinner">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+			<div class="contenedor-botones">
+				<button type="button" class="regresar-boleto">Regresar</button>
+				<button type="button" class="terminar-boleto">Terminar</button>
+			</div>
+		</section>
 
 		<section class="form form-0">
 			<h1>Cuenta de Master</h1>
@@ -36,10 +57,10 @@
 					<img src="img/logo_desc.png" alt="">
 				</div>
 				<div class="btn-agrega">
-					Agregar codigos
+					Registro de boletos
 				</div>
 				<div class="btn-registro">
-					Registrar
+					Registro patrocinadores
 				</div>
 			</section>
 			<section class="correr">
@@ -109,7 +130,7 @@
 			<h1>Selecciona el nombre</h1>
 			<!-- Buscador de nombres -->
 				<h2>Buscar:</h2>
-			    <input type="text" class="text-input" id="filtrar" value="" />
+				<input type="text" class="text-input" id="filtrar" value="" />
 				<div class="lista">
 					@foreach($corredores as $corredor)
 					<input type="hidden" class="" value="{{$corredor->id}}">
@@ -118,24 +139,6 @@
 				</div>
 			<button class="regreso-main">Regresar</button>
 			<button class="siguiente-main">Siguiente</button>
-		</section>
-
-		<section class="form boleto-nuevo">
-			{!! Form::open(array('url' => 'registroBoleto','id'=>'formularioBoleto','files' => true)) !!}
-			<h1>Registro de boletos</h1>
-			<label for="">Folio</label>
-			<br>
-			<input type="text" placeholder="Folio" name="folio-seguir">
-			<br>
-			<label for="">Código</label>
-			<br>
-			<input type="text" placeholder="Código" name="codigo-seguir">
-			<br>
-			{!! Form::close() !!}
-			<div class="contenedor-botones">
-				<button type="button" class="regresar-lista">Regresar</button>
-				<button type="button" class="terminar-correr">Siguiente</button>
-			</div>
 		</section>
 
 		<section class="form folio-apart">
@@ -172,19 +175,36 @@ $("#filtrar").keyup(function()
 	var filtro = $(this).val();
 	$(".lista h3").each(function()
 	{
-        // crea una expresion regular para comparar con lo del input
-        if ($(this).text().search(new RegExp(filtro, "i")) < 0) 
-            {
-            	$(this).hide();
-            }
-            else 
-            {
-            	$(this).show();
-            }
-        });
+		// crea una expresion regular para comparar con lo del input
+		if ($(this).text().search(new RegExp(filtro, "i")) < 0) 
+			{
+				$(this).hide();
+			}
+			else 
+			{
+				$(this).show();
+			}
+		});
 });
 
 // Fin de buscador
+// OPCION DE AGREGAR CODIGOS
+$(document).on("click",".btn-agrega",function()
+{
+	$(".form-0").css("left","100%");
+	$(".progreso").css("left","100%");
+	$(".folio-agregar").addClass("animar-form");
+	$(".folio-agregar").css("display","block");
+	$(".form-1").css("display","none");   
+})
+$(document).on("click",".regresar-agregar",function()
+{
+	$(".form-0").css("left","0");
+	$(".progreso").css("left","100%");
+	$(".folio-agregar").removeClass("animar-form");
+	$(".folio-agregar").css("display","none");
+})
+
 $(document).on("click",".btn-registro",function()
 {
 	$(".progreso").css("left","0");
@@ -291,9 +311,36 @@ $(document).on("click",".btn-agrega",function()
 {
 	$(".form-0").css("left","100%");
 	$(".progreso").css("left","100%");
-	$(".boleto-nuevo").addClass("animar-form");
-	$(".boleto-nuevo").css("display","block");
+	$(".folio-agregar").addClass("animar-form");
+	$(".folio-agregar").css("display","block");
 	$(".form-1").css("display","none");
+})
+
+$(".regresar-boleto").on("click",function()
+{
+	$(".progreso").css("left","100%");
+	$(".form-0").css("left","0");
+	$(".folio-agregar").removeClass("animar-form");
+	$(".folio-agregar").css("display","none");
+})
+
+$(document).on("click",".terminar-boleto",function()
+{
+	$.post('registroBoletoMaster', {"folio":$('[name="folio"]').val(),"codigo":$('[name="codigo"]').val(),"password":$('[name="password-boleto"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+
+		if(data=="Contraseña incorrecta")
+		{
+			swal("Contraseña incorrecta","","error");
+		}
+		else if(data=="OK")
+		{
+			swal("OK","","success");
+		}
+		else
+		{
+			swal("Algo salió mal","","error");
+		}
+	});
 })
 
 // preview de imagen de registro
