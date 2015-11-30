@@ -54,24 +54,23 @@
 		<section class="form form-1">
 			<h1>Completa los datos para registrate</h1>
 			<br>
-				{!! Form::label('', 'Nombre') !!}
+				<label for="">¿Es una persona o un grupo?</label>
+				<br>
+				<input type="radio" name="tipo" checked value="persona"> Persona
+				<input type="radio" name="tipo" value="grupo"> Grupo
+				<br>
+				<br>
+				{!! Form::label('', 'Nombre', array('class'=>'label-nombre')) !!}
 				<br>
 				{!! Form::text('nombre', null, array('placeholder'=>'Nombre','id'=>'nombre')) !!}
 				<br>
-				{!! Form::label('', 'Apellidos') !!}
+				{!! Form::label('', 'Apellidos', array('class'=>'label-apellidos')) !!}
 				<br>
 				{!! Form::text('apellidos', null, array('placeholder'=>'Apellidos','id'=>'apellidos')) !!}
 				<br>
 				{!! Form::label('', 'Correo') !!}
 				<br>
 				{!! Form::email('email', null, array('placeholder'=>'Correo','id'=>'correo')) !!}
-				<br>
-				<br>
-				<label for="">¿Es una persona o un grupo?</label>
-				<br>
-				<br>
-				<input type="radio" name="tipo" checked value="persona"> Persona
-				<input type="radio" name="tipo" value="grupo"> Grupo
 				<br>
 				<br>
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -122,7 +121,7 @@
 			<h1>Selecciona tu nombre</h1>
 			<!-- Buscador de nombres -->
 				<h2>Buscar:</h2>
-			    <input type="text" class="text-input" id="filtrar" value="" />
+				<input type="text" class="text-input" id="filtrar" value="" />
 				<div class="lista">
 					@foreach($corredores as $corredor)
 					<input type="hidden" class="" value="{{$corredor->id}}">
@@ -165,16 +164,16 @@ $("#filtrar").keyup(function()
 	var filtro = $(this).val();
 	$(".lista h3").each(function()
 	{
-        // crea una expresion regular para comparar con lo del input
-        if ($(this).text().search(new RegExp(filtro, "i")) < 0) 
-            {
-            	$(this).hide();
-            }
-            else 
-            {
-            	$(this).show();
-            }
-        });
+		// crea una expresion regular para comparar con lo del input
+		if ($(this).text().search(new RegExp(filtro, "i")) < 0) 
+			{
+				$(this).hide();
+			}
+			else 
+			{
+				$(this).show();
+			}
+		});
 });
 
 // Fin de buscador
@@ -262,6 +261,17 @@ $("#siguiente").on("click",function()
 	});
 });
 
+$('input[type=radio][name=tipo]').change(function() {
+	if (this.value == 'persona') {
+		$('.label-nombre').text('Nombre');
+		$('.label-apellidos').text('Apellidos');
+	}
+	else if (this.value == 'grupo') {
+		$('.label-nombre').text('Nombre');
+		$('.label-apellidos').text('Nombre del representante');
+	}
+});
+	
 $(document).on("click","#submit-trabajo",function()
 {
 	$(".spinner").css("opacity","1");

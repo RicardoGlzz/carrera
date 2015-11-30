@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Registro;
 use Image;
+use DB;
 
 class ApplicationController extends Controller
 {
@@ -20,9 +21,20 @@ class ApplicationController extends Controller
 	{
 		$distancia_total = Registro::getDistanciaTotal();
 
+		if(is_object($distancia_total)) $distancia_total = '0';
+
 		$tops = Registro::getTop();
 
-		$corredores = Registro::getCorredores();
+		$corredores = Registro::getCorredores()->paginate(20);
+		
+		foreach ($corredores as $key => $corredor) {
+			if($corredor->imagen) {
+				$corredor->orientacion = self::imageOrientation($corredor->imagen);
+			}
+			else {
+				$corredor->orientacion = null;
+			}
+		}
 
 		if(Request::ajax())
 		{
@@ -39,69 +51,14 @@ class ApplicationController extends Controller
 	{
 		return view('casa');
 	}
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
-	public function store(Request $request)
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function update(Request $request, $id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function destroy($id)
-	{
-		//
+	
+	public function imageOrientation($imagen) {
+			list($width, $height) = getimagesize('imagenes/'.$imagen);
+			if ($width > $height) {
+				$orientation = 'img_horizontal';
+			} else {
+				$orientation = 'img_vertical';
+			}
+		return $orientation;
 	}
 }

@@ -14,6 +14,7 @@ class Registro extends Model
 	public function scopeGetTop($query){
 
 		$tops = DB::table('registros')
+		->whereNotNull('tutti')
 		->orderBy('distancia', 'DESC')
 		->take(5)->get();
 
@@ -44,18 +45,7 @@ class Registro extends Model
 		->take($limit)
 		->whereNull('tutti')
 		->orderBy('distancia', 'DESC')
-		->orderBy('created_at', 'DESC')
-		->paginate(20);
-		
-
-		foreach ($corredores as $key => $corredor) {
-			if($corredor->imagen) {
-				$corredor->orientacion = self::imageOrientation($corredor->imagen);
-			}
-			else {
-				$corredor->orientacion = null;
-			}
-		}
+		->orderBy('created_at', 'DESC');
 
 		return $corredores;
 	}
@@ -72,24 +62,14 @@ class Registro extends Model
 
 	public function scopeGetDistanciaTotal($query) {
 
-		$corredores = DB::table('registros')->get();
+		$corredores = DB::table('registros')->select()->get();
 		$distancia_total = 0;
 
-		foreach ($corredores as $key => $corredor) {
+		foreach ($corredores as $corredor) {
 			$distancia_total = $distancia_total + $corredor->distancia;
 		}
 
 		return $distancia_total;
-	}
-
-	public function imageOrientation($imagen) {
-			list($width, $height) = getimagesize('imagenes/'.$imagen);
-			if ($width > $height) {
-				$orientation = 'img_horizontal';
-			} else {
-				$orientation = 'img_vertical';
-			}
-		return $orientation;
 	}
 
 	public function scopeGetCodigoUsado($query,$codigo) {
