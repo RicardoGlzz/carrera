@@ -52,6 +52,14 @@ Route::post('registroSeguir',[
 	'uses' => 'RegistroController@storeSeguir'
 ]);
 
+Route::post('registroSeguirMaster',[
+	'uses' => 'RegistroController@storeSeguirMaster'
+]);
+
+Route::post('registroBoleto',[
+	'uses' => 'RegistroController@storeBoleto'
+]);
+
 Route::post('checkFolio',[
 	'uses' => 'RegistroController@checkFolio'
 ]);

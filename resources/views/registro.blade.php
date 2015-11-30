@@ -394,7 +394,7 @@ $(document).on("click",".terminar-correr",function()
 	localStorage.clear();
 	$.post('checkFolio', {"folio":$('[name="folio-seguir"]').val(),"codigo":$('[name="codigo-seguir"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
 
-		if(data=="NO"||data=="NO CON CLAVE FALSE")
+		if(data=="NO"||data=="CÓDIGO NO VÁLIDO")
 		{
 			swal("Error con el folio o código","","error");
 		}
@@ -402,9 +402,8 @@ $(document).on("click",".terminar-correr",function()
 		{
 			swal("Código ya utilizado","","error");
 		}
-		else
+		else if(data=="OK")
 		{
-			swal("OKa","","error");
 			$.ajax({
 				type: "POST",
 				url: 'registroSeguir',
