@@ -6,20 +6,25 @@
 	
 </style>
 	<section class="casa_wrapper">
-		<figure class="logo_casa">
-			<img src="img/logos.jpg" alt="">
-		</figure>
+		
 		<br>
 		<section class="introduccion">
-			<h1>Centro de Ayuda, Servicio y Apoyo de Durango</h1>
-			<br>
-			<p>Hace 18 años que se fundó C.A.S.A. Centro de Ayuda, Servicio y Apoyo de Durango, A.C, comenzó en solo una área de las 5 que actualmente operamos. El área de consejería fue la primera en esta A.C. y después se fueron ampliando los servicios para prestar un apoyo más integral a las personas que acuden a este lugar, en donde nuestra misión es ser: “Un lugar de refugio para toda persona en crisis”. 
-			<br>
-			<br> 
-			Después se abrió el comedor Pan de C.A.S.A.para familiares y pacientes del Hospital Materno Infantil y Centro Estatal de Cancerología. Ante la necesidad de los usuarios se abrió luego un consultorio médico, la Fábrica de Chocho y el albergue temporal Mi C.A.S.A.</p>
-			<p>Se ofrecen servicios como de consejería Familiar, prestando su tiempo y un oído atento a personas en situación de crisis, en ocasiones inclusive salvando a personas del suicidio, y esto solo mostrando interés y dando esperanzas a esas personas tan necesitadas.
-			Ofrecen además conferencias a grupos dentro y fuera de las instalaciones, con temas para la superación personal además participamos en un programa de televisión local.
-			</p>
+			<div>
+				<h1>Centro de Ayuda, Servicio y Apoyo de Durango</h1>
+				<br>
+				<p>Hace 18 años que se fundó C.A.S.A. Centro de Ayuda, Servicio y Apoyo de Durango, A.C, comenzó en solo una área de las 5 que actualmente operamos. El área de consejería fue la primera en esta A.C. y después se fueron ampliando los servicios para prestar un apoyo más integral a las personas que acuden a este lugar, en donde nuestra misión es ser: “Un lugar de refugio para toda persona en crisis”. 
+				<br>
+				<br> 
+				Después se abrió el comedor Pan de C.A.S.A.para familiares y pacientes del Hospital Materno Infantil y Centro Estatal de Cancerología. Ante la necesidad de los usuarios se abrió luego un consultorio médico, la Fábrica de Chocho y el albergue temporal Mi C.A.S.A.</p>
+				<p>Se ofrecen servicios como de consejería Familiar, prestando su tiempo y un oído atento a personas en situación de crisis, en ocasiones inclusive salvando a personas del suicidio, y esto solo mostrando interés y dando esperanzas a esas personas tan necesitadas.
+				Ofrecen además conferencias a grupos dentro y fuera de las instalaciones, con temas para la superación personal además participamos en un programa de televisión local.
+				</p>
+			</div>
+			<div>
+				<figure class="logo_casa">
+					<img src="img/logos.jpg" alt="">
+				</figure>
+			</div>
 		</section>
 
 		<section class="concepto">
@@ -58,11 +63,16 @@
 			</section>
 
 			<section class="video">
-				<h1>Comercial oficial de CHOCHO</h1>
-				<video width="400" height="300" controls>
-				  <source src="video/comercial.mp4" type="video/mp4">
-					Si ves este mensaje, actualiza tu navegador de Chrome o Firefox
-				</video>
+				<div>
+					<img src="img/mono.png" alt="">
+				</div>
+				<div>
+					<h1>Comercial oficial de CHOCHO</h1>
+					<video width="400" height="300" controls>
+					  <source src="video/comercial.mp4" type="video/mp4">
+						Si ves este mensaje, actualiza tu navegador de Chrome o Firefox
+					</video>
+				</div>
 			</section>
 		</section>
 

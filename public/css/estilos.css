@@ -1,8 +1,15 @@
+@font-face {
+  font-family: 'doctor';
+  src: url('../fonts/doctor.ttf');
+}
 *
 {
 	margin: 0;
 	padding: 0;
-	font-family: 'Roboto', sans-serif;
+}
+#wrapper 
+{
+	font-family: 'doctor', sans-serif;
 }
 body 
 {
@@ -22,6 +29,10 @@ nav
 	background: #FFDA00;
 	height: 100px;
 }
+button 
+{
+	font-family: 'doctor',sans-serif;
+}
 footer .virtua_logo
 {
 	width: 12%;
@@ -40,7 +51,7 @@ nav article
 	height: 10px;
 	background-position: bottom;
 	position: relative;
-	top: -28px;
+	top: -32px;
 }
 .patrocinadores 
 {
@@ -139,6 +150,7 @@ nav div
 	background: #e9A60B;
 	height: 60px;
 	border-radius: 3px;
+	font-size: 1.5em;
 }
 .menu a
 {
@@ -195,9 +207,9 @@ nav div
 }
 #numero-metros {
 	position: relative;
-	top: -63px;
-	left: -14px;
-	font-size: 2em;
+	top: -80px;
+	left: -10px;
+	font-size: 3em;
 	letter-spacing: 15px;
 	color: white;
 	text-align: right;
@@ -222,7 +234,11 @@ nav div
 }
 .boton-registro h1
 {
-	font-size: 1.8em;
+	font-size: 2.8em;
+}
+.boton-registro h4 
+{
+	font-size: 1.5em;
 }
 .seguir-corriendo
 {
@@ -268,10 +284,15 @@ nav div
 #descripcion .desc
 {
 	width: 50%;
+	margin-top: 30px;
 }
 #descripcion .desc h1
 {
-	font-size: 2.5em;
+	font-size: 3.5em;
+}
+#descripcion .desc p 
+{
+	font-size: 1.3em;
 }
 #descripcion .desc .letraP
 {
@@ -343,7 +364,7 @@ nav div
 #tops .datos_top .nombre-top 
 {
 	width: 70%;
-	margin-left: 30%;
+	margin-left: 23%;
 }
 #tops .datos_top .dist-recorrida
 {
@@ -364,12 +385,14 @@ nav div
 {
 	width: 70%;
 	margin-left: 30%;
+	font-size: 1.5em;
 }
 #participantes .datos_top a
 {
 	margin-left: 45px;
 	color: #ac162c;
 	font-weight: bold;
+	font-size: 1.3em;
 }
 .datos_top .dist-recorrida
 {
@@ -381,7 +404,7 @@ nav div
 {
 	background: #e9A60B;
 	color: white;
-	padding: 10px;
+	font-size: 2em;
 }
 #participantes 
 {
@@ -428,7 +451,7 @@ nav div
 	overflow: hidden;
 	border-radius: 50%;
 	position: relative;
-	top: -138px;
+	top: -141px;
 	left: 25px;
 }	
 #participantes .div_top .cont_part img 
@@ -1160,6 +1183,10 @@ footer
 		text-align: center;
 		margin: 20px;
 	}
+	.casa_wrapper .introduccion 
+	{
+		text-align: center;
+	}
 	.casa_wrapper .introduccion h1 
 	{
 		text-align: center;
@@ -1168,6 +1195,12 @@ footer
 	.casa_wrapper .introduccion p
 	{
 		padding: 10px;
+	}
+	.casa_wrapper .introduccion div 
+	{
+		display: inline-block;
+		vertical-align: middle;
+		width: 45%;
 	}
 	.concepto
 	{
@@ -1217,6 +1250,12 @@ footer
 	{
 		font-size: 2em;
     	margin: 20px;
+	}
+	.video div 
+	{
+		width: 45%;
+		display: inline-block;
+		vertical-align: middle;
 	}
 	footer .direccion
 	{
