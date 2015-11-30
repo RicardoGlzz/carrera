@@ -56,6 +56,27 @@ nav article
 {
 	width: 100%;
 }
+.patrocinadores_lista div 
+{
+	display: inline-block;
+    width: 12%;
+    vertical-align: middle;
+    margin: 20px;
+}
+.patrocinadores_lista div img 
+{
+	width: 100%;
+}
+.patrocinadores_lista .logo_patrocinador
+{
+	width: 35%;
+	margin: auto;
+	padding-top: 20px;
+}
+.patrocinadores_lista .logo_patrocinador img 
+{
+	width: 100%;
+}
 #descripcion .inverso 
 {
 	background-image: url("../img/inverso.png");

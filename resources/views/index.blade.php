@@ -147,9 +147,25 @@
 		
 		</section>
 		
-		<section>
-			<figure>
+		<section class="patrocinadores_lista">
+			<figure class="logo_patrocinador">
 				<img src="img/patrocinador_liston.png" alt="">
 			</figure>
+
+			<div>
+				<a href="http://www.dzr.mx" target="_blank">
+					<img src="img/patrocinador1.png" alt="">
+				</a>
+			</div>
+			<div>
+				<a href="http://www.remaxdelarosa.com" target="_blank">
+					<img src="img/patrocinador2.png" alt="">
+				</a>
+			</div>
+			<div>
+				<a href="http://www.panlapaz.com/" target="_blank">
+					<img src="img/patrocinador3.jpg" alt="">
+				</a>
+			</div>
 		</section>
 @stop
