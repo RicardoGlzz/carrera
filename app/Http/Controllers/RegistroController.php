@@ -82,7 +82,6 @@ class RegistroController extends Controller
 
 			$registro = new Registro;
 
-			$registro->distancia = 1;
 			$registro->folio = $datos['folio'];
 			$registro->codigo = $datos['codigo'];
 		}
@@ -92,13 +91,13 @@ class RegistroController extends Controller
 			$registro = Registro::where('codigo', '=', $datos['codigo'])->first();
 
 			$registro->tutti = null;
-			$registro->distancia = 1;
 		}
 
 			$registro->nombre = $datos['nombre'];
 			$registro->apellidos = $datos['apellidos'];
 			$registro->email = $datos['email'];
 			$registro->tipo = $datos['tipo'];
+			$registro->distancia = 1;
 			$registro->imagen = null;
 
 			if(array_key_exists('imagen', $datos))
@@ -132,16 +131,29 @@ class RegistroController extends Controller
 	{
 		$datos = $request->all();
 
-		$registro = Registro::find($datos['mas_distancia']);
+		$estado = Registro::getCodigoUsado($datos['codigo-seguir']);
 
-		$registroSeguir = new Registro;
+		if($estado=='USADO') {
+			return 'Ocurrió un problema';
+		}
 
-		$registroSeguir->tutti = 1;
-		$registroSeguir->id_tutti = $registro->id;
-		$registroSeguir->folio = $datos['folio-seguir'];
-		$registroSeguir->codigo = $datos['codigo-seguir'];
+		else if($estado=='OK') {
 
+			$registroSeguir = new Registro;
+
+			$registroSeguir->folio = $datos['folio-seguir'];
+			$registroSeguir->codigo = $datos['codigo-seguir'];
+		}
+
+		else if($estado=='TUTTI') {
+
+			$registroSeguir = Registro::where('codigo', '=', $datos['codigo-seguir'])->first();
+			$registroSeguir->tutti = null;
+		}
+
+		$registro = Registro::find($datos['mas_distancia'])->first();
 		$registro->distancia = $registro->distancia + 1;
+		$registroSeguir->id_tutti = $registro->id;
 
 		$lista = $this->lista();
 		$correcto = false;
@@ -154,7 +166,7 @@ class RegistroController extends Controller
 			$registroSeguir->save();
 			return $datos;
 		}
-		else return 'Algo salió mal'.var_dump($clave).var_dump($correcto).var_dump($registroSeguir).var_dump($registro);
+		else return 'Algo salió mal';
 		
 	}
 
@@ -163,6 +175,8 @@ class RegistroController extends Controller
 		$registro = new Registro;
 
 		$datos = $request->all();
+
+		if($datos['password']!='hola') return 'Ocurrió un problema';
 
 		$registro->nombre = $datos['nombre'];
 		$registro->imagen = null;
@@ -184,6 +198,28 @@ class RegistroController extends Controller
 
 		$registro->distancia = $datos['metros'];
 		$registro->save();
+		
+	}
+
+	public function storeSeguirMaster(Request $request)
+	{
+		$datos = $request->all();
+
+		$registro = Registro::find($datos['mas_distancia'])->first();
+
+		if($datos['password']!='hola') return 'Contraseña incorrecta';
+
+		$registro->distancia = $registro->distancia + $datos['metros'];
+
+		$registro->save();
+		return 'OK';
+		
+	}
+
+	public function storeBoleto(Request $request)
+	{
+		$datos = $request->all();
+
 		
 	}
 

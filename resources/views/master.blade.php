@@ -120,11 +120,9 @@
 			<button class="siguiente-main">Siguiente</button>
 		</section>
 
-		<section class="form folio-apart">
-			{!! Form::open(array('url' => 'registroSeguir','id'=>'formularioSeguir','files' => true)) !!}
-			<h1>Agregar más distancia para:</h1>
-			<input type="hidden" id="mas_distancia" name="mas_distancia">
-			<h2 class="persona_a_correr"></h2>
+		<section class="form boleto-nuevo">
+			{!! Form::open(array('url' => 'registroBoleto','id'=>'formularioBoleto','files' => true)) !!}
+			<h1>Registro de boletos</h1>
 			<label for="">Folio</label>
 			<br>
 			<input type="text" placeholder="Folio" name="folio-seguir">
@@ -139,6 +137,28 @@
 				<button type="button" class="terminar-correr">Siguiente</button>
 			</div>
 		</section>
+
+		<section class="form folio-apart">
+			{!! Form::open(array('url' => 'registroSeguirMaster','id'=>'formularioSeguir','files' => true)) !!}
+			<h1>Agregar más distancia para:</h1>
+			<input type="hidden" id="mas_distancia" name="mas_distancia">
+			<h2 class="persona_a_correr"></h2>
+				{!! Form::label('', 'Metros') !!}
+				<br>
+				{!! Form::text('metros-seguir', null, array('placeholder'=>'Metros','id'=>'metros')) !!}
+				<br>
+				{!! Form::label('', 'Contraseña') !!}
+				<br>
+				{!! Form::password('password-seguir', null, array('id'=>'password')) !!}
+				<br>
+			{!! Form::close() !!}
+			<div class="contenedor-botones">
+				<button type="button" class="regresar-lista">Regresar</button>
+				<button type="button" class="terminar-correr">Siguiente</button>
+			</div>
+		</section>
+
+
 
 	</section>
 </section>
@@ -267,6 +287,15 @@ $(document).on("click",".seguir-btn",function()
 	$(".form-1").css("display","none");
 })
 
+$(document).on("click",".btn-agrega",function()
+{
+	$(".form-0").css("left","100%");
+	$(".progreso").css("left","100%");
+	$(".boleto-nuevo").addClass("animar-form");
+	$(".boleto-nuevo").css("display","block");
+	$(".form-1").css("display","none");
+})
+
 // preview de imagen de registro
 $("#archivo").change(function()
 {
@@ -360,39 +389,21 @@ function registrar()
 $(document).on("click",".terminar-correr",function()
 {
 	localStorage.clear();
-	$.post('checkFolio', {"folio":$('[name="folio-seguir"]').val(),"codigo":$('[name="codigo-seguir"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
 
-		if(data=="NO"||data=="NO CON CLAVE FALSE")
+	$.post('registroSeguirMaster', {"mas_distancia":$('[name="mas_distancia"]').val(),"metros":$('[name="metros-seguir"]').val(),"password":$('[name="password-seguir"]').val(),"_token":"{{ csrf_token() }}"}, function(data) {
+
+		if(data=="Contraseña incorrecta")
 		{
-			swal("Error con el folio o código","","error");
+			swal("Contraseña incorrecta","","error");
 		}
-		else if(data=="USADO")
+		else if(data=="OK")
 		{
-			swal("Código ya utilizado","","error");
+			swal("OK","","success");
 		}
 		else
 		{
-			swal("OKa","","error");
-			$.ajax({
-				type: "POST",
-				url: 'registroSeguir',
-				data: new FormData($('#formularioSeguir')[0]),
-				cache:false,
-				contentType: false,
-				processData: false,
-				async: false,
-					success:function(data){
-						console.log("success");
-						console.log(data);
-					},
-					error: function(data){
-						console.log("error");
-						console.log(data);
-					}
-			});
-			swal("OK","","success");
+			swal("Algo salió mal","","error");
 		}
-		
 	});
 });
 

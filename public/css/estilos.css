@@ -966,6 +966,10 @@ footer
 		color: white !important;
 	}
 
+	.boleto-nuevo {
+		display: none;
+	}
+	
 	/*Animacion de carga*/
 	.spinner
 	{
