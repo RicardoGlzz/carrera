@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Registro;
 use Image;
+use Mail;
 use Illuminate\Support\Facades\Session;
 
 class RegistroController extends Controller
@@ -123,6 +124,13 @@ class RegistroController extends Controller
 					$headers .= 'MIME-Version: 1.0'."\r\n";
 					$headers .= 'Content-Type: text/html; charset=ISO-8859-1'."\r\n";
 					@mail($email_to, $email_subject, $email_message, $headers);
+
+					Mail::send('emails.email', ['user' => $registro], function ($m) use ($registro) {
+								$m->from('12kchocho@virtua.rocks', '12kChocho');
+
+								$m->to($registro->email, $registro->nombre)->subject('Registro exitoso de boleto 12kChocho 2015');
+							});
+
 					return $datos;
 
 
