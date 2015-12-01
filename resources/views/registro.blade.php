@@ -265,10 +265,12 @@ $('input[type=radio][name=tipo]').change(function() {
 	if (this.value == 'persona') {
 		$('.label-nombre').text('Nombre');
 		$('.label-apellidos').text('Apellidos');
+		$('#apellidos').attr("placeholder", "Apellidos");
 	}
 	else if (this.value == 'grupo') {
 		$('.label-nombre').text('Nombre');
 		$('.label-apellidos').text('Nombre del representante');
+		$('#apellidos').attr("placeholder", "Nombre del representante");
 	}
 });
 	

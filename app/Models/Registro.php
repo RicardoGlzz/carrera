@@ -14,7 +14,7 @@ class Registro extends Model
 	public function scopeGetTop($query){
 
 		$tops = DB::table('registros')
-		->whereNotNull('tutti')
+		->whereNull('tutti')
 		->orderBy('distancia', 'DESC')
 		->take(5)->get();
 
@@ -45,7 +45,8 @@ class Registro extends Model
 		->take($limit)
 		->whereNull('tutti')
 		->orderBy('distancia', 'DESC')
-		->orderBy('created_at', 'DESC');
+		->orderBy('created_at', 'DESC')
+		->paginate(20);
 
 		return $corredores;
 	}

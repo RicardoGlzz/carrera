@@ -23,10 +23,39 @@ class ApplicationController extends Controller
 
 		if(is_object($distancia_total)) $distancia_total = '0';
 
-		$tops = Registro::getTop();
+		$tops = Registro::select()
+		->whereNull('tutti')
+		->orderBy('distancia', 'DESC')
+		->take(5)->get();
 
-		$corredores = Registro::getCorredores()->paginate(20);
-		
+		$lugar = ['Primer','Segundo','Tercer','Cuarto','Quinto'];
+		$i = 0;
+
+		foreach ($tops as $key => $top) {
+			if($top->imagen) {
+				$top->orientacion = self::imageOrientation($top->imagen);
+			}
+			else {
+				$top->orientacion = null;
+			}
+			$top->lugar = $lugar[$i];
+			$i++;
+		}
+
+		$count = Registro::select()
+		->whereNull('tutti')
+		->count();
+		$skip = 5;
+		$limit = $count - $skip;
+
+		$corredores = Registro::select()
+		->whereNull('tutti')
+		->skip($skip)
+		->take($limit)
+		->orderBy('distancia', 'DESC')
+		->orderBy('created_at', 'DESC')
+		->paginate(4);
+
 		foreach ($corredores as $key => $corredor) {
 			if($corredor->imagen) {
 				$corredor->orientacion = self::imageOrientation($corredor->imagen);
@@ -51,7 +80,7 @@ class ApplicationController extends Controller
 	{
 		return view('casa');
 	}
-	
+
 	public function imageOrientation($imagen) {
 			list($width, $height) = getimagesize('imagenes/'.$imagen);
 			if ($width > $height) {

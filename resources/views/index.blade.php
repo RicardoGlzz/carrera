@@ -33,7 +33,7 @@
 					</div>
 				</div>
 				<div class="boton-registro">
-					<a target="_blank" href="">
+					<a target="_blank">
 					   <h1>APORTA</h1>
 					   <h4>Haz click aquí</h4>
 					</a>
@@ -101,7 +101,11 @@
 							<img src="img/liston_top.png" alt="imagen de liston top">    
 						</figure>
 						<figure class="cont_top">
+							@if($top->imagen)
 							{!! Html::image('imagenes/'.$top->imagen,null,array('class'=>'img_top '.$top->orientacion,'alt'=>'imagen de participante top')) !!}
+							@else
+							{!! Html::image('img/avatarchocho.png',null,array('class'=>'img_top sin_imagen')) !!}
+							@endif
 						</figure>
 					</div>
 					<div class="div_top datos_top">
@@ -128,7 +132,11 @@
 							<img src="img/liston_rojo.png" alt="imagen de liston rojo">
 						</figure>
 						<figure class="cont_part">
+							@if($corredor->imagen)
 							{!! Html::image('imagenes/'.$corredor->imagen,null,array('class'=>'img_top '.$corredor->orientacion)) !!}
+							@else
+							{!! Html::image('img/avatarchocho.png',null,array('class'=>'img_top')) !!}
+							@endif
 						</figure>
 					</div>
 					<div class="div_top datos_top">
@@ -149,7 +157,7 @@
 		
 		<section class="patrocinadores_lista">
 			<figure class="logo_patrocinador">
-				<img src="img/patrocinador_list.png" alt="">
+				<img src="img/patrocinador_liston.png" alt="">
 			</figure>
 
 			<div>

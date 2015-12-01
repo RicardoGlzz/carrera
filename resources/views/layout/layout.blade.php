@@ -79,7 +79,7 @@
 			console.log(nombre_id);
 			localStorage.setItem("nombre-corredor",nombre_corredor);
 			localStorage.setItem("nombre-id",nombre_id);
-			var win = window.open("/carrera/public/registro", "Registro");
+			var win = window.open("registro", "Registro");
 			win.focus();
 			win.addEventListener('load', function(){
 			win.seguirle();

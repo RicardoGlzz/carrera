@@ -109,7 +109,23 @@ class RegistroController extends Controller
 
 				if($correcto) {
 					$registro->save();
+
+					$email_to = $datos['email'];
+					$email_subject = "Registro exitoso de boleto";
+
+					$email_message = '<html><body>';
+					$email_message .= 'Estimado(a) '. $datos['nombre'].' '.$datos['apellidos'].'. Gracias <br><br><br>';
+
+					$email_message .= '</body></html>';
+
+					$headers = 'From: "achavez"<achavez@virtua.mx>'."\r\n";
+					$headers .= 'Reply-To: '. $datos['email'] . "\r\n";
+					$headers .= 'MIME-Version: 1.0'."\r\n";
+					$headers .= 'Content-Type: text/html; charset=ISO-8859-1'."\r\n";
+					@mail($email_to, $email_subject, $email_message, $headers);
 					return $datos;
+
+
 				}
 				else return 'Algo salió mal';
 			}
@@ -137,12 +153,13 @@ class RegistroController extends Controller
 		else if($estado=='TUTTI') {
 
 			$registroSeguir = Registro::where('codigo', '=', $datos['codigo-seguir'])->first();
-			$registroSeguir->tutti = null;
+			
 		}
 
 		$registro = Registro::find($datos['mas_distancia']);
 		$registro->distancia = $registro->distancia + 1;
 		$registroSeguir->id_tutti = $registro->id;
+		$registroSeguir->tutti = 1;
 
 		$lista = $this->lista();
 		$correcto = false;

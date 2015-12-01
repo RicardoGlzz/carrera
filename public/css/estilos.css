@@ -15,7 +15,9 @@ body
 {
 	overflow-x: hidden;
 }
-
+.cont-registro {
+	font-family: 'Roboto';
+}
 a
 {
 	text-decoration: none;
@@ -349,6 +351,9 @@ nav div
 	top: -197px;
 	left: 42px;
 }
+.div_top .cont_top .sin_imagen {
+	width: 100%;
+}
 .img_horizontal
 {
 	position: relative;
@@ -414,7 +419,6 @@ nav div
 	background: #F79532;
 	display: table;
 	width: 100%;
-	height: 777px;
 }
 #participantes .titulo-corredores
 {
