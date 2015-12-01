@@ -586,7 +586,7 @@ function animate() {
             return;
         }
         var pt = puntosclave[posicion];
-        console.log(posicion);
+        // console.log(posicion);
 
         // lineas guia de kilometros
 
