@@ -58,11 +58,13 @@ nav article
 .patrocinadores 
 {
 	margin-left: 65px;
+	width: 60%;
+	margin-top: -155px;
 }
 .patrocinadores div 
 {
 	display: inline-block;
-    width: 5%;
+    width: 15%;
     vertical-align: middle;
 }
 .patrocinadores div img 
@@ -90,7 +92,65 @@ nav article
 {
 	width: 100%;
 }
-#descripcion .inverso 
+.corredor_virtual 
+{
+	background: #F79532;
+}
+.corredor_virtual .liston_virtual
+{
+	width: 35%;
+	margin: auto;
+	padding-top: 40px;
+}
+.corredor_virtual .liston_virtual img 
+{
+	width: 100%;
+}
+.corredor_virtual div 
+{
+	display: inline-block;
+	width: 45%;
+	vertical-align: middle;
+	text-align: center;
+}
+.form-corredor label 
+{
+	color: white;
+	font-size: 2.5em;
+}
+.form-corredor .datos-form
+{
+	font-family: 'doctor';
+	width: 400px;
+	font-size: 2em;
+	padding: 5px;
+}
+.form-corredor .num-boletos
+{
+	font-family: 'doctor';
+	width: 50px;
+	font-size: 2em;
+	padding: 5px;
+}
+.form-corredor textarea
+{
+	font-family: 'doctor';
+	width: 400px;
+	font-size: 2em;
+	padding: 5px;
+	resize:none;
+}
+.form-corredor #enviar-corredor 
+{
+	background: #ac182d;
+	border: none;
+	color: white;
+	font-size: 2em;
+	padding: 10px;
+	width: 160px;
+	margin: 20px;
+}
+ .inverso 
 {
 	background-image: url("../img/inverso.png");
 	background-repeat: repeat-x;
@@ -191,7 +251,7 @@ nav div
 #vista-registro section
 {
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 }
 #vista-registro .cont-canvas
 {
@@ -210,9 +270,9 @@ nav div
 #numero-metros {
 	position: relative;
 	top: -80px;
-	left: -10px;
+	left: -14px;
 	font-size: 3em;
-	letter-spacing: 15px;
+	letter-spacing: 12px;
 	color: white;
 	text-align: right;
 }
@@ -246,9 +306,25 @@ nav div
 }
 .seguir-corriendo
 {
-	margin-top: -30px;
-    width: 170px;
-    margin-left: 120px;	
+	margin-top: -120px;
+	width: 100%; 
+	margin-left: 20px;
+}
+.seguir-corriendo div 
+{
+	display: inline-block;
+	width: 45%;
+	vertical-align: top;
+	margin-top: -70px;
+}
+.seguir-corriendo div a 
+{
+	color: black;
+	font-size: 1.5em;
+}
+.seguir-corriendo div a:hover 
+{
+	border-bottom: 2px solid #F79532;
 }
 .seguir-corriendo img 
 {
@@ -289,6 +365,10 @@ nav div
 {
 	width: 50%;
 	margin-top: 30px;
+}
+#descripcion .desc .virtual 
+{
+	color: #ac182d;
 }
 #descripcion .desc h1
 {

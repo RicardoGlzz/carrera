@@ -18,18 +18,18 @@ $(function()
     var pathArray = [];
 
 // VARIABLE DE DISTANCIA TOTAL
-var distancia_total = $("#numero-metros").text();
-distancia_total.replace('m','');
-var numero = parseInt(distancia_total);
-// var numero = 12000;
+// var distancia_total = $("#numero-metros").text();
+// distancia_total.replace('m','');
+// var numero = parseInt(distancia_total);
+var numero = 12000;
 
 
 // Coordenada inicial
 
 var inicial =
 {
-    x: 190,
-    y: 230
+    x: 180,
+    y: 231.6
 }
 
 // Coordenadas para distancia de lineas
@@ -92,8 +92,8 @@ var novena =
 
 var decima = 
 {
-    x: 190,
-    y: 300
+    x: 180,
+    y: 231.6
 }
 
 
@@ -244,11 +244,7 @@ var decima =
                 y: valor
             }
             );  
-            console.log(pathArray.length);
-           
-
-
-
+   
         }
 
     // SEXTA LINEA
@@ -386,18 +382,18 @@ var decima =
         }
 
     // DECIMA LINEA
-    else if(numero <= 12000)
+    else if(numero <= 12000 )
     {
         numero-= 10800;
             // Calcular distancia entre dos puntos
             x1 = 180;
             y1 = 390;
             x2 = 190;
-            y2 = 300;
+            y2 = 230;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
             var cy = (numero * distancia) / 1200;
-            var val = octava.y-cy;
+            var val = novena.y-cy;
             var valor = Math.round(val);
             // console.log(val);
             // console.log(cx);
@@ -421,9 +417,26 @@ var decima =
             );  
         }
 
+
+    // Si ya supero la meta que se posicione al final de meta solamente
+     if(numero > 12000)
+     {
+        pathArray.push(inicial);
+        pathArray.push(primera);
+        pathArray.push(segunda);
+        pathArray.push(tercera);
+        pathArray.push(cuarta);
+        pathArray.push(quinta);
+        pathArray.push(sexta);
+        pathArray.push(septima);
+        pathArray.push(octava);
+        pathArray.push(novena);
+        pathArray.push(decima);  
+
+     }
         var puntosclave = hacerPuntosClave(pathArray);
         var posicion = 0;
-        var velocidad = 2;
+        var velocidad = 4;
         animate();
 
         var fps = 40;
@@ -431,6 +444,74 @@ var decima =
 
 
 function animate() {
+
+//  ctx.lineWidth = 5;
+//  ctx.beginPath();
+//  ctx.moveTo(190, 50);
+//  ctx.lineTo(290, 50);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+// // 2km
+// ctx.beginPath();
+//  ctx.moveTo(383, 10);
+//  ctx.lineTo(383, 100);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//  // 3km
+// ctx.beginPath();
+//  ctx.moveTo(530, 10);
+//  ctx.lineTo(530, 100);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//   // 4km
+// ctx.beginPath();
+//  ctx.moveTo(720, 10);
+//  ctx.lineTo(720, 100);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//    // 5km
+// ctx.beginPath();
+//  ctx.moveTo(820, 80);
+//  ctx.lineTo(960, 80);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//     // 6km
+// ctx.beginPath();
+//  ctx.moveTo(820, 220);
+//  ctx.lineTo(960, 220);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//      // 7km
+// ctx.beginPath();
+//  ctx.moveTo(820, 353);
+//  ctx.lineTo(960, 353);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//       // 8km
+// ctx.beginPath();
+//  ctx.moveTo(720, 300);
+//  ctx.lineTo(720, 400);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//       // 9km
+// ctx.beginPath();
+//  ctx.moveTo(560, 250);
+//  ctx.lineTo(560, 350);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//        // 10km
+// ctx.beginPath();
+//  ctx.moveTo(320, 250);
+//  ctx.lineTo(320, 350);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+//        // 11km
+// ctx.beginPath();
+//  ctx.moveTo(150, 330);
+//  ctx.lineTo(250, 330);
+//  ctx.strokeStyle = 'blue';
+//  ctx.stroke();
+
 
     // lineas guia
     // ctx.lineWidth = 5;
@@ -505,9 +586,15 @@ function animate() {
             return;
         }
         var pt = puntosclave[posicion];
-        // console.log(posicion);
+        console.log(posicion);
 
+        // lineas guia de kilometros
 
+       
+            // console.log(pathArray);
+            //    console.log(pt.x);
+            //     console.log(pt.y);
+            
         // dibujar imagenes deacuerdo a su posicion
          if(posicion >= 402)
             {
@@ -522,13 +609,14 @@ function animate() {
                 ctx.drawImage(img,0,-80);
                 ctx.restore();
             }
-          if(posicion == 1008)
+          if(pt.x == 180 && pt.y == 231.6 || pt.y == 233.184)
             {
                 
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.save();
                 ctx.beginPath();
                 ctx.translate(pt.x, pt.y);
+             
                 // Objeto de la imagen del corredor
                  img = new Image();
                 // url de imagen
@@ -552,20 +640,7 @@ function animate() {
 
     }, 1000 / fps);
 
-    // Si ya alcanzo la meta que se posicione al final de meta solamente
-     if(numero > 12000)
-     {
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.save();
-        ctx.beginPath();
-        // Objeto de la imagen del corredor
-        img = new Image();
-        // url de imagen
-        img.src = "img/termino.png";
-        ctx.drawImage(img,80,150);
-        ctx.restore();
-     }
+    
 }
 
 function hacerPuntosClave(pathArray) {

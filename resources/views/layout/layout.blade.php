@@ -33,7 +33,7 @@
 						<a href="#top5">
 							<li>TOP 5</li>
 						</a>
-						<a href="https://www.facebook.com/CASA-Centro-de-Ayuda-Servicio-y-Apoyo-de-Durango-AC-1630681567175232/" target="_blank">
+						<a href="{{ URL::to('casa') }}">
 							<li>C.A.S.A</li>
 						</a>
 					</ul>
