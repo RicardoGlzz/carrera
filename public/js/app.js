@@ -18,10 +18,10 @@ $(function()
     var pathArray = [];
 
 // VARIABLE DE DISTANCIA TOTAL
-// var distancia_total = $("#numero-metros").text();
-// distancia_total.replace('m','');
-// var numero = parseInt(distancia_total);
-var numero = 12000;
+var distancia_total = $("#numero-metros").text();
+distancia_total.replace('m','');
+var numero = parseInt(distancia_total);
+// var numero = 12000;
 
 
 // Coordenada inicial
@@ -436,9 +436,8 @@ var decima =
      }
         var puntosclave = hacerPuntosClave(pathArray);
         var posicion = 0;
-        var velocidad = 4;
+        var velocidad = 3;
         animate();
-
         var fps = 40;
 
 
@@ -594,7 +593,7 @@ function animate() {
             // console.log(pathArray);
             //    console.log(pt.x);
             //     console.log(pt.y);
-            
+
         // dibujar imagenes deacuerdo a su posicion
          if(posicion >= 402)
             {

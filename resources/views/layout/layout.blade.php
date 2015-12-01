@@ -167,6 +167,18 @@
 					console.log(data);
 				}); 	
 			})
+
+		// Correo para corredores virtuales
+		$(document).on("click","#enviar-corredor",function()
+		{
+			var boletos = $(".num-boletos").val();
+
+			if(!$("#form-virtual input").val())
+			{
+				swal("Completa todos los campos","","error");
+			}
+			
+		})
     </script>
 </body>
 </html>

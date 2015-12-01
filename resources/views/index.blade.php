@@ -207,28 +207,28 @@
 			<figure class="liston_virtual">
 				<img src="img/virtual_liston.png" alt="">
 			</figure>
-			<div>
-				<img src="img/mono.png" alt="">
-			</div>
-			<div class="form-corredor">
-				<label for="">¿Quien recibira los boletos?</label>
-				<br>
-				<input type="text" class="datos-form">
-				<br>
-				<label for="">¿En que correo te podemos contactar?</label>
-				<br>
-				<input type="text" class="datos-form">
-				<br>
-				<label for="">¿Cual es su dirección?</label>
-				<br>
-				<textarea name="" id=""></textarea>
-				<br>
-				<label for="">¿Cuantos boletos necesitas?</label>
-				<br>
-				<input type="text" class="num-boletos" maxlength="2">
-				<br>
+			
+			<!-- {!! Form::open(array('url' => 'virtual','id'=>'form-virtual')) !!} -->
+				<div class="form-corredor">
+					<label for="">¿Quien recibira los boletos?</label>
+					<br>
+					<input type="text" class="datos-form">
+					<br>
+					<label for="">¿En que correo te podemos contactar?</label>
+					<br>
+					<input type="text" class="datos-form">
+					<br>
+					<label for="">¿Cual es su dirección?</label>
+					<br>
+					<textarea name="" id=""></textarea>
+					<br>
+					<label for="">¿Cuantos boletos necesitas?</label>
+					<br>
+					<input type="text" class="num-boletos" maxlength="2">
+					<br>
 
-				<button id="enviar-corredor">Enviar</button>
-			</div>
+					<button id="enviar-corredor">Enviar</button>
+				</div>
+			<!-- {!! Form::close() !!} -->
 		</section>
 @stop
