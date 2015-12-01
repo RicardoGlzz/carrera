@@ -63,9 +63,9 @@
 			</section>
 
 			<section class="video">
-					<h1>Comercial oficial de CHOCHO</h1>
+					<h1>Spot Institucional C.A.S.A</h1>
 					<video width="750" height="400" controls>
-					  <source src="video/comercial.mp4" type="video/mp4">
+					  <source src="video/spot.mp4" type="video/mp4">
 						Si ves este mensaje, actualiza tu navegador de Chrome o Firefox
 					</video>
 			</section>
