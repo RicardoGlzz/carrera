@@ -302,6 +302,34 @@ class RegistroController extends Controller
 		return redirect('')->with('message', 'Tu solicitud ha sido enviada"');
 	}
 
+	public function corredores(Request $request) {
+		$pagina = $request->input('page');
+
+		$count = Registro::select()
+		->whereNull('tutti')
+		->count();
+		$skip = 5+(5*($pagina-1));
+		$limit = 5;
+
+		$corredores = Registro::select()
+		->whereNull('tutti')
+		->skip($skip)
+		->take($limit)
+		->orderBy('distancia', 'DESC')
+		->orderBy('created_at', 'DESC')
+		->get();
+
+		foreach ($corredores as $key => $corredor) {
+			if($corredor->imagen) {
+				$corredor->orientacion = $this->imageOrientation($corredor->imagen);
+			}
+			else {
+				$corredor->orientacion = null;
+			}
+		}
+		return $corredores->toJson();;
+	}
+
 	public function lista(){
 
 		$PD = 0;
@@ -446,4 +474,13 @@ class RegistroController extends Controller
 		return $n;
 	}
 
+	public function imageOrientation($imagen) {
+			list($width, $height) = getimagesize('imagenes/'.$imagen);
+			if ($width > $height) {
+				$orientation = 'img_horizontal';
+			} else {
+				$orientation = 'img_vertical';
+			}
+		return $orientation;
+	}
 }

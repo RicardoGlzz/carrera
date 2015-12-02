@@ -128,14 +128,15 @@
 		{
 			pagina++;		
 
-			$.ajax({
-				type:'GET',
-				url: '?page='+ pagina,
-				dataType: 'json'
-			}).done(function(data){
-				console.log(data);
-				$.each(data.data, function(ind, v)
-				{
+					$.ajax({
+					type:'GET',
+					url: '?page='+ pagina,
+					url: 'corredores?page='+ pagina,
+					dataType: 'json'
+				}).done(function(data){
+					console.log(data);
+					$.each(data, function(ind, v)
+					{
 					var ruta = 'imagenes/';
 							// console.log(v.nombre);
 							// console.log(v.distancia);

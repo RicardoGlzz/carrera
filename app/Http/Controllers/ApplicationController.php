@@ -51,10 +51,10 @@ class ApplicationController extends Controller
 		$corredores = Registro::select()
 		->whereNull('tutti')
 		->skip($skip)
-		->take($limit)
+		->take(5)
 		->orderBy('distancia', 'DESC')
 		->orderBy('created_at', 'DESC')
-		->paginate(4);
+		->get();
 
 		foreach ($corredores as $key => $corredor) {
 			if($corredor->imagen) {

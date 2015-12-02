@@ -19,6 +19,7 @@ Route::get('',[
 	'uses' 	=> 'ApplicationController@index',
 	'as'	=> 'home'
 ]);
+
 Route::post('virtual',[
 	'uses' 	=> 'RegistroController@virtual',
 	'as'	=> 'virtual'
@@ -70,4 +71,9 @@ Route::post('checkFolio',[
 
 Route::post('checkMaster',[
 	'uses' => 'RegistroController@checkMaster'
+]);
+
+Route::get('corredores',[
+	'uses' 	=> 'RegistroController@corredores',
+	'as'	=> 'home'
 ]);
