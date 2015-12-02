@@ -268,12 +268,13 @@ nav div
 	width: 70%;
 	margin: auto;
 }
-#numero-metros {
+#numero-metros 
+{
 	position: relative;
 	top: -80px;
-	left: -14px;
+	left: -10px;
 	font-size: 3em;
-	letter-spacing: 12px;
+	letter-spacing: 14px;
 	color: white;
 	text-align: right;
 }
@@ -478,7 +479,7 @@ nav div
 }
 #participantes .datos_top a
 {
-	margin-left: 45px;
+	margin-left: 80px;
 	color: #ac162c;
 	font-weight: bold;
 	font-size: 1.3em;
@@ -1062,7 +1063,7 @@ footer
 		width: 95%;
 		margin: 15px;
 		height: 470px;
-		background-image: url("../img/mapa.png");
+		background-image: url("../img/mapa.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		outline: 1px solid gray;
@@ -1193,7 +1194,7 @@ footer
 		font-size: 1.5em;
 		text-align: center;
 		display: block;
-		margin-top: 50px;
+		margin-top: 35px;
 	}
 	.folio-apart input
 	{
@@ -1369,8 +1370,19 @@ footer
 		}
 		.seguir-corriendo 
 		{
-			margin-top: -110px;
+			margin-top: -65px;
 			width: 85%;
 			margin-left: 70px;
 		}
+		#numero-metros 
+		{
+		    position: relative;
+		    top: -70px;
+		    left: -3px;
+		    font-size: 2.5em;
+		    letter-spacing: 15px;
+		    color: white;
+		    text-align: right;
+		}
+
 	}
