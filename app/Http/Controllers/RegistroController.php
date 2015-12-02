@@ -324,6 +324,7 @@ class RegistroController extends Controller
 				$corredor->orientacion = $this->imageOrientation($corredor->imagen);
 			}
 			else {
+				$corredor->imagen = 'http://12kchocho.vir.mx/img/avatarchocho.png';
 				$corredor->orientacion = null;
 			}
 		}

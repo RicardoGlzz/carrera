@@ -134,10 +134,8 @@
 					url: 'corredores?page='+ pagina,
 					dataType: 'json'
 				}).done(function(data){
-					console.log(data);
 					$.each(data, function(ind, v)
 					{
-					var ruta = 'imagenes/';
 							// console.log(v.nombre);
 							// console.log(v.distancia);
 							// console.log(data.data);
@@ -148,7 +146,7 @@
 							"<img src='img/liston_rojo.png' alt='imagen de liston rojo'>"+
 							"</figure>"+
 							"<figure class='cont_part'>"+
-							"<img src='"+ruta+v.imagen+"' />"+
+							"<img src='"+v.imagen+"' />"+
 							"</figure>"+
 							"</div>"+
 							"<div class='div_top datos_top'>"+
