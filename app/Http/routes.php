@@ -20,7 +20,7 @@ Route::get('',[
 	'as'	=> 'home'
 ]);
 Route::post('virtual',[
-	'uses' 	=> 'ApplicationController@virtual',
+	'uses' 	=> 'RegistroController@virtual',
 	'as'	=> 'virtual'
 ]);
 
