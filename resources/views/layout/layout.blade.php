@@ -185,7 +185,7 @@
 				document.getElementById("form-virtual").reset();
 				return false;			
 			}
-			if(num_boleto <= 10)
+			if(num_boleto < 10)
 			{
 				validar = false;
 				swal("El minimo de boletos es de 10","","error");
@@ -214,6 +214,12 @@
 			}
 			
 		})
+
+		@if(session('message'))
+		setTimeout(function(){
+			swal('{{ session('message') }}');
+		}, 500);
+		@endif
     </script>
 </body>
 </html>

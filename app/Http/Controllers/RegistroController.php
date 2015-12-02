@@ -299,7 +299,7 @@ class RegistroController extends Controller
 					$m->to('chaveztic@gmail.com', '12Kchocho')->subject('Solicitud de boletos');
 				});
 
-		return redirect('')->with('message', 'Tu solicitud ha sido enviada"');
+		return redirect('')->with('message', 'Tu solicitud de boletos ha sido enviada');
 	}
 
 	public function corredores(Request $request) {
