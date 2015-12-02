@@ -1,6 +1,45 @@
-@extends('layout.layout')
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>12KChocho</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/sweetalert.css">
+	<link rel="stylesheet" href="css/estilos.css">
+	
+</head>
+<body>
+	<section id="wrapper">
+		<nav>
+			<section>
+				<a href="{{ URL::to('/') }}">
+					<div class="logo-menu">
+						<img src="img/logo.png" alt="Logo principal en menu">
+					</div>
+				</a>
+				<div class="menu">
+					<ul>
+						<a href="{{ URL::to('') }}">
+							<li>INICIO</li>
+						</a>
 
-@section('content')
+					</ul>
+				</div>
+				<div class="redes">
+					<ul>
+						<a href="https://www.facebook.com/12-K-Chocho-623822074376506/?fref=ts" target="_blank">
+							<li><i class="fa fa-facebook"></i></li>
+						</a>
+						<a href="https://twitter.com/CASA_12KChocho" target="_blank">
+							<li><i class="fa fa-twitter"></i></li>
+						</a>
+					</ul>
+				</div>
+			</section>
+			 <article></article>
+		</nav>
 <style>
 	
 	
@@ -72,4 +111,19 @@
 		</section>
 
 	</section>
-@stop
+
+		<footer>
+			<div class="direccion">
+				<p>Carlos León de la Peña No.509 Zona Centro,Durango,Dgo.</p>
+			</div>
+			<div class="virtua_logo">
+				<img src="img/virtua_logo.png" alt="logo de virtua">
+			</div>
+		</footer>
+
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/app.js"></script>
+	<script>

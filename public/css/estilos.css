@@ -1334,7 +1334,8 @@ footer
 		width: 33%;
 		vertical-align: top;
 		overflow: hidden;
-    	height: 330px;
+    	height: 294px;
+    	margin: 10px 1%;
 	}
 	.galeria section figure img 
 	{
