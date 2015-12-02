@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Registro;
 use Image;
+use Mail;
 use DB;
 
 class ApplicationController extends Controller
@@ -90,4 +91,6 @@ class ApplicationController extends Controller
 			}
 		return $orientation;
 	}
+
+
 }

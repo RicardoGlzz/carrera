@@ -111,29 +111,11 @@ class RegistroController extends Controller
 				if($correcto) {
 					$registro->save();
 
-					$email_to = $datos['email'];
-					$email_subject = "Registro exitoso de boleto";
-
-					$email_message = '<html><body>';
-					$email_message .= 'Estimado(a) '. $datos['nombre'].' '.$datos['apellidos'].'. Gracias <br><br><br>';
-
-					$email_message .= '</body></html>';
-
-					$headers = 'From: "achavez"<achavez@virtua.mx>'."\r\n";
-					$headers .= 'Reply-To: '. $datos['email'] . "\r\n";
-					$headers .= 'MIME-Version: 1.0'."\r\n";
-					$headers .= 'Content-Type: text/html; charset=ISO-8859-1'."\r\n";
-					@mail($email_to, $email_subject, $email_message, $headers);
-
 					Mail::send('emails.email', ['user' => $registro], function ($m) use ($registro) {
 								$m->from('12kchocho@virtua.rocks', '12kChocho');
-
 								$m->to($registro->email, $registro->nombre)->subject('Registro exitoso de boleto 12kChocho 2015');
 							});
-
 					return $datos;
-
-
 				}
 				else return 'Algo salió mal';
 			}
@@ -307,6 +289,17 @@ class RegistroController extends Controller
 
 		if($datos['password']=='hola') return 'OK';
 		else return 'NO';
+	}
+
+	public function virtual(Request $request){
+
+		$datos = $request->all();
+		Mail::send('emails.boletos', ['datos' => $datos], function ($m) use ($datos) {
+					$m->from('12kchocho@virtua.rocks', '12kChocho');
+					$m->to('chaveztic@gmail.com', '12Kchocho')->subject('Solicitud de boletos');
+				});
+
+		return redirect('')->with('message', 'Tu solicitud ha sido enviada"');
 	}
 
 	public function lista(){

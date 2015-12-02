@@ -19,8 +19,8 @@ Route::get('',[
 	'uses' 	=> 'ApplicationController@index',
 	'as'	=> 'home'
 ]);
-Route::get('virtual',[
-	'uses' 	=> 'ApplicationController@virtual',
+Route::post('virtual',[
+	'uses' 	=> 'RegistroController@virtual',
 	'as'	=> 'virtual'
 ]);
 
