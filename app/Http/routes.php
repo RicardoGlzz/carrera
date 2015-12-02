@@ -19,7 +19,7 @@ Route::get('',[
 	'uses' 	=> 'ApplicationController@index',
 	'as'	=> 'home'
 ]);
-Route::get('virtual',[
+Route::post('virtual',[
 	'uses' 	=> 'ApplicationController@virtual',
 	'as'	=> 'virtual'
 ]);

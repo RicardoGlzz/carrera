@@ -80,6 +80,10 @@ class ApplicationController extends Controller
 	{
 		return view('casa');
 	}
+	public function virtual()
+	{
+		
+	}
 
 	public function imageOrientation($imagen) {
 			list($width, $height) = getimagesize('imagenes/'.$imagen);

@@ -208,7 +208,7 @@
 				<img src="img/virtual_liston.png" alt="">
 			</figure>
 			
-			<!-- {!! Form::open(array('url' => 'virtual','id'=>'form-virtual')) !!} -->
+			{!! Form::open(array('url' => 'virtual','id'=>'form-virtual')) !!}
 				<div class="form-corredor">
 					<label for="">¿Quien recibira los boletos?</label>
 					<br>
@@ -229,6 +229,6 @@
 
 					<button id="enviar-corredor">Enviar</button>
 				</div>
-			<!-- {!! Form::close() !!} -->
+			{!! Form::close() !!}
 		</section>
 @stop

@@ -436,7 +436,7 @@ var decima =
      }
         var puntosclave = hacerPuntosClave(pathArray);
         var posicion = 0;
-        var velocidad = 3;
+        var velocidad = 2;
         animate();
         var fps = 40;
 

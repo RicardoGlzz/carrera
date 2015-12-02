@@ -114,68 +114,104 @@
 			$(this).parents().find(".checar-perfil").removeClass("muestra-perfil");
 		})
 
-
 		$(".checar-perfil span").on("click",function()
 		{
+			localStorage.clear();
 			$(this).parents().find(".checar-perfil").removeClass("muestra-perfil");
 		})
 
 
-
-
-		
 		// AJAX para traer con el paginador a los corredores
 
-			var pagina = 1;
-			$(document).on("click","#ver-part",function()
-			{
-				pagina++;		
+		var pagina = 1;
+		$(document).on("click","#ver-part",function()
+		{
+			pagina++;		
 
-					$.ajax({
-					type:'GET',
-					url: '?page='+ pagina,
-				    dataType: 'json'
-				}).done(function(data){
-					console.log(data);
-					$.each(data.data, function(ind, v)
-					{
-							var ruta = 'imagenes/';
-							console.log(v.nombre);
-							console.log(v.distancia);
-							console.log(data.data);
+			$.ajax({
+				type:'GET',
+				url: '?page='+ pagina,
+				dataType: 'json'
+			}).done(function(data){
+				console.log(data);
+				$.each(data.data, function(ind, v)
+				{
+					var ruta = 'imagenes/';
+							// console.log(v.nombre);
+							// console.log(v.distancia);
+							// console.log(data.data);
 							var contenedor = 
 							"<section class='cont-part'>"+
-								"<div class='div_top'>"+
-									"<figure class='liston_rojo'>"+
-										"<img src='img/liston_rojo.png' alt='imagen de liston rojo'>"+
-									"</figure>"+
-									"<figure class='cont_part'>"+
-										"<img src='"+ruta+v.imagen+"' />"+
-									"</figure>"+
-								"</div>"+
-								"<div class='div_top datos_top'>"+
-									"<h3 class='dist-recorrida'> "+v.distancia+"m</h3>"+
-									"<input type='hidden' class='nombre-id' value='"+v.nombre+"'>"+
-									"<h3 class='nombre-top'>"+v.nombre+"</h3>"+
-									"<a href='' target?>¡Sigue corriendo!</a>"+
-								"</div>"+
+							"<div class='div_top'>"+
+							"<figure class='liston_rojo'>"+
+							"<img src='img/liston_rojo.png' alt='imagen de liston rojo'>"+
+							"</figure>"+
+							"<figure class='cont_part'>"+
+							"<img src='"+ruta+v.imagen+"' />"+
+							"</figure>"+
+							"</div>"+
+							"<div class='div_top datos_top'>"+
+							"<h3 class='dist-recorrida'> "+v.distancia+"m</h3>"+
+							"<input type='hidden' class='nombre-id' value='"+v.nombre+"'>"+
+							"<h3 class='nombre-top'>"+v.nombre+"</h3>"+
+							"<a href='' target?>¡Sigue corriendo!</a>"+
+							"</div>"+
 							"</section>";
 							// console.log(contenedor);
-						$(contenedor).insertBefore(".after");	
-					});
-				}).error(function (data) {
-					console.log(data);
-				}); 	
-			})
+							$(contenedor).insertBefore(".after");	
+						});
+			}).error(function (data) {
+				console.log(data);
+			}); 	
+		})
 
 		// Correo para corredores virtuales
 		$(document).on("click","#enviar-corredor",function()
 		{
+			validar = true;
 			var boletos = $(".num-boletos").val();
-
+			var num_boleto = parseInt(boletos);
+			
 			if(!$("#form-virtual input").val())
 			{
+				validar = false;
 				swal("Completa todos los campos","","error");
+				document.getElementById("form-virtual").reset();
+				return false;			
+			}
+			if(!$("#form-virtual textarea").val())
+			{
+				validar = false;
+				swal("Completa todos los campos","","error");
+				document.getElementById("form-virtual").reset();
+				return false;			
+			}
+			if(num_boleto <= 10)
+			{
+				validar = false;
+				swal("El minimo de boletos es de 10","","error");
+				document.getElementById("form-virtual").reset();	
+				return false;	
+			}
+			if(validar == true) 
+			{
+				$.ajax({
+				type: "POST",
+				url: 'virtual',
+				data: new FormData($('#form-virtual')[0]),
+				cache:false,
+				contentType: false,
+				processData: false,
+				async: false,
+					success:function(data){
+						console.log("success");
+						console.log(data);
+					},
+					error: function(data){
+						console.log("error");
+						console.log(data);
+					}
+				});
 			}
 			
 		})
