@@ -2,11 +2,6 @@
 
 @section('content')
 
-@if(session('message'))
-<div class="alert alert-info">
-	{{ session('message') }}
-</div>
-@endif
 			<article class="checar-perfil">
 				<span>X</span>
 				<h1>Ya hemos avanzado gracias a ti, puedes ver tu perfil en la seccion de participantes mediante el siguiente enlace</h1>
