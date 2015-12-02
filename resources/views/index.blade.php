@@ -77,6 +77,16 @@
 						<img src="img/patrocinador4.png" alt="">
 					</a>
 				</div>
+				<div>
+					<a href="https://www.google.com.mx/maps/place/Construcci%C3%B3nes+Y+Remodelaciones+Sorca,+S.A.+De+C.V./@24.0138804,-104.6621295,15z/data=!4m2!3m1!1s0x0:0xc55fd28f1a62984d" target="_blank">
+						<img src="img/patrocinador5.jpg" alt="">
+					</a>
+				</div>
+				<div>
+					<a href="http://www.hostaldelamonja.com.mx/" target="_blank">
+						<img src="img/patrocinador6.png" alt="">
+					</a>
+				</div>
 			</div>
 		<section id="descripcion">
 			 <article class="inverso"></article>
@@ -193,6 +203,16 @@
 			<div>
 				<a href="http://www.forrajesmeraz.com.mx/" target="_blank">
 					<img src="img/patrocinador4.png" alt="">
+				</a>
+			</div>
+			<div>
+				<a href="https://www.google.com.mx/maps/place/Construcci%C3%B3nes+Y+Remodelaciones+Sorca,+S.A.+De+C.V./@24.0138804,-104.6621295,15z/data=!4m2!3m1!1s0x0:0xc55fd28f1a62984d" target="_blank">
+					<img src="img/patrocinador5.jpg" alt="">
+				</a>
+			</div>
+			<div>
+				<a href="http://www.hostaldelamonja.com.mx/" target="_blank">
+					<img src="img/patrocinador6.png" alt="">
 				</a>
 			</div>
 		</section>
