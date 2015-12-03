@@ -64,8 +64,9 @@ nav article
 .patrocinadores div 
 {
 	display: inline-block;
-    width: 15%;
+    width: 14%;
     vertical-align: middle;
+    margin: 5px;
 }
 .patrocinadores div img 
 {
