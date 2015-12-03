@@ -24,7 +24,7 @@
 			</section>
 			<section>
 				<div class="paso-2"><p>2</p></div>
-				Selección de perfil 
+				Selección de foto
 			</section>
 		</section>
 
@@ -152,7 +152,7 @@
 			{!! Form::close() !!}
 			<div class="contenedor-botones">
 				<button type="button" class="regresar-lista">Regresar</button>
-				<button type="button" class="terminar-correr">Siguiente</button>
+				<button type="button" class="terminar-correr">Terminar</button>
 			</div>
 		</section>
 
@@ -280,30 +280,39 @@ $('input[type=radio][name=tipo]').change(function() {
 	
 $(document).on("click","#submit-trabajo",function()
 {
-	$(".spinner").css("opacity","1");
-	$(".progreso .paso-2").addClass("color-progreso");
-	$(".form-2").css("left","100%");
-	$(".form-2").removeClass("animar-form");
-	$(".form-3").css("display","block");
-
-	$.ajax({
-		type: "POST",
-		url: 'registro',
-		data: new FormData($('#formulario')[0]),
-		cache:false,
-		contentType: false,
-		processData: false,
-		async: false,
-			success:function(data){
-				$(".spinner").css("opacity","0");
-				console.log("success");
-				console.log(data);
-			},
-			error: function(data){
-				console.log("error");
-				console.log(data);
-			}
+	swal({
+		title:"Registro",
+		text: "Presione OK para terminar el registro",
+		type: "info",
+		showCancelButton: true,
+		cancelButtonText: 'Regresar',
+		closeOnConfirm: false,
+		showLoaderOnConfirm: true,
+	},function(){
+		$.ajax({
+			type: "POST",
+			url: 'registro',
+			data: new FormData($('#formulario')[0]),
+			cache:false,
+			contentType: false,
+			processData: false,
+				success:function(data){
+					swal("Registro correcto");
+					$(".spinner").css("opacity","1");
+					$(".progreso .paso-2").addClass("color-progreso");
+					$(".form-2").css("left","100%");
+					$(".form-2").removeClass("animar-form");
+					$(".form-3").css("display","block");
+				},
+				error: function(data){
+					swal("Registro incorrecto","Por favor vuelva a intentarlo","error");
+					console.log("error");
+					console.log(data);
+				}
+		});
 	});
+
+
 })
 // Seguir corriendo
 $(document).on("click",".seguir-btn",function()
@@ -458,11 +467,6 @@ $(document).on("click",".terminar-correr",function()
 		}
 		
 	});
-});
-$('#loading-image').bind('ajaxStart', function(){
-	$(this).show();
-}).bind('ajaxStop', function(){
-	$(this).hide();
 });
 
 </script>

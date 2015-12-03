@@ -145,9 +145,12 @@
 				}).done(function(data){
 					$.each(data, function(ind, v)
 					{
+						var nombre;
 							// console.log(v.nombre);
 							// console.log(v.distancia);
 							// console.log(data.data);
+							if(v.tipo=='persona') nombre = v.nombre+' '+v.apellidos;
+							else nombre = v.nombre;
 							var contenedor = 
 							"<section class='cont-part'>"+
 							"<div class='div_top'>"+
@@ -160,8 +163,8 @@
 							"</div>"+
 							"<div class='div_top datos_top'>"+
 							"<h3 class='dist-recorrida'> "+v.distancia+"m</h3>"+
-							"<input type='hidden' class='nombre-id' value='"+v.nombre+"'>"+
-							"<h3 class='nombre-top'>"+v.nombre+"</h3>"+
+							"<input type='hidden' class='nombre-id' value='"+v.id+"'>"+
+							"<h3 class='nombre-top'>"+nombre+"</h3>"+
 							"<a href='' target?>¡Sigue corriendo!</a>"+
 							"</div>"+
 							"</section>";
