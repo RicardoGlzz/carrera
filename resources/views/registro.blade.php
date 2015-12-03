@@ -125,7 +125,11 @@
 				<div class="lista">
 					@foreach($corredores as $corredor)
 					<input type="hidden" class="" value="{{$corredor->id}}">
-					<h3 class="elemento-lista-registrado" data-idseguir="{{$corredor->id}}">{{$corredor->apellidos.' '.$corredor->nombre}}</h3>
+					<h3 class="elemento-lista-registrado" data-idseguir="{{$corredor->id}}">
+						@if($corredor->tipo=='persona'){{$corredor->apellidos.' '.$corredor->nombre}}
+						@else{{$corredor->nombre.' ('.$corredor->apellidos.')'}}
+						@endif
+					</h3>
 					@endforeach
 				</div>
 			<button class="regreso-main">Regresar</button>
@@ -444,7 +448,7 @@ $(document).on("click",".terminar-correr",function()
 				closeOnCancel: false },
 				function(isConfirm){
 					if (isConfirm) {
-						window.location.href = "carrera/public/";
+						window.location.href = "";
 					}
 					else {
 						swal.close();
@@ -454,6 +458,11 @@ $(document).on("click",".terminar-correr",function()
 		}
 		
 	});
+});
+$('#loading-image').bind('ajaxStart', function(){
+	$(this).show();
+}).bind('ajaxStop', function(){
+	$(this).hide();
 });
 
 </script>

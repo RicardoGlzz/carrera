@@ -40,10 +40,12 @@ Route::get('registromaster',[
 	'as'	=> 'registromaster'
 ]);
 
+/*
 Route::get('lista',[
 	'uses' 	=> 'RegistroController@lista',
 	'as'	=> 'lista'
 ]);
+*/
 
 Route::post('registro',[
 	'uses' => 'RegistroController@store'

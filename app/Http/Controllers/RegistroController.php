@@ -161,6 +161,7 @@ class RegistroController extends Controller
 			if($correcto) {
 				$registro->save();
 				$registroSeguir->save();
+				
 				return $datos;
 			}
 			else return 'Algo salió mal';
@@ -308,7 +309,11 @@ class RegistroController extends Controller
 		$datos = $request->all();
 		Mail::send('emails.boletos', ['datos' => $datos], function ($m) use ($datos) {
 					$m->from('12kchocho@virtua.rocks', '12kChocho');
-					$m->to('chaveztic@gmail.com', '12Kchocho')->subject('Solicitud de boletos');
+					$m->to('casadgo@hotmail.com', '12Kchocho')
+					->cc('chaveztic@gmail.com', 'Alejandro Chávez')
+					->cc('tao@virtua.mx', 'Tao Rivera')
+					->cc('ricardo@virtua.mx', 'Ricardo González')
+					->subject('Solicitud de boletos');
 				});
 
 		return redirect('')->with('message', 'Tu solicitud de boletos ha sido enviada');
