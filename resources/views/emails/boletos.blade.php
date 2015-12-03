@@ -1,3 +1,5 @@
+<b>Solicitud de boletos</b>
+<br><br>
 <b>Nombre:</b> {{$datos['nombre']}}
 <br><br>
 <b>Dirección:</b> {{$datos['direccion']}}

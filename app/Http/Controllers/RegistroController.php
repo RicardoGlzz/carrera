@@ -161,6 +161,7 @@ class RegistroController extends Controller
 			if($correcto) {
 				$registro->save();
 				$registroSeguir->save();
+				
 				return $datos;
 			}
 			else return 'Algo salió mal';
@@ -219,11 +220,16 @@ class RegistroController extends Controller
 		$datos = $request->all();
 
 		$estado = Registro::getCodigoUsado($datos['codigo']);
-
+		if($datos['codigo']=='')
+		{
+			$foliousado = Registro::select()->where('folio','=',$datos['folio'])->first();
+			if($foliousado) $estado = 'USADO';
+			else $estado = 'OK';
+		}
 		if($datos['password']!='hola') return 'Contraseña incorrecta';
 
 		if($estado=='USADO'||$estado=='TUTTI') {
-			return 'Código ya utilizado';
+			return 'Código o folio ya utilizado';
 		}
 
 		else if($estado=='OK') {
@@ -236,7 +242,13 @@ class RegistroController extends Controller
 
 			$lista = $this->lista();
 			$correcto = false;
-			$clave = array_search($datos['codigo'], $lista);
+
+			if($datos['codigo']=='')
+			{
+				$registro->codigo = $lista[($registro->folio)-1];
+			}
+
+			$clave = array_search($registro->codigo, $lista);
 			if($clave!==false)
 			{
 				if($clave+1==$registro->folio) $correcto = true;
@@ -247,6 +259,7 @@ class RegistroController extends Controller
 				}
 				else return 'Algo salió mal';
 			}
+			else return var_dump($clave);
 
 		}
 
@@ -296,7 +309,11 @@ class RegistroController extends Controller
 		$datos = $request->all();
 		Mail::send('emails.boletos', ['datos' => $datos], function ($m) use ($datos) {
 					$m->from('12kchocho@virtua.rocks', '12kChocho');
-					$m->to('chaveztic@gmail.com', '12Kchocho')->subject('Solicitud de boletos');
+					$m->to('casadgo@hotmail.com', '12Kchocho')
+					->cc('chaveztic@gmail.com', 'Alejandro Chávez')
+					->cc('tao@virtua.mx', 'Tao Rivera')
+					->cc('ricardo@virtua.mx', 'Ricardo González')
+					->subject('Solicitud de boletos');
 				});
 
 		return redirect('')->with('message', 'Tu solicitud de boletos ha sido enviada');

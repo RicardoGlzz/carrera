@@ -342,7 +342,7 @@ $(document).on("click",".terminar-boleto",function()
 		}
 		else if(data=="OK")
 		{
-			swal(data,"","success");
+			swal(data+', boleto guardado correctamente',"","success");
 		}
 		else
 		{
