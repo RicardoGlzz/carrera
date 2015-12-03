@@ -219,11 +219,16 @@ class RegistroController extends Controller
 		$datos = $request->all();
 
 		$estado = Registro::getCodigoUsado($datos['codigo']);
-
+		if($datos['codigo']=='')
+		{
+			$foliousado = Registro::select()->where('folio','=',$datos['folio'])->first();
+			if($foliousado) $estado = 'USADO';
+			else $estado = 'OK';
+		}
 		if($datos['password']!='hola') return 'Contraseña incorrecta';
 
 		if($estado=='USADO'||$estado=='TUTTI') {
-			return 'Código ya utilizado';
+			return 'Código o folio ya utilizado';
 		}
 
 		else if($estado=='OK') {
@@ -236,7 +241,13 @@ class RegistroController extends Controller
 
 			$lista = $this->lista();
 			$correcto = false;
-			$clave = array_search($datos['codigo'], $lista);
+
+			if($datos['codigo']=='')
+			{
+				$registro->codigo = $lista[($registro->folio)-1];
+			}
+
+			$clave = array_search($registro->codigo, $lista);
 			if($clave!==false)
 			{
 				if($clave+1==$registro->folio) $correcto = true;
@@ -247,6 +258,7 @@ class RegistroController extends Controller
 				}
 				else return 'Algo salió mal';
 			}
+			else return var_dump($clave);
 
 		}
 
