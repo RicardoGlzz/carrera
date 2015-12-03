@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>12KChocho</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=1200, user-scalable=no">
 	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/sweetalert.css">
@@ -73,7 +73,9 @@
 		</footer>
 
 	</section>
-
+	<section class="mobile">
+		Sitio solo visible en resoluciones mayores a 1024
+	</section>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/app.js"></script>
