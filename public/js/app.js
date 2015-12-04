@@ -18,10 +18,10 @@ $(function()
     var pathArray = [];
 
 // VARIABLE DE DISTANCIA TOTAL
-var distancia_total = $("#numero-metros").text();
-distancia_total.replace('m','');
-var numero = parseInt(distancia_total);
-// var numero = 12000;
+// var distancia_total = $("#numero-metros").text();
+// distancia_total.replace('m','');
+// var numero = parseInt(distancia_total);
+var numero = 1222;
 
 
 // Coordenada inicial
@@ -131,9 +131,9 @@ var decima =
     {       
         numero-=1200;
             // Calcular distancia entre dos puntos
-            x1 = 50;
+            x1 = 180;
             y1 = 50;
-            x2 = 220;
+            x2 = 340;
             y2 = 120;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
@@ -149,7 +149,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: 120
+                y: 60
             }
             );  
         }
