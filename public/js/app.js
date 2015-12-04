@@ -18,10 +18,10 @@ $(function()
     var pathArray = [];
 
 // VARIABLE DE DISTANCIA TOTAL
-// var distancia_total = $("#numero-metros").text();
-// distancia_total.replace('m','');
-// var numero = parseInt(distancia_total);
-var numero = 1222;
+var distancia_total = $("#numero-metros").text();
+distancia_total.replace('m','');
+var numero = parseInt(distancia_total);
+// var numero = 1800;
 
 
 // Coordenada inicial
@@ -103,8 +103,8 @@ var decima =
     {
 
             // Calcular distancia entre dos puntos
-            x1 = 190;
-            y1 = 230;
+            x1 = 180;
+            y1 = 231.6;
             x2 = 180;
             y2 = 50;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
@@ -112,7 +112,7 @@ var decima =
             var cy = (numero * distancia) / 1200;
             var val = inicial.y-cy;
             var valor = Math.round(val);
-            // console.log(valor);
+            console.log(distancia);
           
             // console.log(valor);
             
@@ -137,11 +137,14 @@ var decima =
             y2 = 120;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
+            // Distancia de primera linea 180.2
             var cx = (numero * distancia) / 1200;
             var val = primera.x+cx;
             var valor = Math.round(val);
-            console.log(cx);
-            console.log(valor);
+            valory = Math.round((valor * y2) / x2);
+            console.log("valor en x: "+valor);
+            console.log("valor en y: "+valory);
+            // console.log(valor);
 
             pathArray.push(inicial);
             pathArray.push(primera);
@@ -149,7 +152,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: 60
+                y: valory
             }
             );  
         }
@@ -160,7 +163,7 @@ var decima =
         numero-=2400;
             // Calcular distancia entre dos puntos
             x1 = 340;
-            y1 = 120;
+            y1 = 60;
             x2 = 560;
             y2 = 60;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
@@ -168,9 +171,12 @@ var decima =
             var cx = (numero * distancia) / 1200;
             var val = segunda.x+cx;
             var valor = Math.round(val);
+            valory = Math.round((valor * y2) / x2)+60;
+            console.log("valor en x: "+valor);
+            console.log("valor en y: "+valory);
             // console.log(val);
             // console.log(cx);
-            // console.log(distancia);
+            console.log("distancia de linea: "+distancia);
 
             pathArray.push(inicial);
             pathArray.push(primera);
@@ -179,7 +185,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: 60
+                y: valory
             }
             );  
         }
