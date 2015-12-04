@@ -466,12 +466,16 @@ nav div
 .datos_top
 {
 	width: 225px;
-	height: 145px;
 	margin-left: -70px;
 	background: white;
 	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.13);
 	-moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.13);
 }
+
+#participantes .datos_top {
+	height: 145px;
+}
+
 #participantes .datos_top .nombre-top
 {
 	width: 65%;
