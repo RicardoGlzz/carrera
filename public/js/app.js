@@ -18,10 +18,10 @@ $(function()
     var pathArray = [];
 
 // VARIABLE DE DISTANCIA TOTAL
-var distancia_total = $("#numero-metros").text();
-distancia_total.replace('m','');
-var numero = parseInt(distancia_total);
-// var numero = 1800;
+// var distancia_total = $("#numero-metros").text();
+// distancia_total.replace('m','');
+// var numero = parseInt(distancia_total);
+var numero = 11850;
 
 
 // Coordenada inicial
@@ -79,8 +79,8 @@ var inicial =
 
     var octava = 
     {
-        x: 320,
-        y: 300
+        x: 420,
+        y: 280
     }
 
 var novena = 
@@ -163,20 +163,24 @@ var decima =
         numero-=2400;
             // Calcular distancia entre dos puntos
             x1 = 340;
-            y1 = 60;
+            y1 = 120;
             x2 = 560;
             y2 = 60;
+
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
+            var triangulo_x = Math.sqrt( (340-560)*(340-560) + (120-60)*(120-60) );
+            var triangulo_y = y1 - y2;
             // obtener los puntos en x o en y
             var cx = (numero * distancia) / 1200;
             var val = segunda.x+cx;
             var valor = Math.round(val);
-            valory = Math.round((valor * y2) / x2)+60;
-            console.log("valor en x: "+valor);
+            // Distancia recorrida en x
+            var recorrido = Math.round(x2 - val);
+            valory = Math.round((recorrido * triangulo_y) / triangulo_x)+y2;
+            console.log("valor en x: "+val);
             console.log("valor en y: "+valory);
-            // console.log(val);
+            console.log("distancia: "+triangulo_x);
             // console.log(cx);
-            console.log("distancia de linea: "+distancia);
 
             pathArray.push(inicial);
             pathArray.push(primera);
@@ -204,6 +208,10 @@ var decima =
             var cx = (numero * distancia) / 1200;
             var val = tercera.x+cx;
             var valor = Math.round(val);
+            valory = Math.round((valor * y2) / x2);
+            console.log("valor en x: "+valor);
+            console.log("valor en y: "+valory);
+            console.log("distancia: "+distancia);
             // console.log(val);
             // console.log(cx);
             // console.log(distancia);
@@ -215,7 +223,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: 60
+                y: valory
             }
             );  
         }
@@ -279,7 +287,7 @@ var decima =
             pathArray.push(quinta);
             pathArray.push(
             {
-                x: 820,
+                x: 810,
                 y: valor
             }
             );  
@@ -323,15 +331,19 @@ var decima =
     {
         numero-=8400;
             // Calcular distancia entre dos puntos
-            x1 = 500;
-            y1 = 440;
-            x2 = 320;
-            y2 = 300;
+            x1 = 600;
+            y1 = 400;
+            x2 = 420;
+            y2 = 280;
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
             // obtener los puntos en x o en y
             var cx = (numero * distancia) / 1200;
             var val = septima.x-cx;
             var valor = Math.round(val);
+            valory = Math.round((valor * y2) / x2);
+            console.log("valor en x: "+valor);
+            console.log("valor en y: "+valory);
+            console.log("distancia: "+distancia);
             // console.log(val);
             // console.log(cx);
             // console.log(distancia);
@@ -347,7 +359,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: 300
+                y: valory
             }
             );  
         }
@@ -357,15 +369,24 @@ var decima =
     {
         numero-=9600;
             // Calcular distancia entre dos puntos
-            x1 = 320;
-            y1 = 300;
+            x1 = 420;
+            y1 = 280;
             x2 = 180;
             y2 = 390;
+
             var distancia = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) );
+            var triangulo_x = Math.sqrt( (420-180)*(420-180) + (390-390)*(390-390) );
+            var triangulo_y = y2 - y1;
             // obtener los puntos en x o en y
             var cx = (numero * distancia) / 1200;
             var val = octava.x-cx;
             var valor = Math.round(val);
+            // Distancia recorrida en x
+            var recorrido = Math.round(x1 - val);
+            valory = Math.round((recorrido * triangulo_y) / triangulo_x)+y1;
+            console.log("valor en x: "+valor);
+            console.log("valor en y: "+valory);
+            console.log("distancia: "+recorrido);
             // console.log(val);
             // console.log(cx);
             // console.log(distancia);
@@ -382,7 +403,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: 390
+                y: valory
             }
             );  
         }
