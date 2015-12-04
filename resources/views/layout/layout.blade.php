@@ -107,7 +107,7 @@
 
 		$(".boton-registro").on("click",function()
 		{
-			var wind = window.open("/carrera/public/registro", "Registro");
+			var wind = window.open("registro", "Registro");
 			wind.focus();
 			wind.addEventListener('load', function(){
 			wind.registrar();
