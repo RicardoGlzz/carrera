@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>12KChocho</title>
 	<meta name="viewport" content="width=1200, user-scalable=no">
+	<meta name="description" content="Carrera 12kchocho2015, primera carrera virtual en Durango, creada para apoyar con un lugar seguro y digno a las niñas, niños y mujeres con cáncer que vienen de otras ciudades o aldeas para recibir sus tratamientos oncológicos">
+	<meta name="keywords" content="12kchocho2015,12kchocho,chocho,12k,12k chocho,12 k chocho,carrera bebeleche,carrera virtual,carrera virtual durango,12kchocho.org,12kchocho.org.mx">
 	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/sweetalert.css">
@@ -141,7 +143,6 @@
 
 					$.ajax({
 					type:'GET',
-					url: '?page='+ pagina,
 					url: 'corredores?page='+ pagina,
 					dataType: 'json'
 				}).done(function(data){
@@ -153,6 +154,7 @@
 							// console.log(data.data);
 							if(v.tipo=='persona') nombre = v.nombre+' '+v.apellidos;
 							else nombre = v.nombre;
+							if(v.imagen!='http://12kchocho.org.mx/img/avatarchocho.png') v.imagen="http://12kchocho.org.mx/imagenes/"+v.imagen;
 							var contenedor = 
 							"<section class='cont-part'>"+
 							"<div class='div_top'>"+
@@ -240,6 +242,12 @@
 		}).get();
 		var maxHeight = Math.max.apply(null, elementHeights);
 		$('#tops .div_top.datos_top').height(maxHeight);
+
+		var elementHeightParticipantes = $('#participantes .div_top.datos_top').map(function() {
+			return $(this).height();
+		}).get();
+		var maxHeightParticipantes = Math.max.apply(null, elementHeightParticipantes);
+		$('#participantes .div_top.datos_top').height(maxHeightParticipantes);
 
 	</script>
 </body>

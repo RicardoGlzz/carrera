@@ -463,17 +463,19 @@ nav div
 	width: 80%;
 	margin-left: 20%;
 }
+
+.div_top.datos_top {
+	max-height: 200px
+}
+
 .datos_top
 {
 	width: 225px;
 	margin-left: -70px;
 	background: white;
+	overflow: hidden;
 	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.13);
 	-moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.13);
-}
-
-#participantes .datos_top {
-	height: 145px;
 }
 
 #participantes .datos_top .nombre-top
@@ -527,7 +529,7 @@ nav div
 	width: 24%;
 	height: 150px;
 	text-align: center;
-	margin-top: 25px;
+	margin: 25px 0px 50px;
 }
 #participantes .div_top .liston_rojo
 {
