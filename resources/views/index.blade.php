@@ -41,7 +41,7 @@
 					<a href="https://www.google.com.mx/search?q=durango+trek&ie=utf-8&oe=utf-8&gws_rd=cr&ei=8-VdVqylBcr2jwPE1JuIBQ#q=durango+trek&rflfq=1&rlha=0&tbm=lcl&rlfi=hd:;si:13221632000810402194" target="_blank">	
 					Barrio del calvario
 					</a>
-					<a href="https://www.google.com.mx/search?q=durango+trek&ie=utf-8&oe=utf-8&gws_rd=cr&ei=8-VdVqylBcr2jwPE1JuIBQ#q=durango+trek&rflfq=1&rlha=0&tbm=lcl&rlfi=hd:;si:13221632000810402194" target="_blank">	
+					<a href="https://goo.gl/maps/pggrx1xXFW22" target="_blank">	
 					Felipe Pescador
 					</a>
 				</div>
@@ -53,7 +53,7 @@
 						Carlos León <br> de la Peña
 					</a>
 				</div>
-			</div>	
+			</div>
 			</section>
 		</section>
 			<div class="patrocinadores">
@@ -141,7 +141,11 @@
 					<div class="div_top datos_top">
 						<h3 class="lugar">{{ $top->lugar}} lugar </h3>
 						<h3 class="dist-recorrida">{{ $top->distancia}} m</h3>
-						<h3 class="nombre-top">{{ $top->nombre.' '.$top->apellidos }}</h3>
+						<h3 class="nombre-top">
+							@if($top->tipo=='persona'){{$top->nombre.' '.$top->apellidos}}
+							@else{{$top->nombre}}
+							@endif
+						</h3>
 					</div>
 				</section>
 				@endforeach
@@ -172,7 +176,11 @@
 					<div class="div_top datos_top">
 						<h3 class="dist-recorrida">{{ $corredor->distancia }} m</h3>
 						<input type="hidden" class="nombre-id" value="{{ $corredor->id }}">
-						<h3 class="nombre-top">{{ $corredor->nombre.' '.$corredor->apellidos }}</h3>
+						<h3 class="nombre-top">
+							@if($corredor->tipo=='persona'){{$corredor->nombre.' '.$corredor->apellidos}}
+							@else{{$corredor->nombre}}
+							@endif
+						</h3>
 						<a href="" target?>¡Sigue corriendo!</a>
 					</div>
 			</section>
@@ -243,7 +251,7 @@
 					<br>
 					<input name="correo" type="text" class="datos-form">
 					<br>
-					<label for="">¿Cuál es su dirección?</label>
+					<label for="">¿Cuál es la dirección?</label>
 					<br>
 					<textarea name="direccion" id=""></textarea>
 					<br>

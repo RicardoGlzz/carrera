@@ -474,8 +474,8 @@ nav div
 }
 #participantes .datos_top .nombre-top
 {
-	width: 70%;
-	margin-left: 30%;
+	width: 65%;
+	margin-left: 35%;
 	font-size: 1.5em;
 }
 #participantes .datos_top a
@@ -1357,7 +1357,9 @@ footer
 	    text-align: center;
 	    margin-top: 20px;
 	}
-
+	.mobile {
+		display: none;
+	}
 	/*Media querie*/
 	@media(max-width: 1400px){
 		#canvas

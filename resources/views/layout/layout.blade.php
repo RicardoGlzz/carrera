@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>12KChocho</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=1200, user-scalable=no">
 	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/sweetalert.css">
@@ -73,7 +73,9 @@
 		</footer>
 
 	</section>
-
+	<section class="mobile">
+		Sitio solo visible en resoluciones mayores a 1024
+	</section>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/app.js"></script>
@@ -105,7 +107,7 @@
 
 		$(".boton-registro").on("click",function()
 		{
-			var wind = window.open("/carrera/public/registro", "Registro");
+			var wind = window.open("registro", "Registro");
 			wind.focus();
 			wind.addEventListener('load', function(){
 			wind.registrar();
@@ -145,9 +147,12 @@
 				}).done(function(data){
 					$.each(data, function(ind, v)
 					{
+						var nombre;
 							// console.log(v.nombre);
 							// console.log(v.distancia);
 							// console.log(data.data);
+							if(v.tipo=='persona') nombre = v.nombre+' '+v.apellidos;
+							else nombre = v.nombre;
 							var contenedor = 
 							"<section class='cont-part'>"+
 							"<div class='div_top'>"+
@@ -160,8 +165,8 @@
 							"</div>"+
 							"<div class='div_top datos_top'>"+
 							"<h3 class='dist-recorrida'> "+v.distancia+"m</h3>"+
-							"<input type='hidden' class='nombre-id' value='"+v.nombre+"'>"+
-							"<h3 class='nombre-top'>"+v.nombre+"</h3>"+
+							"<input type='hidden' class='nombre-id' value='"+v.id+"'>"+
+							"<h3 class='nombre-top'>"+nombre+"</h3>"+
 							"<a href='' target?>¡Sigue corriendo!</a>"+
 							"</div>"+
 							"</section>";
