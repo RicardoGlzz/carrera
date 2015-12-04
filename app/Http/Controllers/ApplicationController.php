@@ -51,9 +51,9 @@ class ApplicationController extends Controller
 		$corredores = Registro::select()
 		->whereNull('tutti')
 		->skip($skip)
-		->take(5)
+		->take(20)
 		->orderBy('distancia', 'DESC')
-		->orderBy('created_at', 'DESC')
+		->orderBy('updated_at', 'DESC')
 		->get();
 
 		foreach ($corredores as $key => $corredor) {

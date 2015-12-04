@@ -325,8 +325,8 @@ class RegistroController extends Controller
 		$count = Registro::select()
 		->whereNull('tutti')
 		->count();
-		$skip = 5+(5*($pagina-1));
-		$limit = 5;
+		$skip = 5+(20*($pagina-1));
+		$limit = 20;
 
 		$corredores = Registro::select()
 		->whereNull('tutti')
@@ -341,7 +341,7 @@ class RegistroController extends Controller
 				$corredor->orientacion = $this->imageOrientation($corredor->imagen);
 			}
 			else {
-				$corredor->imagen = 'http://test.12kchocho.org.mx/img/avatarchocho.png';
+				$corredor->imagen = 'http://12kchocho.org.mx/img/avatarchocho.png';
 				$corredor->orientacion = null;
 			}
 		}
