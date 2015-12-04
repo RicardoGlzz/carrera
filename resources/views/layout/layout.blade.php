@@ -234,6 +234,13 @@
 			swal('{{ session('message') }}');
 		}, 500);
 		@endif
-    </script>
+
+		var elementHeights = $('#tops .div_top.datos_top').map(function() {
+			return $(this).height();
+		}).get();
+		var maxHeight = Math.max.apply(null, elementHeights);
+		$('#tops .div_top.datos_top').height(maxHeight);
+
+	</script>
 </body>
 </html>
