@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>12KChocho</title>
 	<meta name="viewport" content="width=1200, user-scalable=no">
-	<meta name="description" content="Carrera 12kchocho2015">
-	<meta name="keywords" content="12kchocho2015,12kchocho,chocho,12k,carrera bebeleche,carrera virtual, carrera virtual durango,12kchocho.org,12kchocho.org.mx">
+	<meta name="description" content="Carrera 12kchocho2015, primera carrera virtual en Durango, creada para apoyar con un lugar seguro y digno a las niñas, niños y mujeres con cáncer que vienen de otras ciudades o aldeas para recibir sus tratamientos oncológicos">
+	<meta name="keywords" content="12kchocho2015,12kchocho,chocho,12k,12k chocho,12 k chocho,carrera bebeleche,carrera virtual,carrera virtual durango,12kchocho.org,12kchocho.org.mx">
 	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/sweetalert.css">
