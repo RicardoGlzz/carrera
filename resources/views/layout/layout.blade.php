@@ -98,6 +98,19 @@
 			win.seguirle();
 			}, true);
 		});
+
+		// Modal de inicio
+		$(".seguir-corriendo").on("click",function()
+		{
+			$("#modal-puntos").css("display","block");
+			$(".overlay").css("display","block");
+		});
+
+		$(".regreso-inicio").on("click",function()
+		{
+			$("#modal-puntos").css("display","none");
+			$(".overlay").css("display","none");
+		})
 		// $(".seguir-corriendo").on("click",function()
 		// {
 		// 	var ventana = window.open("/carrera/public/registro", "Registro");
@@ -150,9 +163,6 @@
 					{
 						var nombre;
 						var id_imagen;
-							// console.log(v.nombre);
-							// console.log(v.distancia);
-							// console.log(data.data);
 							if(v.tipo=='persona') nombre = v.nombre+' '+v.apellidos;
 							else nombre = v.nombre;
 							if(v.imagen!='http://12kchocho.org.mx/img/avatarchocho.png')

@@ -1,7 +1,39 @@
 @extends('layout.layout')
-
 @section('content')
-
+			<div class="overlay"></div>
+			<section id="modal-puntos">
+				<section>
+					<div>	
+						<img src="img/trek.png" alt="durangoTrek">
+						<h2>Sucursales:</h2>
+						<a href="https://www.google.com.mx/maps/dir/''/Florida+1104,+Barrio+del+Calvario,+34074+Durango,+Dgo./@24.0243361,-104.7442498,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x869bc83d8fa4eb25:0xb77cac40e73dc192!2m2!1d-104.6742094!2d24.024352" target="_blank">	
+							Barrio del calvario
+						</a>
+						<br>
+						<a href="https://www.google.com.mx/maps/dir/''/Local+A30,+Paseo+Durango,+Blvrd+Felipe+Pescador+1401,+Esperanza,+34080+Durango,+Dgo./@24.0362147,-104.6545361,17.04z/data=!4m8!4m7!1m0!1m5!1m1!1s0x869bb7da42908307:0xd71dcf70ade910fa!2m2!1d-104.6508889!2d24.036082" target="_blank">	
+							Felipe Pescador
+						</a>
+					</div>
+					<div>	
+						<img src="img/logos.jpg" alt="casa">
+						<br>
+						<br>
+						<a href="https://www.google.com.mx/maps/place/C.A.S.A.+Centro+de+Ayuda+Servicio+y+Apoyo/@24.0224183,-104.6661435,17z/data=!4m7!1m4!3m3!1s0x869bc81f2f948621:0x3546e240a3f523cf!2sCalle+Carlos+Le%C3%B3n+de+la+Pena+509,+Zona+Centro,+34000+Durango,+Dgo.!3b1!3m1!1s0x869bc81f2f77a999:0xe8f14898e09cffd8" target="_blank">
+							Carlos León de la Peña
+						</a>
+					</div>
+					<div>	
+						<img src="img/logobebeleche.jpg" alt="museobebeleche">
+						<br>
+						<br>
+						<a href="https://www.google.com.mx/maps/place/Bebeleche/@24.0210234,-104.6936048,17z/data=!3m1!4b1!4m2!3m1!1s0x869bc869d1e985e9:0xdfe42bbc0213d0ff" target="_blank">
+							Blvd. Armando del Castillo Franco Km 1.5
+						</a>
+					</div>
+					<br>
+					<button class="regreso-inicio">Regresar</button>
+				</section>
+			</section>
 			<article class="checar-perfil">
 				<span>X</span>
 				<h1>Ya hemos avanzado gracias a ti, puedes ver tu perfil en la seccion de participantes mediante el siguiente enlace</h1>
@@ -35,24 +67,6 @@
 				</div>
 			<div class="seguir-corriendo">
 					<img src="img/adquiere.png" alt="adquiere">
-				<div>	
-					<img src="img/trek.png" alt="durangoTrek">
-					<h2>Sucursales:</h2>
-					<a href="https://www.google.com.mx/search?q=durango+trek&ie=utf-8&oe=utf-8&gws_rd=cr&ei=8-VdVqylBcr2jwPE1JuIBQ#q=durango+trek&rflfq=1&rlha=0&tbm=lcl&rlfi=hd:;si:13221632000810402194" target="_blank">	
-					Barrio del calvario
-					</a>
-					<a href="https://goo.gl/maps/pggrx1xXFW22" target="_blank">	
-					Felipe Pescador
-					</a>
-				</div>
-				<div>	
-					<img src="img/logos.jpg" alt="casa">
-					<br>
-					<br>
-					<a href="https://www.google.com.mx/maps/place/C.A.S.A.+Centro+de+Ayuda+Servicio+y+Apoyo/@24.0224183,-104.6661435,17z/data=!4m7!1m4!3m3!1s0x869bc81f2f948621:0x3546e240a3f523cf!2sCalle+Carlos+Le%C3%B3n+de+la+Pena+509,+Zona+Centro,+34000+Durango,+Dgo.!3b1!3m1!1s0x869bc81f2f77a999:0xe8f14898e09cffd8" target="_blank">
-						Carlos León <br> de la Peña
-					</a>
-				</div>
 			</div>
 			</section>
 		</section>
