@@ -1,6 +1,11 @@
 @font-face {
   font-family: 'doctor';
-  src: url('../fonts/doctor.ttf');
+  src: url('../fonts/doctor-webfont.eot');
+  src: url('../fonts/doctor-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/doctor-webfont.woff2') format('woff2'), 
+       url('../fonts/doctor-webfont.woff') format('woff'), 
+       url('../fonts/doctor-webfont.ttf')  format('truetype'), 
+       url('../fonts/doctor-webfont.svg#svgFontName') format('svg');  
 }
 *
 {
@@ -87,7 +92,7 @@ nav article
 	height: 10px;
 	background-position: bottom;
 	position: relative;
-	top: -32px;
+	top: -30px;
 }
 .patrocinadores 
 {
