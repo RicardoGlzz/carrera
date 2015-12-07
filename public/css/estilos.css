@@ -465,7 +465,7 @@ nav div
 }
 
 .div_top.datos_top {
-	max-height: 200px
+	max-height: 220px
 }
 
 .datos_top
@@ -550,7 +550,7 @@ nav div
 	top: -141px;
 	left: 25px;
 }	
-#participantes .div_top .cont_part img 
+#participantes .div_top .cont_part #avatarchocho
 {
 	width: 100%;
 }

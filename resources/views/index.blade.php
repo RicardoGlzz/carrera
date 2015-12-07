@@ -134,7 +134,7 @@
 							@if($top->imagen)
 							{!! Html::image('imagenes/'.$top->imagen,null,array('class'=>'img_top '.$top->orientacion,'alt'=>'imagen de participante top')) !!}
 							@else
-							{!! Html::image('img/avatarchocho.png',null,array('class'=>'img_top sin_imagen')) !!}
+							{!! Html::image('img/avatarchocho.png',null,array('class'=>'img_top sin_imagen','id'=>'avatarchocho')) !!}
 							@endif
 						</figure>
 					</div>
@@ -166,10 +166,10 @@
 							<img src="img/liston_rojo.png" alt="imagen de liston rojo">
 						</figure>
 						<figure class="cont_part">
-							@if($corredor->imagen)
+							@if($corredor->imagen!=='http://12kchocho.org.mx/img/avatarchocho.png')
 							{!! Html::image('imagenes/'.$corredor->imagen,null,array('class'=>'img_top '.$corredor->orientacion)) !!}
 							@else
-							{!! Html::image('img/avatarchocho.png',null,array('class'=>'img_top')) !!}
+							{!! Html::image('img/avatarchocho.png',null,array('class'=>'img_top','id'=>'avatarchocho')) !!}
 							@endif
 						</figure>
 					</div>

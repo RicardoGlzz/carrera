@@ -149,12 +149,18 @@
 					$.each(data, function(ind, v)
 					{
 						var nombre;
+						var id_imagen;
 							// console.log(v.nombre);
 							// console.log(v.distancia);
 							// console.log(data.data);
 							if(v.tipo=='persona') nombre = v.nombre+' '+v.apellidos;
 							else nombre = v.nombre;
-							if(v.imagen!='http://12kchocho.org.mx/img/avatarchocho.png') v.imagen="http://12kchocho.org.mx/imagenes/"+v.imagen;
+							if(v.imagen!='http://12kchocho.org.mx/img/avatarchocho.png')
+							{
+								v.imagen="http://12kchocho.org.mx/imagenes/"+v.imagen;
+								id_imagen="imagen_normal"
+							}
+							else id_imagen="avatarchocho";
 							var contenedor = 
 							"<section class='cont-part'>"+
 							"<div class='div_top'>"+
@@ -162,7 +168,7 @@
 							"<img src='img/liston_rojo.png' alt='imagen de liston rojo'>"+
 							"</figure>"+
 							"<figure class='cont_part'>"+
-							"<img src='"+v.imagen+"' />"+
+							"<img id='"+id_imagen+"' src='"+v.imagen+"' class='img_top "+v.orientacion+"' />"+
 							"</figure>"+
 							"</div>"+
 							"<div class='div_top datos_top'>"+

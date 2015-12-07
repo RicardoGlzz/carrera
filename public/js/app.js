@@ -17,11 +17,11 @@ $(function()
 
     var pathArray = [];
 
-// VARIABLE DE DISTANCIA TOTAL
-// var distancia_total = $("#numero-metros").text();
-// distancia_total.replace('m','');
-// var numero = parseInt(distancia_total);
-var numero = 11850;
+//VARIABLE DE DISTANCIA TOTAL
+var distancia_total = $("#numero-metros").text();
+distancia_total.replace('m','');
+var numero = parseInt(distancia_total);
+//var numero = 12000;
 
 
 // Coordenada inicial

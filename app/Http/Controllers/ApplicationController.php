@@ -58,9 +58,10 @@ class ApplicationController extends Controller
 
 		foreach ($corredores as $key => $corredor) {
 			if($corredor->imagen) {
-				$corredor->orientacion = self::imageOrientation($corredor->imagen);
+				$corredor->orientacion = $this->imageOrientation($corredor->imagen);
 			}
 			else {
+				$corredor->imagen = 'http://12kchocho.org.mx/img/avatarchocho.png';
 				$corredor->orientacion = null;
 			}
 		}

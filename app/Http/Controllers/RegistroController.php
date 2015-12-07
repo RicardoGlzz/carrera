@@ -345,7 +345,7 @@ class RegistroController extends Controller
 				$corredor->orientacion = null;
 			}
 		}
-		return $corredores->toJson();;
+		return $corredores->toJson();
 	}
 
 	public function lista(){
