@@ -26,6 +26,7 @@ class ApplicationController extends Controller
 		$tops = Registro::select()
 		->whereNull('tutti')
 		->orderBy('distancia', 'DESC')
+		->orderBy('updated_at', 'DESC')
 		->take(5)->get();
 
 		$lugar = ['Primer','Segundo','Tercer','Cuarto','Quinto'];
