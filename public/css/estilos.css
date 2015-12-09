@@ -1433,6 +1433,7 @@ footer
 		#canvas
 		{
 			width: 106%;
+			margin-top: 20px;
 		}
 		.seguir-corriendo 
 		{
@@ -1443,16 +1444,22 @@ footer
 		#numero-metros 
 		{
 		    position: relative;
-		    top: -70px;
+		    top: -60px;
 		    left: -3px;
 		    font-size: 2.5em;
-		    letter-spacing: 15px;
+		    letter-spacing: 9px;
 		    color: white;
 		    text-align: right;
 		}
 		.patrocinadores 
 		{
 			margin-top: 0;
+		}
+		#vista-registro .botones-canvas 
+		{
+		    width: 24%;
+		    text-align: center;
+		    margin-left: 55px;
 		}
 
 	}

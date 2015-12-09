@@ -150,10 +150,11 @@
 		// AJAX para traer con el paginador a los corredores
 
 		var pagina = 1;
+		var totalporpagina;
 		$(document).on("click","#ver-part",function()
 		{
 			pagina++;		
-
+			totalporpagina = 0;
 					$.ajax({
 					type:'GET',
 					url: 'corredores?page='+ pagina,
@@ -163,6 +164,7 @@
 					{
 						var nombre;
 						var id_imagen;
+						
 							if(v.tipo=='persona') nombre = v.nombre+' '+v.apellidos;
 							else nombre = v.nombre;
 							if(v.imagen!='http://12kchocho.org.mx/img/avatarchocho.png')
@@ -189,11 +191,16 @@
 							"</div>"+
 							"</section>";
 							// console.log(contenedor);
-							$(contenedor).insertBefore(".after");	
+							$(contenedor).insertBefore(".after");
+							totalporpagina++;
+							
 						});
+						console.log(totalporpagina);
+						if(totalporpagina<20) $('#ver-part').hide();
 			}).error(function (data) {
 				console.log(data);
-			}); 	
+			});
+			
 		})
 
 		// Correo para corredores virtuales

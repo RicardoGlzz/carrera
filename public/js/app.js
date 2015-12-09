@@ -21,7 +21,7 @@ $(function()
 var distancia_total = $("#numero-metros").text();
 distancia_total.replace('m','');
 var numero = parseInt(distancia_total);
-//var numero = 12000;
+//var numero = 4600;
 
 
 // Coordenada inicial
@@ -223,7 +223,7 @@ var decima =
             pathArray.push(
             {
                 x: valor,
-                y: valory
+                y: valory+20
             }
             );  
         }
