@@ -70,7 +70,9 @@
 				<p>Carlos León de la Peña No.509 Zona Centro,Durango,Dgo.</p>
 			</div>
 			<div class="virtua_logo">
-				<img src="img/virtua_logo.png" alt="logo de virtua">
+				<a href="http://www.virtua.mx/" target="_blank">
+					<img src="img/virtua_logo.png" alt="logo de virtua">
+				</a>
 			</div>
 		</footer>
 
